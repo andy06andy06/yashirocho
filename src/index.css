@@ -213,6 +213,7 @@ section {
 }
 
 .header-container {
+    position: relative;
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 24px;
@@ -229,8 +230,8 @@ section {
 }
 
 .logo-img-wrapper {
-    width: 52px;
-    height: 52px; /* Increased size to make the logo stand out more */
+    width: 76px;
+    height: 76px; /* Increased size to make the logo stand out more */
     overflow: hidden;
     position: relative;
     border-radius: 50%; /* Perfect circle */
@@ -238,8 +239,8 @@ section {
 }
 
 .logo-img {
-    width: 52px;
-    height: 52px;
+    width: 76px;
+    height: 76px;
     object-fit: cover;
     position: absolute;
     top: 0;
@@ -257,33 +258,42 @@ section {
 
 .logo-zh {
     font-family: var(--font-serif);
-    font-size: 1.5rem;
+    font-size: 1.75rem; /* Enlarged title for premium elegance */
     font-weight: 600;
-    letter-spacing: 0.22em; /* Wider spacing */
+    letter-spacing: 0.48em; /* Wider spacing to stretch exactly to the English width */
     color: var(--primary-dark);
     line-height: 1.15;
-    margin-right: -0.22em; /* Offset trailing spacing for perfect pixel alignment */
+    margin-right: -0.48em; /* Offset trailing spacing for perfect pixel alignment */
 }
 
 .logo-en {
-    font-size: 0.48rem; /* Smaller English size to match Chinese width */
-    letter-spacing: 0.54em; /* Expanded spacing to stretch exactly to Chinese width */
+    font-size: 0.58rem; /* Enlarged English size to match the Chinese width */
+    letter-spacing: 0.56em; /* Expanded spacing to stretch exactly to Chinese width */
     color: var(--accent-color);
     margin-top: 3px;
     font-weight: 500;
     text-transform: uppercase;
-    margin-right: -0.54em; /* Offset trailing spacing for perfect pixel alignment */
+    margin-right: -0.56em; /* Offset trailing spacing for perfect pixel alignment */
 }
 
 /* Menu links */
+@media (min-width: 769px) {
+    .nav-menu {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+    }
+}
+
 .nav-menu ul {
     display: flex;
     gap: 40px;
 }
 
 .nav-link {
-    font-size: 0.95rem;
-    font-weight: 400;
+    font-size: 1.08rem; /* Enlarged font size for better readability and presence */
+    font-weight: 500;   /* Slightly increased weight for a premium look */
     color: var(--text-dark);
     position: relative;
     padding: 6px 0;
@@ -2349,3 +2359,187 @@ button.disabled:hover {
     color: var(--accent-color) !important;
     border-bottom-color: var(--accent-color) !important;
 }
+
+/* ==========================================================================
+   🌐 Section: Multi-Language Selector Styles (多語系切換樣式)
+   ========================================================================== */
+
+/* 1. Desktop Selector CSS */
+.lang-switcher-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 16px; /* Spacing between switcher and "立即預約" CTA button */
+}
+
+.lang-switcher-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(92, 99, 83, 0.2);
+    border-radius: 30px;
+    padding: 8px 18px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-switcher-trigger i {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.lang-switcher-trigger .chevron-icon {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.lang-switcher-trigger .chevron-icon.open {
+    transform: rotate(180deg);
+}
+
+.lang-switcher-trigger:hover {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: rgba(92, 99, 83, 0.45);
+    color: #4a5043;
+}
+
+/* Dropdown Menu Glassmorphism style */
+.lang-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 140px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(92, 99, 83, 0.15);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    padding: 6px 0;
+    margin: 0;
+    list-style: none;
+    z-index: 1100;
+    transform-origin: top right;
+    animation: langDropdownFade 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes langDropdownFade {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.lang-dropdown-menu li {
+    padding: 0;
+    margin: 0;
+}
+
+.lang-dropdown-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: 10px 20px;
+    color: var(--text-light);
+    font-size: 0.88rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.lang-dropdown-menu button:hover {
+    background: rgba(92, 99, 83, 0.06);
+    color: #4a5043;
+}
+
+.lang-dropdown-menu button.active {
+    font-weight: 600;
+    color: #8b6e43;
+    background: rgba(188, 155, 108, 0.08);
+}
+
+/* 2. Mobile Drawer Selector CSS */
+.mobile-lang-switcher {
+    display: none; /* Hide by default on desktop to prevent duplicate UI */
+    width: 100%;
+    margin-top: 24px !important;
+    padding-top: 24px;
+    border-top: 1px solid rgba(92, 99, 83, 0.15);
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.mobile-lang-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.mobile-lang-label i {
+    font-size: 0.85rem;
+}
+
+.mobile-lang-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.mobile-lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: all 0.2s ease;
+}
+
+.mobile-lang-btn.active {
+    color: #8b6e43;
+    font-weight: 600;
+    border-bottom: 2px solid #8b6e43;
+}
+
+.lang-separator {
+    color: rgba(92, 99, 83, 0.25);
+    font-size: 0.85rem;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Adjust header actions on mobile to show switcher without overlap */
+@media (max-width: 768px) {
+    .header-actions {
+        gap: 12px;
+    }
+    
+    .lang-switcher-container {
+        display: none; /* Hide desktop version on mobile */
+    }
+    
+    .mobile-lang-switcher {
+        display: flex; /* Show mobile version in mobile menu drawer */
+    }
+}
+
