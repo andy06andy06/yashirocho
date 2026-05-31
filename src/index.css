@@ -224,24 +224,55 @@ section {
 /* Logo Design */
 .logo {
     display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img-wrapper {
+    width: 52px;
+    height: 52px; /* Increased size to make the logo stand out more */
+    overflow: hidden;
+    position: relative;
+    border-radius: 50%; /* Perfect circle */
+    transition: var(--transition-quick);
+}
+
+.logo-img {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo:hover .logo-img-wrapper {
+    transform: rotate(15deg) scale(1.05); /* Highly interactive spin and scale animation */
+}
+
+.logo-text {
+    display: flex;
     flex-direction: column;
 }
 
 .logo-zh {
     font-family: var(--font-serif);
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.22em; /* Wider spacing */
     color: var(--primary-dark);
+    line-height: 1.15;
+    margin-right: -0.22em; /* Offset trailing spacing for perfect pixel alignment */
 }
 
 .logo-en {
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
+    font-size: 0.48rem; /* Smaller English size to match Chinese width */
+    letter-spacing: 0.54em; /* Expanded spacing to stretch exactly to Chinese width */
     color: var(--accent-color);
-    margin-top: 2px;
+    margin-top: 3px;
     font-weight: 500;
     text-transform: uppercase;
+    margin-right: -0.54em; /* Offset trailing spacing for perfect pixel alignment */
 }
 
 /* Menu links */
@@ -704,6 +735,28 @@ section {
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
+    z-index: 1;
+}
+
+/* 🌟 Soft, abstract elemental aura glow */
+.villa-tab-card::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.18;
+    z-index: -1;
+    transition: var(--transition-smooth);
+}
+
+.villa-tab-card:hover::after,
+.villa-tab-card.active::after {
+    transform: scale(1.4);
+    opacity: 0.42;
 }
 
 .villa-tab-card::before {
@@ -711,26 +764,139 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
+    width: 5px;
     height: 100%;
     background-color: transparent;
     transition: var(--transition-quick);
+    z-index: 2;
 }
 
-.villa-tab-card:hover {
+/* 🟥 1. 火元素 (緋紅 · 樂 - Fire Theme) */
+.villa-tab-card-red {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, #ffe9e2 100%);
+    border-color: rgba(224, 86, 36, 0.2);
+}
+.villa-tab-card-red::after {
+    background-color: #e05624;
+}
+.villa-tab-card-red:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-medium);
-    border-color: var(--accent-color);
+    border-color: rgba(224, 86, 36, 0.5);
+    background: linear-gradient(135deg, #fff7f4 0%, #ffd5c8 100%);
 }
-
-.villa-tab-card.active {
-    background-color: var(--bg-primary);
-    border-color: var(--accent-color);
+.villa-tab-card-red.active {
+    background: linear-gradient(135deg, #ffe9e2 0%, #fbcbc0 100%);
+    border-color: #e05624;
     box-shadow: var(--shadow-medium);
 }
+.villa-tab-card-red.active::before {
+    background-color: #e05624;
+}
+.villa-tab-card-red .villa-num {
+    color: #e05624;
+}
+.villa-tab-card-red.active .villa-tag {
+    background-color: rgba(224, 86, 36, 0.1);
+    border-color: rgba(224, 86, 36, 0.25);
+    color: #d03e10;
+    font-weight: 500;
+}
 
-.villa-tab-card.active::before {
-    background-color: var(--accent-color);
+/* 🟦 2. 水元素 (流影 · 淨 - Water Theme) */
+.villa-tab-card-shadow {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, #daf0f6 100%);
+    border-color: rgba(74, 138, 168, 0.2);
+}
+.villa-tab-card-shadow::after {
+    background-color: #4a8aa8;
+}
+.villa-tab-card-shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+    border-color: rgba(74, 138, 168, 0.5);
+    background: linear-gradient(135deg, #f0f7f9 0%, #cbeaf3 100%);
+}
+.villa-tab-card-shadow.active {
+    background: linear-gradient(135deg, #daf0f6 0%, #b8e1ee 100%);
+    border-color: #4a8aa8;
+    box-shadow: var(--shadow-medium);
+}
+.villa-tab-card-shadow.active::before {
+    background-color: #4a8aa8;
+}
+.villa-tab-card-shadow .villa-num {
+    color: #4a8aa8;
+}
+.villa-tab-card-shadow.active .villa-tag {
+    background-color: rgba(74, 138, 168, 0.1);
+    border-color: rgba(74, 138, 168, 0.25);
+    color: #2b7396;
+    font-weight: 500;
+}
+
+/* 🟩 3. 木元素 (青木 · 舒 - Wood Theme) */
+.villa-tab-card-wood {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, #e3ecd9 100%);
+    border-color: rgba(92, 107, 83, 0.2);
+}
+.villa-tab-card-wood::after {
+    background-color: #5c6b53;
+}
+.villa-tab-card-wood:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+    border-color: rgba(92, 107, 83, 0.5);
+    background: linear-gradient(135deg, #f3f7ef 0%, #d5e4c6 100%);
+}
+.villa-tab-card-wood.active {
+    background: linear-gradient(135deg, #e3ecd9 0%, #c8ddb6 100%);
+    border-color: #5c6b53;
+    box-shadow: var(--shadow-medium);
+}
+.villa-tab-card-wood.active::before {
+    background-color: #5c6b53;
+}
+.villa-tab-card-wood .villa-num {
+    color: #5c6b53;
+}
+.villa-tab-card-wood.active .villa-tag {
+    background-color: rgba(92, 107, 83, 0.1);
+    border-color: rgba(92, 107, 83, 0.25);
+    color: #4b5c41;
+    font-weight: 500;
+}
+
+/* 🟨 4. 金元素 (金箔 · 粹 - Gold/Metal Theme) */
+.villa-tab-card-gold {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, #f1e7d0 100%);
+    border-color: rgba(186, 149, 106, 0.2);
+}
+.villa-tab-card-gold::after {
+    background-color: #ba956a;
+}
+.villa-tab-card-gold:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+    border-color: rgba(186, 149, 106, 0.5);
+    background: linear-gradient(135deg, #f9f5ed 0%, #e9dac4 100%);
+}
+.villa-tab-card-gold.active {
+    background: linear-gradient(135deg, #f1e7d0 0%, #e4d3aa 100%);
+    border-color: #ba956a;
+    box-shadow: var(--shadow-medium);
+}
+.villa-tab-card-gold.active::before {
+    background-color: #ba956a;
+}
+.villa-tab-card-gold .villa-num {
+    color: #ba956a;
+}
+.villa-tab-card-gold.active .villa-tag {
+    background-color: rgba(186, 149, 106, 0.1);
+    border-color: rgba(186, 149, 106, 0.25);
+    color: #a17f56;
+    font-weight: 500;
 }
 
 .villa-num {
@@ -2171,15 +2337,15 @@ button.disabled:hover {
 }
 
 .contact-link {
-    color: var(--text-color);
+    color: var(--text-light) !important; /* Force override browser default link/visited colors */
     text-decoration: none;
-    font-weight: 500;
-    border-bottom: 1px dashed rgba(92, 99, 83, 0.4);
+    font-weight: 300 !important; /* Matches the exact font-weight (300) of address/phone/email text above */
+    border-bottom: 1px dashed rgba(92, 99, 83, 0.3);
     transition: var(--transition-smooth);
     display: inline-block;
 }
 
 .contact-link:hover {
-    color: var(--accent-color);
-    border-bottom-color: var(--accent-color);
+    color: var(--accent-color) !important;
+    border-bottom-color: var(--accent-color) !important;
 }

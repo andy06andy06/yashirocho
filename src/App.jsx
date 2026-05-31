@@ -21,9 +21,10 @@ export default function App() {
   const [lightboxIndex, setLightboxIndex] = useState(0)
   const [lightboxLoaded, setLightboxLoaded] = useState(false)
 
-  // Ambient Audio
-  const [isPlayingAudio, setIsPlayingAudio] = useState(false)
-  const audioRef = useRef(null)
+
+
+  // Ref for scrolling to the villa photos area
+  const galleryStartRef = useRef(null)
 
 
   // FAQ Active Accordion
@@ -208,23 +209,6 @@ export default function App() {
 
   // --- Functions ---
 
-  // Ambient sound toggle
-  const toggleAmbientSound = () => {
-    if (!audioRef.current) return
-
-    if (isPlayingAudio) {
-      audioRef.current.pause()
-      setIsPlayingAudio(false)
-    } else {
-      audioRef.current.play()
-        .then(() => setIsPlayingAudio(true))
-        .catch(err => {
-          console.error("Audio blocked:", err)
-          alert("瀏覽器限制了音訊自動播放，請點擊網頁任意處後再試一次！")
-        })
-    }
-  }
-
   // Get active villa object
   const currentVillaObj = villas.find(v => v.id === activeVilla) || villas[0]
 
@@ -287,36 +271,19 @@ export default function App() {
 
   return (
     <>
-      {/* 🎵 Ambient Audio Player Component */}
-      <div className="ambient-player-container">
-        <button
-          className={`ambient-toggle-btn ${isPlayingAudio ? 'playing' : ''}`}
-          onClick={toggleAmbientSound}
-          title="切換背景音樂"
-        >
-          <span className="music-wave" style={{ display: isPlayingAudio ? 'flex' : 'none' }}>
-            <span className="bar"></span>
-            <span className="bar"></span>
-            <span className="bar"></span>
-            <span className="bar"></span>
-          </span>
-          {!isPlayingAudio && <i className="fa-solid fa-volume-xmark" style={{ marginRight: '4px' }}></i>}
-          <span className="btn-text">氛圍音</span>
-        </button>
-        <audio
-          ref={audioRef}
-          loop
-          src="https://assets.mixkit.co/active_storage/sfx/2568/2568-84.wav"
-          preload="auto"
-        />
-      </div>
+
 
       {/* 🧭 Floating Glassmorphism Navigation Bar */}
       <header className={`main-header ${isNavScrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
         <div className="header-container">
           <a href="#home" className="logo" onClick={() => setIsMenuOpen(false)}>
-            <span className="logo-zh">八代町</span>
-            <span className="logo-en">yashirocho</span>
+            <div className="logo-img-wrapper">
+              <img src="photos/logo/logo-1.png" alt="八代町 Logo" className="logo-img" />
+            </div>
+            <div className="logo-text">
+              <span className="logo-zh">八代町</span>
+              <span className="logo-en">yashirocho</span>
+            </div>
           </a>
 
           <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
@@ -401,10 +368,6 @@ export default function App() {
               <span className="hero-subtitle">Yashirocho</span>
               <h1 className="hero-title">靜謐八代町<br />尋回生活的寧靜與溫度</h1>
               <p className="hero-tagline">以大自然之筆，織一室溫柔光影。融合侘寂美學與極致舒適的渡假園區。</p>
-              <div className="hero-actions">
-                <a href="#rooms" className="btn btn-outline">探索民宿</a>
-                <a href="#booking" className="btn btn-primary">規劃旅程</a>
-              </div>
             </div>
           </div>
 
@@ -480,9 +443,13 @@ export default function App() {
               {villas.map((villa) => (
                 <div
                   key={villa.id}
-                  className={`villa-tab-card ${activeVilla === villa.id ? 'active' : ''}`}
+                  className={`villa-tab-card villa-tab-card-${villa.id} ${activeVilla === villa.id ? 'active' : ''}`}
                   onClick={() => {
                     setActiveVilla(villa.id);
+                    // Smoothly scroll to the photos content area
+                    setTimeout(() => {
+                      galleryStartRef.current?.scrollIntoView({ behavior: 'smooth' });
+                    }, 50);
                   }}
                 >
                   <span className="villa-num">{villa.number}</span>
@@ -497,7 +464,7 @@ export default function App() {
             </div>
 
             {/* 💬 Active Villa Concept Introduction */}
-            <div className="villa-concept-banner reveal-on-scroll">
+            <div ref={galleryStartRef} className="villa-concept-banner reveal-on-scroll">
               <div className="concept-decor"><i className="fa-solid fa-quote-left"></i></div>
               <div className="concept-main-content">
                 <h4>設計理念</h4>
