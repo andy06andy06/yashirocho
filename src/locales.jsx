@@ -16,39 +16,63 @@ export const locales = {
     },
     // Hero
     hero: {
-      subtitle: 'Yashirocho',
-      title: <>靜謐八代町<br />尋回生活的寧靜與溫度</>,
-      tagline: '以大自然之筆，織一室溫柔光影。融合侘寂美學與極致舒適的渡假園區。',
+      subtitle: '八代町 YASHIROCHO VILLA',
+      title: <>尋回寧靜，<br />收藏屬於你的冬山時光</>,
+      tagline: <>在稻浪與湖景之間，以四座獨立 Villa 構築與家人、好友共享的私密聚落。讓時間在這裡慢慢流動。</>,
       scrollText: '向下捲動探索'
     },
     // About
     about: {
-      badge: 'ABOUT YASHIROCHO',
-      title: '四棟獨立美學，與自然共呼吸',
-      lead: '宜蘭冬山鄉的一抹幽靜。「八代町」園區建有四棟獨立的侘寂風民宿，我們將大自然的風、光、木、石引入，讓每棟空間都有專屬的靈魂溫度。',
-      badgeNum: '侘寂',
-      badgeText: '四棟自然共生園區',
-      feat1Title: '四棟獨立美學聚落',
-      feat1Desc: '緋紅、流影、青木、金箔，四棟風格迴異。分別詮釋火、水、木、金四大元素能量。',
-      feat2Title: '流動的光影天井',
-      feat2Desc: '精心設計的採光天井與落地大窗，隨太陽運行在牆面與榻榻米上描繪流動的幾何光影。',
-      feat3Title: '舒壓放鬆生活',
-      feat3Desc: '摒棄繁複的多餘裝飾，專注於空氣的流動、器皿的手感與心靈的全然平靜。'
+      badge: 'BRAND STORY',
+      title: '關於八代町',
+      lead: '八代町誕生於一個簡單的念頭：打造一個讓家人與好友自在相聚，同時保有純粹靜謐與隱私的渡假聚落。',
+      desc: '我們在宜蘭冬山打造了四座獨立的 Villa 空間，皆配備專屬湯池與泳池。沒有擁擠的干擾，只有隨四季更迭的田野景緻，帶給您值得反覆回憶的溫馨時光。',
+      badgeNum: '專屬水景',
+      badgeText: '獨立湯池與泳池',
+      feat1Title: '獨立專屬空間',
+      feat1Desc: '每棟 Villa 擁有不同風格與視野。庭院、光影與戶外景觀皆具特色，每次入住都是全新體驗。',
+      feat2Title: '棟棟皆有湯池與泳池',
+      feat2Desc: '不需與陌生人共享設施，獨享私密湯池與泳池，享受從容自在的休閒度假。',
+      feat3Title: '冬山田野風景',
+      feat3Desc: '窗外是宜蘭特有的四季景色，春綠、夏風、秋穗、冬霧，每個季節都有不同美好。',
+      feat4Title: '極致侘寂美學',
+      feat4Desc: '融入風、光、木、石等自然元素，以手作器物與自然材質，營造沉靜溫暖的感官體驗。'
+    },
+    // Philosophy
+    philosophy: {
+      badge: 'BRAND PHILOSOPHY',
+      title: '將生活還給生活',
+      lead: '旅行的意義，不一定是走得更遠。',
+      desc: '有時候，只是找個地方和重要的人好好吃飯、聊天，看著孩子在草地上玩耍。這些平凡珍貴的時刻，才是最值得收藏的風景。'
+    },
+    // Quote
+    quote: {
+      line1: '旅行最珍貴的',
+      line2: '從來不是去了多少地方',
+      line3: '而是和誰一起度過這段時光'
+    },
+    // Pet
+    pet: {
+      badge: 'PET-FRIENDLY GETAWAY',
+      title: '把毛孩一起帶上旅程',
+      lead: '對許多人而言，毛孩從來不只是寵物。',
+      desc: '而是一起生活的家人。八代町提供指定毛孩友善棟別，讓旅行中的快樂與陪伴，不必留下任何遺憾。'
     },
     // Rooms
     rooms: {
       badge: 'ESTATE SHOWCASE',
-      title: '四棟獨棟民宿房型與美學',
-      desc: '「八代町」園區由四棟不同設計主理的侘寂美學建築組成。點擊下方切換不同別墅，一窺其空間魅力與精緻裝飾細節。',
-      conceptLabel: '設計理念',
+      title: '四座 Villa．四種生活風景',
+      desc: '每一棟都有自己的名字與故事，尋找最契合您的那片風景。',
+      conceptLabel: '空間美學設計',
+      amenitiesLabel: '專屬設施設備',
       cardBadgeRoom: '實景空間',
       cardBadgeDetail: '細節特寫'
     },
     // Booking
     booking: {
       badge: 'ONLINE RESERVATION',
-      title: '開啟您的侘寂之旅',
-      desc: '八代町已全面啟用全新「獨立線上訂房系統」，提供您最即時的房況查詢、房型預覽與專屬優惠房價。',
+      title: '在風景裡留宿',
+      desc: '把忙碌留在城市，把時間留給自己。下一段值得期待的冬山假期，就從八代町開始。',
       button: '立即前往線上訂房系統',
       hint: '* 點擊按鈕將開啟新分頁跳轉至安全外部預訂系統。如有整館包棟、特殊餐食或團體諮詢需求，亦可於下方聯絡我們。'
     },
@@ -56,7 +80,7 @@ export const locales = {
     rules: {
       badge: 'STAY GUIDELINES',
       title: '入住須知與常見問題',
-      desc: '為了確保您在八代町擁有最完美的防寂包棟體驗，請在入住前撥空閱讀以下須知與公約。'
+      desc: '為了確保您在八代町擁有最完美的包棟體驗，請在入住前撥空閱讀以下須知與公約。'
     },
     // Contact
     contact: {
@@ -83,6 +107,9 @@ export const locales = {
       next: '下一張'
     },
     footer: {
+      brandName: '八代町 YASHIROCHO VILLA',
+      brandFeatures: '獨立 Villa ｜ 專屬湯池 ｜ 侘寂美學 ｜ 宜蘭冬山',
+      brandTagline: '讓每一次相聚，都成為想再次回來的理由。',
       copyright: '© 2026 八代町 YASHIROCHO. All Rights Reserved. Designed for premium living experience.',
       legal: '宜蘭縣合法民宿 編號 NO.3028 ｜ 宜蘭縣合法民宿 編號 NO.3033 ｜ 宜蘭縣合法民宿 編號 NO.3034 ｜ 宜蘭縣合法民宿 編號 NO.3039'
     },
@@ -91,34 +118,90 @@ export const locales = {
       {
         id: 'red',
         number: '01',
-        name: '緋紅 · 樂',
-        concept: '融合溫慢的陶紅與原木，創造充滿歡愉與溫度的微醺共享空間。適合與摯愛好友把酒言歡。',
+        name: '緋紅・樂',
+        concept: '如晚霞映照田野的暖色光景。適合歡聚、分享與笑聲，收藏與家人朋友相聚的美好時刻。',
         tags: ['溫慢篝火', '火紅陶藝', '熱烈微醺'],
-        photoIds: [1, 2, 3, 4, 5, 6, 7]
+        photoIds: [1, 2, 3, 4, 5, 6, 7],
+        amenities: [
+          { icon: 'fa-solid fa-water', text: '專屬戲水泳池' },
+          { icon: 'fa-solid fa-hot-tub-person', text: '獨立日式大湯池' },
+          { icon: 'fa-solid fa-fire-burner', text: '戶外篝火烤肉區' },
+          { icon: 'fa-solid fa-kitchen-set', text: '中島廚房設備' },
+          { icon: 'fa-solid fa-volume-high', text: '藍牙劇院音響' },
+          { icon: 'fa-solid fa-coffee', text: '全自動膠囊咖啡' },
+          { icon: 'fa-solid fa-wind', text: 'Dyson 專業吹風機' },
+          { icon: 'fa-solid fa-bed', text: '五星級加大雙人床' },
+          { icon: 'fa-solid fa-wifi', text: '免費高速 Wi-Fi' },
+          { icon: 'fa-solid fa-wine-glass', text: '免費 Mini Bar' },
+          { icon: 'fa-solid fa-glass-water', text: '氣泡水與飲水機' },
+          { icon: 'fa-solid fa-square-parking', text: '專屬免費停車位' }
+        ]
       },
       {
         id: 'shadow',
         number: '02',
-        name: '流影 · 淨',
-        concept: '以極簡水泥與大理石為基調，捕捉日光流逝的光影戲劇，洗滌一身的喧囂與浮躁。',
+        name: '流影・淨',
+        concept: '光影在空間中緩慢流動。讓心緒沉澱，回到最純粹安定的狀態。',
         tags: ['淨水天井', '潺潺流影', '澄澈水石'],
-        photoIds: [8, 9, 10, 11, 12, 13, 14]
+        photoIds: [8, 9, 10, 11, 12, 13, 14],
+        amenities: [
+          { icon: 'fa-solid fa-water', text: '天井景觀游泳池' },
+          { icon: 'fa-solid fa-hot-tub-person', text: '奢華大理石湯池' },
+          { icon: 'fa-solid fa-mug-hot', text: '日式禪風榻榻米室' },
+          { icon: 'fa-solid fa-video', text: '頂級百吋投影劇院' },
+          { icon: 'fa-solid fa-kitchen-set', text: '美學中島廚房' },
+          { icon: 'fa-solid fa-soap', text: '獨立奢華設計浴缸' },
+          { icon: 'fa-solid fa-wind', text: 'Dyson 專業吹風機' },
+          { icon: 'fa-solid fa-coffee', text: '精選手磨咖啡組' },
+          { icon: 'fa-solid fa-wifi', text: '免費高速 Wi-Fi' },
+          { icon: 'fa-solid fa-wine-glass', text: '免費 Mini Bar' },
+          { icon: 'fa-solid fa-glass-water', text: '氣泡水與飲水機' },
+          { icon: 'fa-solid fa-square-parking', text: '專屬免費停車位' }
+        ]
       },
       {
         id: 'wood',
         number: '03',
-        name: '青木 · 舒',
-        concept: '被翠綠山林與藺草香氣包圍，吸吐之間皆是芬多精，沉浸於大自然的全然放鬆。',
+        name: '青木・舒',
+        concept: '木質溫潤、自然靜好。在綠意與微風之間，感受最舒服自在的生活節奏。',
         tags: ['芬多翠木', '原生藺木', '溫潤木質'],
-        photoIds: [15, 16, 17, 18, 19, 20, 21]
+        photoIds: [15, 16, 17, 18, 19, 20, 21],
+        amenities: [
+          { icon: 'fa-solid fa-water', text: '綠意環繞戲水池' },
+          { icon: 'fa-solid fa-hot-tub-person', text: '日式檜木芳香湯池' },
+          { icon: 'fa-solid fa-mug-hot', text: '藺草香榻榻米茶室' },
+          { icon: 'fa-solid fa-kitchen-set', text: '溫潤原木中島廚房' },
+          { icon: 'fa-solid fa-volume-high', text: '藍牙美學音響' },
+          { icon: 'fa-solid fa-leaf', text: '手做陶器茶具組' },
+          { icon: 'fa-solid fa-wind', text: 'Dyson 專業吹風機' },
+          { icon: 'fa-solid fa-bed', text: '親膚有機寢具名床' },
+          { icon: 'fa-solid fa-wifi', text: '免費高速 Wi-Fi' },
+          { icon: 'fa-solid fa-wine-glass', text: '免費 Mini Bar' },
+          { icon: 'fa-solid fa-glass-water', text: '氣泡水與飲水機' },
+          { icon: 'fa-solid fa-square-parking', text: '專屬免費停車位' }
+        ]
       },
       {
         id: 'gold',
         number: '04',
-        name: '金箔 · 粹',
-        concept: '低調奢華的雙層閣樓空間，精緻的黃銅飾條與特製陶器，展現純粹的當代生活美學。',
+        name: '金箔・粹',
+        concept: '低調而細膩，沉穩而優雅。為每一段值得紀念的時光，留下更深刻的儀式感。',
         tags: ['金緻奢華', '極致金箔', '純粹金屬'],
-        photoIds: [22, 23, 24, 25, 26, 27, 28]
+        photoIds: [22, 23, 24, 25, 26, 27, 28],
+        amenities: [
+          { icon: 'fa-solid fa-water', text: '私人奢華水景泳池' },
+          { icon: 'fa-solid fa-hot-tub-person', text: '雙層挑高閣樓湯池' },
+          { icon: 'fa-solid fa-gem', text: '黃銅美學金屬設計' },
+          { icon: 'fa-solid fa-video', text: '頂級劇院環繞音效' },
+          { icon: 'fa-solid fa-kitchen-set', text: '奢華中島廚房設備' },
+          { icon: 'fa-solid fa-coffee', text: '義大利進口咖啡機' },
+          { icon: 'fa-solid fa-wind', text: 'Dyson 專業吹風機' },
+          { icon: 'fa-solid fa-bed', text: '特選高級席伊麗名床' },
+          { icon: 'fa-solid fa-wifi', text: '免費高速 Wi-Fi' },
+          { icon: 'fa-solid fa-wine-glass', text: '免費 Mini Bar' },
+          { icon: 'fa-solid fa-glass-water', text: '氣泡水與飲水機' },
+          { icon: 'fa-solid fa-square-parking', text: '專屬免費停車位' }
+        ]
       }
     ],
     // FAQ Data
@@ -209,39 +292,63 @@ export const locales = {
     },
     // Hero
     hero: {
-      subtitle: 'Yashirocho',
-      title: <>Serene Yashirocho<br />Reclaim Tranquility & Warmth</>,
-      tagline: 'Using nature’s brush to weave gentle light and shadow. A retreat blending wabi-sabi aesthetics with ultimate comfort.',
+      subtitle: 'YASHIROCHO VILLA',
+      title: <>Reclaim Tranquility,<br />Cherish Your Dongshan Moments</>,
+      tagline: <>Nestled between rice waves and lake views, our four independent villas form a private sanctuary to share with family and friends. Let time slow down here.</>,
       scrollText: 'Scroll Down to Explore'
     },
     // About
     about: {
-      badge: 'ABOUT YASHIROCHO',
-      title: 'Four Standalone Villas, Breathing in Harmony with Nature',
-      lead: 'A serene oasis nestled in Dongshan, Yilan. "Yashirocho" features four independent wabi-sabi design villas. We invite nature’s wind, light, timber, and stone inside, giving each space a unique soul and temperature.',
-      badgeNum: 'Wabi-Sabi',
-      badgeText: 'Four Eco-integrated Villas',
-      feat1Title: 'Four Unique Aesthetic Hubs',
-      feat1Desc: 'Crimson, Shadow, Timber, and Gold villas each stand with contrasting styles, interpreting the elemental energy of Fire, Water, Wood, and Metal.',
-      feat2Title: 'Flowing Sunlit Skylights',
-      feat2Desc: 'Meticulously crafted skylights and floor-to-ceiling windows paint shifting geometric light patterns on tatami mats as the sun charts its course.',
-      feat3Title: 'Decompress & Harmonize',
-      feat3Desc: 'Casting aside redundant ornamentation to focus on air circulation, the warmth of handmade vessels, and absolute inner peace.'
+      badge: 'BRAND STORY',
+      title: 'About Yashirocho',
+      lead: 'Yashirocho was born from a simple idea: to create a holiday haven where family and friends can gather freely while enjoying exclusive privacy.',
+      desc: 'We created four independent villas in Dongshan, Yilan, each with private springs, swimming pools, and changing seasonal views, bringing you precious memories worth remembering.',
+      badgeNum: 'Private Water',
+      badgeText: 'Private Springs & Pools',
+      feat1Title: 'Private Standalone Space',
+      feat1Desc: 'Each villa boasts its own style and vistas. With unique courtyards and landscaping, every stay is a new experience.',
+      feat2Title: 'Private Hot Springs & Pool',
+      feat2Desc: 'No shared facilities. Enjoy private springs and pools for a truly relaxed, carefree vacation.',
+      feat3Title: 'Dongshan Rural Scenery',
+      feat3Desc: 'Behold Yilan’s four-season beauty right from your window: spring greens, summer breeze, autumn ears, and winter mist.',
+      feat4Title: 'Wabi-Sabi Aesthetics',
+      feat4Desc: 'Integrating wind, light, wood, and stone with handcrafted objects and natural textures to create a serene and warm sensory experience.'
+    },
+    // Philosophy
+    philosophy: {
+      badge: 'BRAND PHILOSOPHY',
+      title: 'Give Life Back to Life',
+      lead: 'The meaning of travel is not always about going further.',
+      desc: 'Sometimes, it’s just finding a place to dine and chat with those who matter, and watch children play on the grass. These simple moments are the scenery most worth cherishing.'
+    },
+    // Quote
+    quote: {
+      line1: 'The most precious part of a journey',
+      line2: 'is never about how many places you visited,',
+      line3: 'but whom you shared the time with.'
+    },
+    // Pet
+    pet: {
+      badge: 'PET-FRIENDLY GETAWAY',
+      title: 'Bring Your Furry Companions Along',
+      lead: 'For many, pets are never just animals—they are family members sharing our daily lives.',
+      desc: 'Yashirocho offers designated pet-friendly villas, ensuring that the joy and companionship during your travels leave no regrets.'
     },
     // Rooms
     rooms: {
       badge: 'ESTATE SHOWCASE',
-      title: 'Villas & Architectural Aesthetics',
-      desc: 'The "Yashirocho" estate consists of four unique designer villas featuring wabi-sabi design. Select a villa below to preview its captivating charm and refined interior details.',
-      conceptLabel: 'Concept',
+      title: 'Four Villas, Four Lifestyles',
+      desc: 'Each villa holds its own name and narrative, finding the scenery that resonates most.',
+      conceptLabel: 'Aesthetic Design',
+      amenitiesLabel: 'Exclusive Amenities',
       cardBadgeRoom: 'Space View',
       cardBadgeDetail: 'Close-up Detail'
     },
     // Booking
     booking: {
       badge: 'ONLINE RESERVATION',
-      title: 'Begin Your Wabi-Sabi Sojourn',
-      desc: 'Yashirocho has fully integrated a new independent booking engine, offering the most updated availability, room previews, and exclusive rates.',
+      title: 'Stay Within the Scenery',
+      desc: 'Leave the busyness in the city, leave time for yourself. Your next eagerly awaited Dongshan holiday begins right here at Yashirocho.',
       button: 'Proceed to Reservation System',
       hint: '* Clicking the button opens a secure external booking engine in a new tab. For exclusive private rentals, custom catering, or corporate inquiries, please reach out to us below.'
     },
@@ -276,6 +383,9 @@ export const locales = {
       next: 'Next'
     },
     footer: {
+      brandName: 'YASHIROCHO VILLA',
+      brandFeatures: 'Private Villa ｜ Hot Springs & Pool ｜ Wabi-Sabi Aesthetics ｜ Dongshan, Yilan',
+      brandTagline: 'May every gathering become a reason to return.',
       copyright: '© 2026 Yashirocho. All Rights Reserved. Designed for premium living experience.',
       legal: 'Yilan County Registered Guesthouse Licenses: NO.3028 ｜ NO.3033 ｜ NO.3034 ｜ NO.3039'
     },
@@ -285,33 +395,89 @@ export const locales = {
         id: 'red',
         number: '01',
         name: 'Crimson · Joy',
-        concept: 'Blending warm terracotta tones and raw timber to forge a lively and heart-warming space for shared tipsy moments. Perfect for sharing wine and stories with beloved friends.',
+        concept: 'A warm landscape like the sunset glowing over the fields. Perfect for gatherings, sharing, and laughter, preserving sweet moments with family and friends.',
         tags: ['Slow Firepit', 'Red Ceramics', 'Warm Tipsiness'],
-        photoIds: [1, 2, 3, 4, 5, 6, 7]
+        photoIds: [1, 2, 3, 4, 5, 6, 7],
+        amenities: [
+          { icon: 'fa-solid fa-water', text: 'Private Splash Pool' },
+          { icon: 'fa-solid fa-hot-tub-person', text: 'Private Hot Spring Bath' },
+          { icon: 'fa-solid fa-fire-burner', text: 'Outdoor Firepit & BBQ' },
+          { icon: 'fa-solid fa-kitchen-set', text: 'Island Kitchenette' },
+          { icon: 'fa-solid fa-volume-high', text: 'Bluetooth Theater Speaker' },
+          { icon: 'fa-solid fa-coffee', text: 'Capsule Coffee Machine' },
+          { icon: 'fa-solid fa-wind', text: 'Dyson Professional Dryer' },
+          { icon: 'fa-solid fa-bed', text: 'Five-Star King Bedding' },
+          { icon: 'fa-solid fa-wifi', text: 'Free High-Speed Wi-Fi' },
+          { icon: 'fa-solid fa-wine-glass', text: 'Complimentary Mini Bar' },
+          { icon: 'fa-solid fa-glass-water', text: 'Sparkling & Hot Water Dispenser' },
+          { icon: 'fa-solid fa-square-parking', text: 'Complimentary Parking' }
+        ]
       },
       {
         id: 'shadow',
         number: '02',
         name: 'Shadow · Purity',
-        concept: 'Formed from minimalist concrete and marble to capture the beautiful theatre of shifting sunlight, cleansing away all outer noise and restlessness.',
+        concept: 'Light and shadow flow slowly through the space. Let your mind settle and return to the most pure and tranquil state.',
         tags: ['Purity Skylight', 'Flowing Shadow', 'Clear Waterstone'],
-        photoIds: [8, 9, 10, 11, 12, 13, 14]
+        photoIds: [8, 9, 10, 11, 12, 13, 14],
+        amenities: [
+          { icon: 'fa-solid fa-water', text: 'Skylight Scenic Pool' },
+          { icon: 'fa-solid fa-hot-tub-person', text: 'Luxury Marble Bath' },
+          { icon: 'fa-solid fa-mug-hot', text: 'Zen Tatami Tea Room' },
+          { icon: 'fa-solid fa-video', text: '100-inch Projector Theater' },
+          { icon: 'fa-solid fa-kitchen-set', text: 'Aesthetic Island Kitchen' },
+          { icon: 'fa-solid fa-soap', text: 'Freestanding Designer Tub' },
+          { icon: 'fa-solid fa-wind', text: 'Dyson Professional Dryer' },
+          { icon: 'fa-solid fa-coffee', text: 'Bespoke Hand-Drip Coffee' },
+          { icon: 'fa-solid fa-wifi', text: 'Free High-Speed Wi-Fi' },
+          { icon: 'fa-solid fa-wine-glass', text: 'Complimentary Mini Bar' },
+          { icon: 'fa-solid fa-glass-water', text: 'Sparkling & Hot Water Dispenser' },
+          { icon: 'fa-solid fa-square-parking', text: 'Complimentary Parking' }
+        ]
       },
       {
         id: 'wood',
         number: '03',
         name: 'Timber · Comfort',
-        concept: 'Embraced by verdant forests and aromatic tatami rushes, every breath draws in natural phytoncides, immersing you in complete relaxation.',
+        concept: 'Warm wood tones, serene nature. Feel the most comfortable and leisurely pace of life amid greenery and gentle breezes.',
         tags: ['Forest Greens', 'Aromatic Rush', 'Warm Wood'],
-        photoIds: [15, 16, 17, 18, 19, 20, 21]
+        photoIds: [15, 16, 17, 18, 19, 20, 21],
+        amenities: [
+          { icon: 'fa-solid fa-water', text: 'Green-Surrounded Pool' },
+          { icon: 'fa-solid fa-hot-tub-person', text: 'Aromatic Hinoki Wood Bath' },
+          { icon: 'fa-solid fa-mug-hot', text: 'Aromatic Rush Tatami Room' },
+          { icon: 'fa-solid fa-kitchen-set', text: 'Warm Timber Island Kitchen' },
+          { icon: 'fa-solid fa-volume-high', text: 'Aesthetic Bluetooth Speaker' },
+          { icon: 'fa-solid fa-leaf', text: 'Handcrafted Ceramic Teaset' },
+          { icon: 'fa-solid fa-wind', text: 'Dyson Professional Dryer' },
+          { icon: 'fa-solid fa-bed', text: 'Organic Skin-Friendly Beds' },
+          { icon: 'fa-solid fa-wifi', text: 'Free High-Speed Wi-Fi' },
+          { icon: 'fa-solid fa-wine-glass', text: 'Complimentary Mini Bar' },
+          { icon: 'fa-solid fa-glass-water', text: 'Sparkling & Hot Water Dispenser' },
+          { icon: 'fa-solid fa-square-parking', text: 'Complimentary Parking' }
+        ]
       },
       {
         id: 'gold',
         number: '04',
         name: 'Gold · Essence',
-        concept: 'A low-profile luxury loft space utilizing exquisite brass accents and bespoke ceramics to express a pure vision of contemporary living.',
+        concept: 'Low-key and delicate, steady and elegant. Creating a deeper sense of ritual for every moment worth remembering.',
         tags: ['Exquisite Brass', 'Golden Leaf', 'Pure Metallurgy'],
-        photoIds: [22, 23, 24, 25, 26, 27, 28]
+        photoIds: [22, 23, 24, 25, 26, 27, 28],
+        amenities: [
+          { icon: 'fa-solid fa-water', text: 'Private Luxury Pool' },
+          { icon: 'fa-solid fa-hot-tub-person', text: 'Double-Height Loft Bath' },
+          { icon: 'fa-solid fa-gem', text: 'Brass Accents Interior' },
+          { icon: 'fa-solid fa-video', text: 'Premium Surround Theater' },
+          { icon: 'fa-solid fa-kitchen-set', text: 'Luxury Island Kitchen' },
+          { icon: 'fa-solid fa-coffee', text: 'Italian Espresso Maker' },
+          { icon: 'fa-solid fa-wind', text: 'Dyson Professional Dryer' },
+          { icon: 'fa-solid fa-bed', text: 'Premium Sealy Mattress' },
+          { icon: 'fa-solid fa-wifi', text: 'Free High-Speed Wi-Fi' },
+          { icon: 'fa-solid fa-wine-glass', text: 'Complimentary Mini Bar' },
+          { icon: 'fa-solid fa-glass-water', text: 'Sparkling & Hot Water Dispenser' },
+          { icon: 'fa-solid fa-square-parking', text: 'Complimentary Parking' }
+        ]
       }
     ],
     // FAQ Data
@@ -402,39 +568,63 @@ export const locales = {
     },
     // Hero
     hero: {
-      subtitle: 'Yashirocho',
-      title: <>静寂なる八代町<br />暮らしの平穏と温もりを取り戻す</>,
-      tagline: '大自然の筆が描く、優美な光と影。侘び寂びの美学と極上の心地よさが融合したリゾート空間。',
+      subtitle: '八代町 YASHIROCHO VILLA',
+      title: <>静寂を取り戻し、<br />冬山の流れるときを心に刻む</>,
+      tagline: <>稲のさざ波と湖畔の絶景に抱かれた4棟の完全プライベートヴィラ。ご家族やご友人と特別な時間を分かち合う隠れ家で、ゆっくりと流れる時間をお楽しみください。</>,
       scrollText: 'スクロールして探索'
     },
     // About
     about: {
-      badge: 'ABOUT YASHIROCHO',
-      title: '自然と調和する、四棟の独立した美学',
-      lead: '宜蘭県冬山郷の静寂の中に佇む「八代町」。園内には、侘び寂びスタイルを取り入れた4棟の独立型ヴィラがあります。風、光、木、石という自然の要素を取り込み、それぞれの空間に独自の魂と温もりを吹き込みました。',
-      badgeNum: '侘び寂び',
-      badgeText: '自然と共生する4棟のヴィラ',
-      feat1Title: '四棟の独立した美の集落',
-      feat1Desc: '「緋紅」「流影」「青木」「金箔」、それぞれが異なる世界観を持ち、火、水、木、金という4つのエレメントを表現しています。',
-      feat2Title: '光と影が流れる天井',
-      feat2Desc: '緻密に計算された天井窓と大きな掃き出し窓から差し込む陽光が、時間とともに畳や壁に美しい幾何学模様を描き出します。',
-      feat3Title: '心身を解き放つ暮らし',
-      feat3Desc: '過剰な装飾を削ぎ落とし、空気の流れ、手作りの器の質感、そして内なる絶対的な平穏に寄り添います。'
+      badge: 'BRAND STORY',
+      title: '八代町について',
+      lead: '八代町は、ご家族やご友人が気兼ねなく集いながら、プライベートな時間を守れる場所を作りたいというシンプルな想いから誕生しました。',
+      desc: '宜蘭県冬山に佇む、4棟の独立型ヴィラ。全棟に専用温泉とプールを完備し、混雑のない静寂と四季折々の田園風景の中で、心地よい旅の記憶をお届けします。',
+      badgeNum: '専用水景',
+      badgeText: '専用温泉＆プール',
+      feat1Title: '完全プライベート空間',
+      feat1Desc: '各ヴィラで異なるデザインと眺望。中庭や景観にもこだわり、訪れるたびに新鮮な感動に出会えます。',
+      feat2Title: '全棟に専用温泉＆プール',
+      feat2Desc: '他のお客様と共有しない、完全プライベートな温泉とプールで気ままな休日を。',
+      feat3Title: '冬山の田園風景',
+      feat3Desc: '窓外に広がる宜蘭の四季折々の表情。春の緑、夏の風、秋の実り、冬の霧を楽しめます。',
+      feat4Title: '侘び寂びの空間美',
+      feat4Desc: '風、光、木、石などの自然素材を取り入れ、手仕事の器や温かみのある質感で、心安らぐ五感体験を演出します。'
+    },
+    // Philosophy
+    philosophy: {
+      badge: 'BRAND PHILOSOPHY',
+      title: '暮らしを暮らしの元へ戻す',
+      lead: '旅の目的は、必ずしも遠くへ行くことではありません。',
+      desc: '大切な人と美味しい食事を囲んで語らい、芝生で遊ぶ子どもたちの姿を眺める。そんな何気ないひとときこそが、最も心に残る景色となるのです。'
+    },
+    // Quote
+    quote: {
+      line1: '旅において最も大切なことは、',
+      line2: '多くの場所を訪れることではなく、',
+      line3: '誰と一緒にその時間を過ごすかということです。'
+    },
+    // Pet
+    pet: {
+      badge: 'PET-FRIENDLY GETAWAY',
+      title: 'ペットも一緒に旅へ出かけよう',
+      lead: '多くの人々にとって、愛犬はただのペットではなく、共に暮らす大切な家族です。',
+      desc: '八代町では指定のペット可ヴィラをご用意。旅の喜びや温かい時間を、何の心残りもなく一緒に分かち合えます。'
     },
     // Rooms
     rooms: {
       badge: 'ESTATE SHOWCASE',
-      title: '4棟のプライベートヴィラと空間美',
-      desc: '「八代町」リゾートは、それぞれ異なるデザイナーが手がけた侘び寂びの美学が光る4棟の建築で構成されています。以下より各ヴィラを切り替え、こだわりの空間をご覧ください。',
-      conceptLabel: 'デザインコンセプト',
+      title: '4つのヴィラ、4つの暮らし景色',
+      desc: 'それぞれの棟に名前と物語があり、旅人が自分に最もフィットする景色を見つけるのを待っています。',
+      conceptLabel: '空間美学コンセプト',
+      amenitiesLabel: '客室専用設施設備',
       cardBadgeRoom: '実景空間',
       cardBadgeDetail: 'ディテール'
     },
     // Booking
     booking: {
       badge: 'ONLINE RESERVATION',
-      title: '侘び寂びの旅を始めましょう',
-      desc: '八代町では、リアルタイムの空室状況、客室プレビュー、限定宿泊プランをご提供する新しい「独立型オンライン予約システム」を導入しております。',
+      title: '絶景の中に泊まる',
+      desc: '忙しさは街に置いて、自分のための時間を取り戻す。心待ちにしていた冬山への旅は、八代町から始まります。',
       button: '予約システムへ進む',
       hint: '* ボタンをクリックすると、安全な外部予約エンジン（OwlNest）が別タブで開きます。一棟貸切（グループ予約）、特別なお食事手配、団体利用のご相談は、下記のお問い合わせ先よりお気軽にご連絡ください。'
     },
@@ -450,7 +640,7 @@ export const locales = {
       title: '八代町へのお問い合わせ',
       desc: '一棟貸切のご相談、交通手配、あるいは八代町について詳しくお知りになりたいことがございましたら、いつでもお気軽にお問い合わせください。',
       addressLabel: '住所',
-      addressVal: '台湾宜蘭県冬山郷永鎮路122号',
+      addressVal: '台湾宜蘭県冬山鄉永鎮路122号',
       phoneLabel: '電話番号',
       emailLabel: 'メールアドレス',
       lineLabel: '公式LINEアカウント',
@@ -469,6 +659,9 @@ export const locales = {
       next: '次へ'
     },
     footer: {
+      brandName: '八代町 YASHIROCHO VILLA',
+      brandFeatures: 'プライベートヴィラ ｜ 専用温泉＆プール ｜ 侘び寂び美学 ｜ 宜蘭冬山',
+      brandTagline: 'すべての集まりが、再びここに戻りたくなる理由になりますように。',
       copyright: '© 2026 八代町 YASHIROCHO. All Rights Reserved. Designed for premium living experience.',
       legal: '宜蘭県政府公認優良民宿ライセンス：NO.3028 ｜ NO.3033 ｜ NO.3034 ｜ NO.3039'
     },
@@ -477,34 +670,90 @@ export const locales = {
       {
         id: 'red',
         number: '01',
-        name: '緋紅 · 楽',
-        concept: '温かみのあるテラコッタレッドと原木を融合させ、喜びと温もりに満ちたほろ酔いの共有空間を創り出します。大切な友人たちと楽しくお酒を酌み交わすのに最適です。',
-        tags: ['温かな焚き火', '赤い陶芸', 'ほろ酔いの集い'],
-        photoIds: [1, 2, 3, 4, 5, 6, 7]
+        name: 'Crimson · Joy',
+        concept: 'A warm landscape like the sunset glowing over the fields. Perfect for gatherings, sharing, and laughter, preserving sweet moments with family and friends.',
+        tags: ['Slow Firepit', 'Red Ceramics', 'Warm Tipsiness'],
+        photoIds: [1, 2, 3, 4, 5, 6, 7],
+        amenities: [
+          { icon: 'fa-solid fa-water', text: '専用ミニプール' },
+          { icon: 'fa-solid fa-hot-tub-person', text: '専用和風温泉露天風呂' },
+          { icon: 'fa-solid fa-fire-burner', text: '屋外焚き火＆BBQエリア' },
+          { icon: 'fa-solid fa-kitchen-set', text: 'アイランドキッチン' },
+          { icon: 'fa-solid fa-volume-high', text: 'Bluetoothシアター音響' },
+          { icon: 'fa-solid fa-coffee', text: '全自動カプセルコーヒー' },
+          { icon: 'fa-solid fa-wind', text: 'Dysonヘアドライヤー' },
+          { icon: 'fa-solid fa-bed', text: '5つ星キングサイズベッド' },
+          { icon: 'fa-solid fa-wifi', text: '無料高速Wi-Fi' },
+          { icon: 'fa-solid fa-wine-glass', text: '無料ミニバードリンク' },
+          { icon: 'fa-solid fa-glass-water', text: '炭酸水＆ウォーターサーバー' },
+          { icon: 'fa-solid fa-square-parking', text: '専用無料駐車場' }
+        ]
       },
       {
         id: 'shadow',
         number: '02',
-        name: '流影 · 浄',
-        concept: '極限までシンプルなコンクリートと大理石を基調とし、一日の陽の移ろいを捉える光と影のドラマを演出します。日常の喧騒と焦燥を静かに洗い流してくれます。',
-        tags: ['澄んだ天井窓', '流れる光影', '清らかな水石'],
-        photoIds: [8, 9, 10, 11, 12, 13, 14]
+        name: 'Shadow · Purity',
+        concept: 'Light and shadow flow slowly through the space. Let your mind settle and return to the most pure and tranquil state.',
+        tags: ['Purity Skylight', 'Flowing Shadow', 'Clear Waterstone'],
+        photoIds: [8, 9, 10, 11, 12, 13, 14],
+        amenities: [
+          { icon: 'fa-solid fa-water', text: '天井吹き抜けプール' },
+          { icon: 'fa-solid fa-hot-tub-person', text: '豪華大理石温泉風呂' },
+          { icon: 'fa-solid fa-mug-hot', text: '和風禅室（タタミ仕様）' },
+          { icon: 'fa-solid fa-video', text: '100インチプロジェクター' },
+          { icon: 'fa-solid fa-kitchen-set', text: 'デザインキッチン' },
+          { icon: 'fa-solid fa-soap', text: '独立型バスタブ' },
+          { icon: 'fa-solid fa-wind', text: 'Dysonヘアドライヤー' },
+          { icon: 'fa-solid fa-coffee', text: 'こだわりハンドドリップ' },
+          { icon: 'fa-solid fa-wifi', text: '無料高速Wi-Fi' },
+          { icon: 'fa-solid fa-wine-glass', text: '無料ミニバードリンク' },
+          { icon: 'fa-solid fa-glass-water', text: '炭酸水＆ウォーターサーバー' },
+          { icon: 'fa-solid fa-square-parking', text: '専用無料駐車場' }
+        ]
       },
       {
         id: 'wood',
         number: '03',
-        name: '青木 · 舒',
-        concept: 'みずみずしい緑の森とイグサの香りに包まれ、呼吸するたびにフィトンチッドを吸い込む、大自然と完全に溶け合うリラクゼーション体験をご提供します。',
-        tags: ['新緑の癒やし', '国産天然イグサ', '温もりの木肌'],
-        photoIds: [15, 16, 17, 18, 19, 20, 21]
+        name: 'Timber · Comfort',
+        concept: 'Warm wood tones, serene nature. Feel the most comfortable and leisurely pace of life amid greenery and gentle breezes.',
+        tags: ['Forest Greens', 'Aromatic Rush', 'Warm Wood'],
+        photoIds: [15, 16, 17, 18, 19, 20, 21],
+        amenities: [
+          { icon: 'fa-solid fa-water', text: '緑に囲まれた水遊び場' },
+          { icon: 'fa-solid fa-hot-tub-person', text: '檜造りアロマ温泉風呂' },
+          { icon: 'fa-solid fa-mug-hot', text: '藺草香る畳のお茶室' },
+          { icon: 'fa-solid fa-kitchen-set', text: '温もりある木製キッチン' },
+          { icon: 'fa-solid fa-volume-high', text: '北欧風高音質スピーカー' },
+          { icon: 'fa-solid fa-leaf', text: '手作り和陶器茶器セット' },
+          { icon: 'fa-solid fa-wind', text: 'Dysonヘアドライヤー' },
+          { icon: 'fa-solid fa-bed', text: 'オーガニック快適寝具' },
+          { icon: 'fa-solid fa-wifi', text: '無料高速Wi-Fi' },
+          { icon: 'fa-solid fa-wine-glass', text: '無料ミニバードリンク' },
+          { icon: 'fa-solid fa-glass-water', text: '炭酸水＆ウォーターサーバー' },
+          { icon: 'fa-solid fa-square-parking', text: '専用無料駐車場' }
+        ]
       },
       {
         id: 'gold',
         number: '04',
-        name: '金箔 · 粹',
-        concept: '真鍮のヘアライン装飾やオーダーメイドの陶器をあしらった、贅沢な2層構造のロフト空間。当代的でありながら純粋な美意識を体現したライフスタイルです。',
-        tags: ['真鍮の煌めき', '金箔の意匠', '純粋なマテリアル'],
-        photoIds: [22, 23, 24, 25, 26, 27, 28]
+        name: 'Gold · Essence',
+        concept: 'Low-key and delicate, steady and elegant. Creating a deeper sense of ritual for every moment worth remembering.',
+        tags: ['Exquisite Brass', 'Golden Leaf', 'Pure Metallurgy'],
+        photoIds: [22, 23, 24, 25, 26, 27, 28],
+        amenities: [
+          { icon: 'fa-solid fa-water', text: 'プライベートプール' },
+          { icon: 'fa-solid fa-hot-tub-person', text: '吹き抜けロフト温泉風呂' },
+          { icon: 'fa-solid fa-gem', text: '真鍮ゴールドインテリア' },
+          { icon: 'fa-solid fa-video', text: 'シアターサラウンド音響' },
+          { icon: 'fa-solid fa-kitchen-set', text: '高級アイランドキッチン' },
+          { icon: 'fa-solid fa-coffee', text: 'イタリア製エスプレッソ' },
+          { icon: 'fa-solid fa-wind', text: 'Dysonヘアドライヤー' },
+          { icon: 'fa-solid fa-bed', text: '特選シーリーブランドベッド' },
+          { icon: 'fa-solid fa-wifi', text: '無料高速Wi-Fi' },
+          { icon: 'fa-solid fa-wine-glass', text: '無料ミニバードリンク' },
+          { icon: 'fa-solid fa-glass-water', text: '炭酸水＆ウォーターサーバー' },
+          { icon: 'fa-solid fa-square-parking', text: '専用無料駐車場' }
+        ]
       }
     ],
     // FAQ Data
@@ -520,7 +769,7 @@ export const locales = {
         )
       },
       {
-        question: "Q2：宿泊にあたってデポジットの支払いは必要ですか？返金の基準はどうなっていますか？",
+        question: "Q2：宿泊にあたってデポジット의支払いは必要ですか？返金の基準はどうなっていますか？",
         answer: (
           <>
             <p style={{ marginBottom: '8px' }}>上質なご宿泊環境を維持するため、チェックイン時に環境維持デポジットとして <strong>$5,000 TWD（台湾ドル）</strong>をお預かりいたします。</p>
@@ -570,7 +819,7 @@ export const locales = {
         )
       },
       {
-        question: "Q6：お湯、プール、階段などの設備を使用する際、安全面の注意点はありますか？",
+        question: "Q6：お湯、プール、階段などの設備を使用する際、安全面の注意点はあります加？",
         answer: (
           <>
             <p style={{ marginBottom: '8px' }}><strong>給湯設備：</strong>当館は貯湯式のボイラーシステムを採用しております。前の方がお湯を大量に使用された場合は、お湯が再び沸くまでに20〜30分ほどお待ちいただくと、より快適にご利用いただけます。</p>
@@ -609,7 +858,7 @@ export function translatePhoto(photo, lang) {
       translatedTitle = isJA ? `工芸のディテール ${idNum}` : `Artisanal Detail Shot ${idNum}`
       translatedDesc = isJA
         ? '手の温もりが伝わる手仕事の器や厳選された調度品。'
-        : 'Admiring handmade objects and carefully curated textures.'
+        : 'Warm handmade objects and carefully curated textures.'
     }
   }
 

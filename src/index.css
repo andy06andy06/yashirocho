@@ -602,43 +602,123 @@ section {
 }
 
 /* Grid of Images */
-.story-image-group {
+/* ==========================================================================
+   📍 Section 2: Story Parallax Collage (關於八代町 - 視差懸浮拼貼)
+   ========================================================================== */
+.story-parallax-container {
     position: relative;
+    width: 100%;
+    height: 600px;
     display: flex;
-    justify-content: flex-start;
-    padding-right: 40px;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    --scroll-offset: 0px; /* Set dynamically via JS */
 }
 
-.story-img-wrapper {
-    overflow: hidden;
+.parallax-card {
+    position: absolute;
     border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-medium);
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(92, 99, 83, 0.12);
+    border: 6px solid var(--bg-primary);
+    background-color: var(--bg-secondary);
+    transition: transform 0.85s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.85s cubic-bezier(0.25, 1, 0.5, 1),
+                z-index 0.4s ease;
 }
 
-.story-img-wrapper img {
+.parallax-card img {
     width: 100%;
     height: 100%;
-    transition: transform 12s cubic-bezier(0.1, 1, 0.1, 1);
+    object-fit: cover;
+    display: block;
 }
 
-.story-img-wrapper:hover img {
-    transform: scale(1.08);
-}
-
-.story-image-group .main-img {
-    width: 80%;
-    height: 520px;
+/* Card A: Main center base card (Bottom-most card layer, flat with no shadow) */
+.parallax-card.card-main {
+    width: 320px;
+    height: 420px;
     z-index: 2;
+    transform: translateY(calc(var(--scroll-offset) * 0.02));
+    box-shadow: none;
 }
 
-.story-image-group .sub-img {
-    position: absolute;
-    bottom: -40px;
-    right: 0;
-    width: 50%;
-    height: 300px;
+/* Card B: Top-right overlap card */
+.parallax-card.card-sub-tr {
+    width: 170px;
+    height: 230px;
+    top: 30px;
+    right: -20px;
     z-index: 3;
-    border: 8px solid var(--bg-primary);
+    transform: translateY(calc(var(--scroll-offset) * -0.04));
+}
+
+/* Card C: Bottom-left overlap card */
+.parallax-card.card-sub-bl {
+    width: 180px;
+    height: 240px;
+    bottom: 30px;
+    left: -30px;
+    z-index: 3;
+    transform: translateY(calc(var(--scroll-offset) * 0.06));
+}
+
+/* Card D: Top-left overlap card */
+.parallax-card.card-sub-tl {
+    width: 150px;
+    height: 200px;
+    top: -20px;
+    left: 10px;
+    z-index: 3;
+    transform: translateY(calc(var(--scroll-offset) * -0.07));
+}
+
+/* Card E: Bottom-right overlap card */
+.parallax-card.card-sub-br {
+    width: 170px;
+    height: 220px;
+    bottom: -10px;
+    right: -10px;
+    z-index: 3;
+    transform: translateY(calc(var(--scroll-offset) * 0.05));
+}
+
+/* Soft Hover effect: floats the card and deepens the shadow */
+.parallax-card:hover {
+    box-shadow: 0 25px 50px rgba(92, 99, 83, 0.22);
+    z-index: 5;
+}
+
+/* When hover on Card A, B, C, D, or E, they lift in 3D */
+.parallax-card.card-main:hover {
+    transform: translateY(calc(var(--scroll-offset) * 0.02 - 10px)) scale(1.02);
+    box-shadow: none !important;
+}
+
+.parallax-card.card-sub-tr:hover {
+    transform: translateY(calc(var(--scroll-offset) * -0.04 - 10px)) scale(1.03);
+}
+
+.parallax-card.card-sub-bl:hover {
+    transform: translateY(calc(var(--scroll-offset) * 0.06 - 10px)) scale(1.03);
+}
+
+.parallax-card.card-sub-tl:hover {
+    transform: translateY(calc(var(--scroll-offset) * -0.07 - 10px)) scale(1.03);
+}
+
+.parallax-card.card-sub-br:hover {
+    transform: translateY(calc(var(--scroll-offset) * 0.05 - 10px)) scale(1.03);
+}
+
+/* Float badge on top of 3D roulette */
+.roulette-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 25;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .experience-badge {
@@ -703,11 +783,6 @@ section {
     color: var(--primary-color);
     font-size: 1.25rem;
     transition: var(--transition-quick);
-}
-
-.concept-item:hover .concept-icon {
-    background-color: var(--primary-color);
-    color: var(--text-white);
 }
 
 .concept-info h3 {
@@ -2548,4 +2623,603 @@ button.disabled:hover {
         display: flex; /* Show mobile version in mobile menu drawer */
     }
 }
+
+/* ==========================================================================
+   ✨ Added Copywriting Sections (Philosophy, Quote, Pet-Friendly)
+   ========================================================================== */
+
+/* Story desc paragraph */
+.story-desc-text {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-top: 12px;
+    margin-bottom: 36px;
+}
+
+/* Quote Banner Section (Parallax effect) */
+.quote-banner-section {
+    position: relative;
+    padding: 140px 0;
+    background-image: url('photos/large/_CCN3571.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quote-banner-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(58, 62, 53, 0.68);
+    z-index: 1;
+}
+
+/* Philosophy Banner Content */
+.philosophy-banner-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.philosophy-banner-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--accent-color); /* Gold color */
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    border: 1px solid rgba(188, 155, 108, 0.35);
+    padding: 6px 18px;
+    border-radius: 30px;
+    background-color: rgba(58, 62, 53, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.philosophy-banner-title {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 24px;
+    letter-spacing: 0.08em;
+}
+
+.philosophy-banner-lead {
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+}
+
+.philosophy-banner-desc {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+}
+
+/* Pet Section */
+.pet-section {
+    background-color: var(--bg-primary);
+    padding: 120px 0;
+    border-bottom: 1px solid rgba(92, 99, 83, 0.08);
+}
+
+.pet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.pet-content {
+    padding-right: 20px;
+}
+
+.pet-lead {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.pet-desc {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.pet-image-group {
+    position: relative;
+}
+
+.pet-img-wrapper {
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-medium);
+    height: 480px;
+}
+
+.pet-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 12s cubic-bezier(0.1, 1, 0.1, 1);
+}
+
+.pet-img-wrapper:hover img {
+    transform: scale(1.08);
+}
+
+/* Media Queries for New Sections */
+@media (max-width: 991px) {
+    .philosophy-banner-title {
+        font-size: 1.8rem;
+        margin-bottom: 16px;
+    }
+    
+    .philosophy-banner-lead {
+        font-size: 1.15rem;
+        line-height: 1.5;
+        margin-bottom: 12px;
+    }
+
+    .philosophy-banner-desc {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .quote-banner-section {
+        padding: 100px 0;
+        background-attachment: scroll; /* Fallback for touch devices */
+    }
+    
+    .pet-section {
+        padding: 80px 0;
+    }
+    
+    .pet-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .pet-content {
+        padding-right: 0;
+    }
+    
+    .pet-img-wrapper {
+        height: 380px;
+    }
+}
+
+/* ==========================================================================
+   🏰 Villa Details Split Columns Showcase (Amenities & Carousel)
+   ========================================================================== */
+.villa-details-showcase {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 60px;
+    align-items: start;
+    margin-top: 45px;
+    margin-bottom: 60px;
+    background-color: var(--bg-primary);
+    padding: 40px;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(92, 99, 83, 0.12);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Left Column: Amenities */
+.villa-amenities-col {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.villa-column-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.villa-column-title i {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.villa-concept-text {
+    font-size: 1.02rem;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.8;
+    background-color: rgba(92, 99, 83, 0.03);
+    padding: 20px 24px;
+    border-radius: var(--border-radius-md);
+    border-left: 3px solid var(--accent-color);
+    font-style: italic;
+}
+
+.villa-amenities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 24px;
+}
+
+.villa-amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid rgba(92, 99, 83, 0.08);
+}
+
+.villa-amenity-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(188, 155, 108, 0.1);
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+}
+
+.villa-amenity-text {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+/* Right Column: Carousel */
+.villa-carousel-col {
+    position: relative;
+    width: 100%;
+}
+
+.villa-carousel-wrapper {
+    position: relative;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.villa-carousel-image-container {
+    position: relative;
+    height: 480px;
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.villa-carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 10s cubic-bezier(0.1, 1, 0.1, 1);
+}
+
+.villa-carousel-image-container:hover .villa-carousel-img {
+    transform: scale(1.05);
+}
+
+.villa-carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 33, 29, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 5;
+    color: #ffffff;
+    gap: 8px;
+}
+
+.villa-carousel-image-container:hover .villa-carousel-overlay {
+    opacity: 1;
+}
+
+.villa-carousel-overlay i {
+    font-size: 1.8rem;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.villa-carousel-image-container:hover .villa-carousel-overlay i {
+    transform: scale(1);
+}
+
+.villa-carousel-overlay span {
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+}
+
+.villa-carousel-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 6;
+    padding: 6px 14px;
+    background-color: rgba(249, 248, 246, 0.92);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: var(--border-radius-full);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.villa-carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(0deg, rgba(31, 33, 29, 0.85) 0%, rgba(31, 33, 29, 0.4) 60%, rgba(31, 33, 29, 0) 100%);
+    color: #ffffff;
+    z-index: 4;
+}
+
+.villa-carousel-caption h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.villa-carousel-caption p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+}
+
+/* Arrows */
+.villa-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.villa-carousel-arrow:hover {
+    background-color: #ffffff;
+    color: var(--primary-dark);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.villa-carousel-arrow.arrow-left {
+    left: 20px;
+}
+
+.villa-carousel-arrow.arrow-right {
+    right: 20px;
+}
+
+/* Dots */
+.villa-carousel-dots {
+    position: absolute;
+    bottom: 24px;
+    right: 30px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.villa-carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.villa-carousel-dot.active {
+    background-color: var(--accent-color);
+    transform: scale(1.25);
+}
+
+.villa-carousel-placeholder {
+    height: 480px;
+    background-color: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border-radius: var(--border-radius-md);
+    color: var(--text-muted);
+}
+
+.villa-carousel-placeholder i {
+    font-size: 3rem;
+}
+
+/* Responsive showcase */
+@media (max-width: 991px) {
+    .villa-details-showcase {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 24px;
+    }
+    
+    .villa-carousel-image-container {
+        height: 380px;
+    }
+}
+
+@media (max-width: 576px) {
+    .villa-amenities-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .villa-carousel-image-container {
+        height: 300px;
+    }
+    
+    .villa-carousel-caption {
+        padding: 20px;
+    }
+    
+    .villa-carousel-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+    }
+}
+
+/* 📱 Parallax Floating Collage Responsive Adaptation */
+@media (max-width: 768px) {
+    .story-parallax-container {
+        height: 480px;
+        --scroll-offset: 0px !important; /* Stop scroll parallax on mobile */
+    }
+    
+    .parallax-bg-decor {
+        display: none; /* Hide background decorative block to keep it clean */
+    }
+    
+    .parallax-card {
+        border-width: 4px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    .parallax-card.card-main {
+        width: 240px;
+        height: 320px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) !important;
+    }
+    
+    .parallax-card.card-sub-tr {
+        width: 120px;
+        height: 160px;
+        top: 10px;
+        right: 10px;
+        transform: none !important;
+    }
+    
+    .parallax-card.card-sub-bl {
+        width: 130px;
+        height: 170px;
+        bottom: 10px;
+        left: 10px;
+        transform: none !important;
+    }
+
+    .parallax-card.card-sub-tl {
+        width: 110px;
+        height: 145px;
+        top: 10px;
+        left: 10px;
+        transform: none !important;
+    }
+
+    .parallax-card.card-sub-br {
+        width: 120px;
+        height: 160px;
+        bottom: 10px;
+        right: 10px;
+        transform: none !important;
+    }
+    
+    /* Disable hover transforms on mobile for better touch UX */
+    .parallax-card.card-main:hover {
+        transform: translate(-50%, -50%) !important;
+    }
+    
+    .parallax-card.card-sub-tr:hover,
+    .parallax-card.card-sub-bl:hover,
+    .parallax-card.card-sub-tl:hover,
+    .parallax-card.card-sub-br:hover {
+        transform: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-parallax-container {
+        height: 400px;
+    }
+    
+    .parallax-card.card-main {
+        width: 190px;
+        height: 250px;
+    }
+    
+    .parallax-card.card-sub-tr {
+        width: 100px;
+        height: 130px;
+    }
+    
+    .parallax-card.card-sub-bl {
+        width: 105px;
+        height: 140px;
+    }
+
+    .parallax-card.card-sub-tl {
+        width: 90px;
+        height: 120px;
+    }
+
+    .parallax-card.card-sub-br {
+        width: 100px;
+        height: 130px;
+    }
+}
+
 

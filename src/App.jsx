@@ -49,8 +49,30 @@ export default function App() {
   // --- States ---
   const [photos, setPhotos] = useState([])
   const [activeVilla, setActiveVilla] = useState('red')
+  const [currentVillaPhotoIdx, setCurrentVillaPhotoIdx] = useState(0)
   const [isNavScrolled, setIsNavScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  // --- Parallax Story Collage Ref & Scroll Event ---
+  const storyContainerRef = useRef(null)
+  useEffect(() => {
+    const handleScroll = () => {
+      const container = storyContainerRef.current
+      if (!container) return
+      const rect = container.getBoundingClientRect()
+      const viewportHeight = window.innerHeight
+      if (rect.top < viewportHeight && rect.bottom > 0) {
+        const containerCenter = rect.top + rect.height / 2
+        const viewportCenter = viewportHeight / 2
+        const offset = containerCenter - viewportCenter
+        container.style.setProperty('--scroll-offset', `${offset}px`)
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+    // Run once on load
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Hero Slider
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -418,16 +440,34 @@ export default function App() {
         <section className="story-section" id="about">
           <div className="container">
             <div className="story-grid">
-              <div className="story-image-group">
-                <div className="story-img-wrapper main-img reveal-on-scroll">
-                  <img src="photos/large/_CCN3744.webp" alt="八代町公共空間" />
+              <div 
+                className="story-image-group story-parallax-container reveal-on-scroll"
+                ref={storyContainerRef}
+              >
+                
+                {/* Card A: Center base */}
+                <div className="parallax-card card-main">
+                  <img src="photos/large/_CCN3744.webp" alt="八代町物業實景 - 主外觀" />
                 </div>
-                <div className="story-img-wrapper sub-img reveal-on-scroll delay-1">
-                  <img src="photos/large/_CCN3737.webp" alt="光影茶室" />
+                
+                {/* Card B: Top right overlap */}
+                <div className="parallax-card card-sub-tr">
+                  <img src="photos/large/_CCN3704.webp" alt="八代町物業實景 - 獨立湯池與泳池" />
                 </div>
-                <div className="experience-badge reveal-on-scroll delay-2">
-                  <span className="badge-num">{t('about.badgeNum')}</span>
-                  <span className="badge-text">{t('about.badgeText')}</span>
+                
+                {/* Card C: Bottom left overlap */}
+                <div className="parallax-card card-sub-bl">
+                  <img src="photos/large/_CCN3737.webp" alt="八代町物業實景 - 日式室內美學" />
+                </div>
+
+                {/* Card D: Top left overlap */}
+                <div className="parallax-card card-sub-tl">
+                  <img src="photos/large/_CCN3752.webp" alt="八代町物業實景 - 愜意茶空間" />
+                </div>
+
+                {/* Card E: Bottom right overlap */}
+                <div className="parallax-card card-sub-br">
+                  <img src="photos/large/_CCN3760.webp" alt="八代町物業實景 - 景觀露台與山景" />
                 </div>
               </div>
 
@@ -435,27 +475,28 @@ export default function App() {
                 <span className="section-badge">{t('about.badge')}</span>
                 <h2 className="section-title">{t('about.title')}</h2>
                 <p className="story-lead">{t('about.lead')}</p>
+                <p className="story-desc-text">{t('about.desc')}</p>
 
                 <div className="concept-features">
                   <div className="concept-item">
-                    <div className="concept-icon"><i className="fa-solid fa-hotel"></i></div>
+                    <div className="concept-icon"><i className="fa-solid fa-house-user"></i></div>
                     <div className="concept-info">
                       <h3>{t('about.feat1Title')}</h3>
                       <p>{t('about.feat1Desc')}</p>
                     </div>
                   </div>
                   <div className="concept-item">
-                    <div className="concept-icon"><i className="fa-solid fa-sun"></i></div>
+                    <div className="concept-icon"><i className="fa-solid fa-water-ladder"></i></div>
                     <div className="concept-info">
                       <h3>{t('about.feat2Title')}</h3>
                       <p>{t('about.feat2Desc')}</p>
                     </div>
                   </div>
                   <div className="concept-item">
-                    <div className="concept-icon"><i className="fa-solid fa-spa"></i></div>
+                    <div className="concept-icon"><i className="fa-solid fa-leaf"></i></div>
                     <div className="concept-info">
-                      <h3>{t('about.feat3Title')}</h3>
-                      <p>{t('about.feat3Desc')}</p>
+                      <h3>{t('about.feat4Title')}</h3>
+                      <p>{t('about.feat4Desc')}</p>
                     </div>
                   </div>
                 </div>
@@ -463,6 +504,8 @@ export default function App() {
             </div>
           </div>
         </section>
+
+
 
         {/* 📍 Section 3: 房型介紹 (Rooms Gallery - Split into 4 Villas) */}
         <section className="gallery-section" id="rooms">
@@ -481,6 +524,7 @@ export default function App() {
                   className={`villa-tab-card villa-tab-card-${villa.id} ${activeVilla === villa.id ? 'active' : ''}`}
                   onClick={() => {
                     setActiveVilla(villa.id);
+                    setCurrentVillaPhotoIdx(0);
                     // Smoothly scroll to the photos content area
                     setTimeout(() => {
                       galleryStartRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -498,27 +542,116 @@ export default function App() {
               ))}
             </div>
 
-            {/* Gallery Grid container (dynamically filters based on activeVilla) */}
-            <div ref={galleryStartRef} className="gallery-grid reveal-on-scroll">
-              {currentVillaPhotos.map((photo) => (
-                <div
-                  key={photo.id}
-                  className="gallery-card show"
-                  onClick={() => openLightbox(photo.id)}
-                >
-                  <div className="gallery-img-container">
-                    <span className="gallery-card-badge">
-                      {photo.category === 'room' || photo.category === 'interior' ? t('rooms.cardBadgeRoom') : t('rooms.cardBadgeDetail')}
-                    </span>
-                    <div className="gallery-img-overlay"></div>
-                    <img src={photo.thumb} alt={photo.title} loading="lazy" />
-                  </div>
-                  <div className="gallery-info">
-                    <h3>{photo.title}</h3>
-                    <p>{photo.description}</p>
+            {/* Showcase details area (amenities left, carousel right) */}
+            <div ref={galleryStartRef} className="villa-details-showcase reveal-on-scroll">
+              {/* Left Column: Amenities */}
+              <div className="villa-amenities-col">
+
+                
+                <div className="villa-amenities-block">
+                  <h4 className="villa-column-title">
+                    <i className="fa-solid fa-circle-info"></i>
+                    {t('rooms.amenitiesLabel')}
+                  </h4>
+                  <div className="villa-amenities-grid">
+                    {currentVillaObj.amenities?.map((amenity, idx) => (
+                      <div key={idx} className="villa-amenity-item">
+                        <span className="villa-amenity-icon"><i className={amenity.icon}></i></span>
+                        <span className="villa-amenity-text">{amenity.text}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))}
+              </div>
+
+              {/* Right Column: Carousel Slideshow */}
+              <div className="villa-carousel-col">
+                {currentVillaPhotos.length > 0 ? (
+                  <div className="villa-carousel-wrapper">
+                    {/* Active Image container */}
+                    <div 
+                      className="villa-carousel-image-container"
+                      onClick={() => openLightbox(currentVillaPhotos[currentVillaPhotoIdx]?.id)}
+                    >
+                      <span className="villa-carousel-badge">
+                        {currentVillaPhotos[currentVillaPhotoIdx]?.category === 'room' || currentVillaPhotos[currentVillaPhotoIdx]?.category === 'interior' 
+                          ? t('rooms.cardBadgeRoom') 
+                          : t('rooms.cardBadgeDetail')
+                        }
+                      </span>
+                      <div className="villa-carousel-overlay">
+                        <i className="fa-solid fa-maximize"></i>
+                        <span>放大實景</span>
+                      </div>
+                      <img 
+                        src={currentVillaPhotos[currentVillaPhotoIdx]?.large} 
+                        alt={currentVillaPhotos[currentVillaPhotoIdx]?.title} 
+                        className="villa-carousel-img"
+                      />
+                      
+                      {/* Image Caption */}
+                      <div className="villa-carousel-caption">
+                        <h3>{currentVillaPhotos[currentVillaPhotoIdx]?.title}</h3>
+                        <p>{currentVillaPhotos[currentVillaPhotoIdx]?.description}</p>
+                      </div>
+                    </div>
+
+                    {/* Navigation Arrows */}
+                    <button 
+                      className="villa-carousel-arrow arrow-left"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentVillaPhotoIdx(prev => (prev - 1 + currentVillaPhotos.length) % currentVillaPhotos.length);
+                      }}
+                      aria-label="上一張"
+                    >
+                      <i className="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button 
+                      className="villa-carousel-arrow arrow-right"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentVillaPhotoIdx(prev => (prev + 1) % currentVillaPhotos.length);
+                      }}
+                      aria-label="下一張"
+                    >
+                      <i className="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    {/* Dot Indicators */}
+                    <div className="villa-carousel-dots">
+                      {currentVillaPhotos.map((_, idx) => (
+                        <button
+                          key={idx}
+                          className={`villa-carousel-dot ${currentVillaPhotoIdx === idx ? 'active' : ''}`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCurrentVillaPhotoIdx(idx);
+                          }}
+                          aria-label={`切換至第 ${idx + 1} 張`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="villa-carousel-placeholder">
+                    <i className="fa-solid fa-images"></i>
+                    <p>圖片加載中...</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 📍 Section: 品牌理念 (Philosophy Banner - Parallax) */}
+        <section className="quote-banner-section">
+          <div className="container">
+            <div className="philosophy-banner-content text-center reveal-on-scroll">
+              <span className="philosophy-banner-badge">{t('philosophy.badge')}</span>
+              <h2 className="philosophy-banner-title">{t('philosophy.title')}</h2>
+              <p className="philosophy-banner-lead">{t('philosophy.lead')}</p>
+              <p className="philosophy-banner-desc">{t('philosophy.desc')}</p>
             </div>
           </div>
         </section>
@@ -552,6 +685,8 @@ export default function App() {
             </div>
           </div>
         </section>
+
+
 
         {/* 📍 Section 5: 入住須知 (Rules) */}
         <section className="rules-section" id="rules">
@@ -713,6 +848,14 @@ export default function App() {
       {/* <footer> Footer Copyright */}
       <footer className="main-footer">
         <div className="container">
+          <div className="footer-brand-info text-center reveal-on-scroll" style={{ marginBottom: '40px' }}>
+            <p className="footer-brand-features" style={{ fontSize: '0.95rem', color: 'var(--text-light)', letterSpacing: '0.15em', marginBottom: '8px' }}>
+              {t('footer.brandFeatures')}
+            </p>
+            <p className="footer-brand-tagline" style={{ fontSize: '1.05rem', fontStyle: 'italic', color: 'var(--primary-color)' }}>
+              {t('footer.brandTagline')}
+            </p>
+          </div>
           <div className="footer-bottom text-center">
             <p>{t('footer.copyright')}</p>
             <p className="footer-legal">
