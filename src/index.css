@@ -214,12 +214,18 @@ section {
 
 .header-container {
     position: relative;
-    max-width: var(--max-width);
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+@media (min-width: 769px) {
+    .header-container {
+        padding: 0 48px;
+    }
 }
 
 /* Logo Design */
