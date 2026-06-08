@@ -1,6 +1,147 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { locales, translatePhoto } from './locales'
 
+// 🏰 Sub-component representing a single Villa block (slideshow on one side, details on other)
+function VillaShowcaseBlock({ villa, photos, t, openLightbox, isEven, locale }) {
+  const [photoIdx, setPhotoIdx] = useState(0)
+
+  const villaPhotos = photos
+    .filter(p => p.id !== undefined && villa.photoIds?.includes(p.id))
+    .map(p => translatePhoto(p, locale))
+
+  const handlePrevPhoto = (e) => {
+    e.stopPropagation()
+    if (villaPhotos.length > 0) {
+      setPhotoIdx(prev => (prev - 1 + villaPhotos.length) % villaPhotos.length)
+    }
+  }
+
+  const handleNextPhoto = (e) => {
+    e.stopPropagation()
+    if (villaPhotos.length > 0) {
+      setPhotoIdx(prev => (prev + 1) % villaPhotos.length)
+    }
+  }
+
+  const handleDotClick = (idx, e) => {
+    e.stopPropagation()
+    setPhotoIdx(idx)
+  }
+
+  const currentPhoto = villaPhotos[photoIdx]
+
+  return (
+    <div className={`villa-block theme-${villa.id} reveal-on-scroll`}>
+      <div className={`villa-block-grid ${isEven ? 'layout-normal' : 'layout-reversed'}`}>
+        
+        {/* Carousel Column */}
+        <div className="villa-carousel-col">
+          {villaPhotos.length > 0 ? (
+            <div className="villa-carousel-wrapper">
+              <div 
+                className="villa-carousel-image-container"
+                onClick={() => openLightbox(currentPhoto?.id, villa.id)}
+              >
+                <span className="villa-carousel-badge">
+                  {currentPhoto?.category === 'room' || currentPhoto?.category === 'interior' 
+                    ? t('rooms.cardBadgeRoom') 
+                    : t('rooms.cardBadgeDetail')
+                  }
+                </span>
+                <div className="villa-carousel-overlay">
+                  <i className="fa-solid fa-maximize"></i>
+                  <span>{locale === 'en' ? 'Enlarge' : locale === 'ja' ? '拡大する' : '放大實景'}</span>
+                </div>
+                <img 
+                  src={currentPhoto?.large} 
+                  alt={currentPhoto?.title} 
+                  className="villa-carousel-img"
+                  loading="lazy"
+                />
+                
+                <div className="villa-carousel-caption">
+                  <h3>{currentPhoto?.title}</h3>
+                  <p>{currentPhoto?.description}</p>
+                </div>
+              </div>
+
+              <button 
+                className="villa-carousel-arrow arrow-left"
+                onClick={handlePrevPhoto}
+                aria-label="上一張"
+              >
+                <i className="fa-solid fa-chevron-left"></i>
+              </button>
+              <button 
+                className="villa-carousel-arrow arrow-right"
+                onClick={handleNextPhoto}
+                aria-label="下一張"
+              >
+                <i className="fa-solid fa-chevron-right"></i>
+              </button>
+
+              <div className="villa-carousel-dots">
+                {villaPhotos.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`villa-carousel-dot ${photoIdx === idx ? 'active' : ''}`}
+                    onClick={(e) => handleDotClick(idx, e)}
+                    aria-label={`切換至第 ${idx + 1} 張`}
+                  />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="villa-carousel-placeholder">
+              <i className="fa-regular fa-image"></i>
+              <span>{locale === 'en' ? 'Loading photos...' : locale === 'ja' ? '写真読み込み中...' : '照片讀取中...'}</span>
+            </div>
+          )}
+        </div>
+
+        {/* Content Column */}
+        <div className="villa-content-col">
+          <div className="villa-block-header">
+            <span className="villa-number">{villa.number}</span>
+            <h3 className="villa-title">{villa.name}</h3>
+          </div>
+          
+          <p className="villa-concept-text">{villa.concept}</p>
+          
+          <div className="villa-tags-row">
+            {villa.tags?.map((tag, idx) => (
+              <span key={idx} className="villa-tag-pill">{tag}</span>
+            ))}
+          </div>
+
+          <div className="villa-amenities-block">
+            <h4 className="villa-column-title">
+              <i className="fa-solid fa-circle-info"></i>
+              {t('rooms.amenitiesLabel')}
+            </h4>
+            <div className="villa-amenities-grid">
+              {villa.amenities?.map((amenity, idx) => (
+                <div key={idx} className="villa-amenity-item">
+                  <span className="villa-amenity-icon"><i className={amenity.icon}></i></span>
+                  <span className="villa-amenity-text">{amenity.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="villa-booking-cta">
+            <a href="#booking-system" className="btn btn-primary btn-villa-book">
+              <i className="fa-solid fa-calendar-days"></i>
+              {locale === 'en' ? `Reserve ${villa.name.split(' · ')[0] || villa.name}` : locale === 'ja' ? `${villa.name.split('・')[0] || villa.name} を予約する` : `預約 ${villa.name.split('・')[0] || villa.name}`}
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  )
+}
+
 export default function App() {
   // --- Language Initialization & Helper ---
   const getInitialLocale = () => {
@@ -48,25 +189,11 @@ export default function App() {
 
   // --- States ---
   const [photos, setPhotos] = useState([])
-  const [activeVilla, setActiveVilla] = useState('red')
-  const [showcaseHighlight, setShowcaseHighlight] = useState(false)
-  const [currentVillaPhotoIdx, setCurrentVillaPhotoIdx] = useState(0)
   const [isNavScrolled, setIsNavScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   // Refs for layout
   const storyContainerRef = useRef(null)
-  const tabsRef = useRef(null)
-  const galleryStartRef = useRef(null)
-
-  // Trigger temporary glow on showcase when active villa changes
-  useEffect(() => {
-    setShowcaseHighlight(true)
-    const timer = setTimeout(() => {
-      setShowcaseHighlight(false)
-    }, 1500)
-    return () => clearTimeout(timer)
-  }, [activeVilla])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,6 +225,7 @@ export default function App() {
   const [lightboxActive, setLightboxActive] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
   const [lightboxLoaded, setLightboxLoaded] = useState(false)
+  const [lightboxVillaId, setLightboxVillaId] = useState('red')
 
   // FAQ Active Accordion
   const [activeFaq, setActiveFaq] = useState(null)
@@ -197,17 +325,20 @@ export default function App() {
 
   // --- Functions ---
 
-  // Get active villa object
-  const currentVillaObj = villas.find(v => v.id === activeVilla) || villas[0]
-
-  // Direct photos selection for active villa (mapped through translation helper)
-  const currentVillaPhotos = photos
-    .filter(p => currentVillaObj.photoIds.includes(p.id))
+  // Derive active lightbox photos based on lightboxVillaId (supporting swiping through that villa's photos)
+  const lightboxVillaObj = villas.find(v => v.id === lightboxVillaId) || villas[0]
+  const lightboxPhotos = photos
+    .filter(p => p.id !== undefined && lightboxVillaObj.photoIds?.includes(p.id))
     .map(p => translatePhoto(p, locale))
 
-  // Lightbox handlers (maps directly to currentVillaPhotos)
-  const openLightbox = (photoId) => {
-    const idx = currentVillaPhotos.findIndex(p => p.id === photoId)
+  // Lightbox handlers (maps to the specific villa's photo list)
+  const openLightbox = (photoId, villaId) => {
+    setLightboxVillaId(villaId)
+    const villaObj = villas.find(v => v.id === villaId) || villas[0]
+    const villaPhotosList = photos
+      .filter(p => p.id !== undefined && villaObj.photoIds?.includes(p.id))
+      .map(p => translatePhoto(p, locale))
+    const idx = villaPhotosList.findIndex(p => p.id === photoId)
     if (idx !== -1) {
       setLightboxIndex(idx)
       setLightboxLoaded(false)
@@ -223,22 +354,22 @@ export default function App() {
 
   const nextLightbox = () => {
     setLightboxLoaded(false)
-    setLightboxIndex(prev => (prev + 1) % currentVillaPhotos.length)
+    setLightboxIndex(prev => (prev + 1) % lightboxPhotos.length)
   }
 
   const prevLightbox = () => {
     setLightboxLoaded(false)
-    setLightboxIndex(prev => (prev - 1 + currentVillaPhotos.length) % currentVillaPhotos.length)
+    setLightboxIndex(prev => (prev - 1 + lightboxPhotos.length) % lightboxPhotos.length)
   }
 
   // Preload lightbox images
   useEffect(() => {
-    if (lightboxActive && currentVillaPhotos[lightboxIndex]) {
+    if (lightboxActive && lightboxPhotos[lightboxIndex]) {
       const img = new Image()
-      img.src = currentVillaPhotos[lightboxIndex].large
+      img.src = lightboxPhotos[lightboxIndex].large
       img.onload = () => setLightboxLoaded(true)
     }
-  }, [lightboxIndex, lightboxActive, currentVillaPhotos])
+  }, [lightboxIndex, lightboxActive, lightboxPhotos])
 
   // Keyboard controls for lightbox
   useEffect(() => {
@@ -250,7 +381,7 @@ export default function App() {
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [lightboxActive, currentVillaPhotos, lightboxIndex])
+  }, [lightboxActive, lightboxPhotos, lightboxIndex])
 
   // FAQ toggle accordion
   const toggleFaq = (idx) => {
@@ -526,7 +657,7 @@ export default function App() {
 
 
 
-        {/* 📍 Section 3: 房型介紹 (Rooms Gallery - Split into 4 Villas) */}
+        {/* 📍 Section 3: 房型介紹 (Rooms Gallery - Alternating Villa Blocks) */}
         <section className="gallery-section" id="rooms">
           <div className="container">
             <div className="section-header text-center reveal-on-scroll">
@@ -535,147 +666,19 @@ export default function App() {
               <p className="section-desc">{t('rooms.desc')}</p>
             </div>
 
-            {/* 🏰 Primary Tabs: 4 Villas Selection Card Grid */}
-            <div ref={tabsRef} className="villa-tabs">
-              {villas.map((villa) => (
-                <div
+            {/* 🏰 Villa Blocks Alternating List */}
+            <div className="villa-blocks-list">
+              {villas.map((villa, idx) => (
+                <VillaShowcaseBlock
                   key={villa.id}
-                  className={`villa-tab-card villa-tab-card-${villa.id} ${activeVilla === villa.id ? 'active' : ''}`}
-                  onClick={() => {
-                    setActiveVilla(villa.id);
-                    setCurrentVillaPhotoIdx(0);
-                    // Smoothly scroll to the photos content area only on mobile/tablet viewports (width <= 1024px)
-                    if (window.innerWidth <= 1024) {
-                      setTimeout(() => {
-                        galleryStartRef.current?.scrollIntoView({ behavior: 'smooth' });
-                      }, 50);
-                    }
-                  }}
-                >
-                  <span className="villa-num">{villa.number}</span>
-                  <h3>{villa.name}</h3>
-                </div>
+                  villa={villa}
+                  photos={photos}
+                  t={t}
+                  openLightbox={openLightbox}
+                  isEven={idx % 2 === 0}
+                  locale={locale}
+                />
               ))}
-            </div>
-
-            {/* 🧭 Visual connection pointer linking active tab to details */}
-            <div className="villa-tab-pointers">
-              {villas.map((villa) => (
-                <div
-                  key={villa.id}
-                  className={`pointer-arrow-col pointer-col-${villa.id} ${activeVilla === villa.id ? 'active' : ''}`}
-                >
-                  <div className="pointer-line"></div>
-                  <div className="pointer-arrow">
-                    <div className="pointer-icon-wrapper">
-                      <i className="fa-solid fa-chevron-down"></i>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Showcase details area (amenities left, carousel right) */}
-            <div 
-              ref={galleryStartRef} 
-              className={`villa-details-showcase theme-${activeVilla} ${showcaseHighlight ? 'showcase-highlight' : ''}`}
-            >
-              {/* Left Column: Amenities */}
-              <div className="villa-amenities-col">
-
-                
-                <div className="villa-amenities-block">
-                  <h4 className="villa-column-title">
-                    <i className="fa-solid fa-circle-info"></i>
-                    {t('rooms.amenitiesLabel')}
-                  </h4>
-                  <div className="villa-amenities-grid">
-                    {currentVillaObj.amenities?.map((amenity, idx) => (
-                      <div key={idx} className="villa-amenity-item">
-                        <span className="villa-amenity-icon"><i className={amenity.icon}></i></span>
-                        <span className="villa-amenity-text">{amenity.text}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Carousel Slideshow */}
-              <div className="villa-carousel-col">
-                {currentVillaPhotos.length > 0 ? (
-                  <div className="villa-carousel-wrapper">
-                    {/* Active Image container */}
-                    <div 
-                      className="villa-carousel-image-container"
-                      onClick={() => openLightbox(currentVillaPhotos[currentVillaPhotoIdx]?.id)}
-                    >
-                      <span className="villa-carousel-badge">
-                        {currentVillaPhotos[currentVillaPhotoIdx]?.category === 'room' || currentVillaPhotos[currentVillaPhotoIdx]?.category === 'interior' 
-                          ? t('rooms.cardBadgeRoom') 
-                          : t('rooms.cardBadgeDetail')
-                        }
-                      </span>
-                      <div className="villa-carousel-overlay">
-                        <i className="fa-solid fa-maximize"></i>
-                        <span>放大實景</span>
-                      </div>
-                      <img 
-                        src={currentVillaPhotos[currentVillaPhotoIdx]?.large} 
-                        alt={currentVillaPhotos[currentVillaPhotoIdx]?.title} 
-                        className="villa-carousel-img"
-                      />
-                      
-                      {/* Image Caption */}
-                      <div className="villa-carousel-caption">
-                        <h3>{currentVillaPhotos[currentVillaPhotoIdx]?.title}</h3>
-                        <p>{currentVillaPhotos[currentVillaPhotoIdx]?.description}</p>
-                      </div>
-                    </div>
-
-                    {/* Navigation Arrows */}
-                    <button 
-                      className="villa-carousel-arrow arrow-left"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setCurrentVillaPhotoIdx(prev => (prev - 1 + currentVillaPhotos.length) % currentVillaPhotos.length);
-                      }}
-                      aria-label="上一張"
-                    >
-                      <i className="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <button 
-                      className="villa-carousel-arrow arrow-right"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setCurrentVillaPhotoIdx(prev => (prev + 1) % currentVillaPhotos.length);
-                      }}
-                      aria-label="下一張"
-                    >
-                      <i className="fa-solid fa-chevron-right"></i>
-                    </button>
-
-                    {/* Dot Indicators */}
-                    <div className="villa-carousel-dots">
-                      {currentVillaPhotos.map((_, idx) => (
-                        <button
-                          key={idx}
-                          className={`villa-carousel-dot ${currentVillaPhotoIdx === idx ? 'active' : ''}`}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setCurrentVillaPhotoIdx(idx);
-                          }}
-                          aria-label={`切換至第 ${idx + 1} 張`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="villa-carousel-placeholder">
-                    <i className="fa-solid fa-images"></i>
-                    <p>圖片加載中...</p>
-                  </div>
-                )}
-              </div>
             </div>
           </div>
         </section>
@@ -847,7 +850,7 @@ export default function App() {
       </main>
 
       {/* 🌐 Premium Lightbox Modal for Gallery */}
-      {lightboxActive && currentVillaPhotos[lightboxIndex] && (
+      {lightboxActive && lightboxPhotos[lightboxIndex] && (
         <div className={`lightbox ${lightboxActive ? 'active' : ''}`}>
           <button className="lightbox-close" onClick={closeLightbox} aria-label={t('lightbox.close')}>&times;</button>
           <button className="lightbox-prev" onClick={prevLightbox} aria-label={t('lightbox.prev')}><i className="fa-solid fa-chevron-left"></i></button>
@@ -856,9 +859,9 @@ export default function App() {
           <div className="lightbox-content-container">
             <div className="lightbox-image-wrapper">
               <img
-                src={currentVillaPhotos[lightboxIndex].large}
+                src={lightboxPhotos[lightboxIndex].large}
                 className={lightboxLoaded ? 'loaded' : ''}
-                alt={currentVillaPhotos[lightboxIndex].title}
+                alt={lightboxPhotos[lightboxIndex].title}
               />
               {!lightboxLoaded && (
                 <div className="lightbox-loader">
@@ -870,12 +873,12 @@ export default function App() {
             <div className="lightbox-caption">
               <div className="lightbox-meta">
                 <span className="lightbox-category">
-                  {currentVillaPhotos[lightboxIndex].category === 'room' || currentVillaPhotos[lightboxIndex].category === 'interior' ? t('rooms.cardBadgeRoom') : t('rooms.cardBadgeDetail')}
+                  {lightboxPhotos[lightboxIndex].category === 'room' || lightboxPhotos[lightboxIndex].category === 'interior' ? t('rooms.cardBadgeRoom') : t('rooms.cardBadgeDetail')}
                 </span>
-                <span className="lightbox-index">{lightboxIndex + 1} / {currentVillaPhotos.length}</span>
+                <span className="lightbox-index">{lightboxIndex + 1} / {lightboxPhotos.length}</span>
               </div>
-              <h3 className="lightbox-title">{currentVillaPhotos[lightboxIndex].title}</h3>
-              <p className="lightbox-desc">{currentVillaPhotos[lightboxIndex].description}</p>
+              <h3 className="lightbox-title">{lightboxPhotos[lightboxIndex].title}</h3>
+              <p className="lightbox-desc">{lightboxPhotos[lightboxIndex].description}</p>
             </div>
           </div>
         </div>
