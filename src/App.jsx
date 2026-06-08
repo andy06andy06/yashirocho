@@ -4,7 +4,7 @@ import { locales, translatePhoto } from './locales'
 // 🏰 Sub-component representing a single Villa block (slideshow on one side, details on other)
 function VillaShowcaseBlock({ villa, photos, t, openLightbox, isEven, locale }) {
   const [photoIdx, setPhotoIdx] = useState(0)
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(true)
 
   const villaPhotos = photos
     .filter(p => p.id !== undefined && villa.photoIds?.includes(p.id))
