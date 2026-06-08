@@ -129,6 +129,7 @@ function VillaShowcaseBlock({ villa, photos, t, openLightbox, isEven, locale }) 
 
           <div className="villa-details-toggle-wrapper">
             <button 
+              type="button"
               className="btn-villa-toggle"
               onClick={() => setIsExpanded(!isExpanded)}
               aria-expanded={isExpanded}
@@ -591,7 +592,6 @@ export default function App() {
             <div className="hero-content">
               <span className="hero-subtitle">{t('hero.subtitle')}</span>
               <h1 className="hero-title">{t('hero.title')}</h1>
-              <p className="hero-tagline">{t('hero.tagline')}</p>
             </div>
           </div>
 

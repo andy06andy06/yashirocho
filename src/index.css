@@ -840,35 +840,9 @@ section {
 }
 
 .villa-block {
-    background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: var(--border-radius-lg);
-    padding: 50px;
-    box-shadow: var(--shadow-medium);
-    transition: var(--transition-smooth);
     position: relative;
-    overflow: hidden;
-}
-
-.villa-block:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 50px rgba(92, 99, 83, 0.12);
-}
-
-/* Accent borders for each element theme */
-.villa-block.theme-red {
-    border-left: 6px solid #e05624;
-}
-.villa-block.theme-shadow {
-    border-left: 6px solid #4a8aa8;
-}
-.villa-block.theme-wood {
-    border-left: 6px solid #5c6b53;
-}
-.villa-block.theme-gold {
-    border-left: 6px solid #ba956a;
+    padding: 60px 0;
+    transition: var(--transition-smooth);
 }
 
 .villa-block-grid {
@@ -985,6 +959,14 @@ section {
                 padding-top 0.5s cubic-bezier(0.16, 1, 0.3, 1),
                 margin-top 0.5s cubic-bezier(0.16, 1, 0.3, 1),
                 border-color 0.4s ease;
+}
+
+.villa-content-col .villa-amenities-block.expanded {
+    max-height: 1000px;
+    opacity: 1;
+    padding-top: 24px;
+    margin-top: 20px;
+    border-top: 1px dashed rgba(92, 99, 83, 0.15);
 }
 
 .villa-content-col .villa-column-title {
@@ -1108,7 +1090,7 @@ section {
         gap: 50px;
     }
     .villa-block {
-        padding: 30px 24px;
+        padding: 40px 0;
     }
     .villa-block-grid {
         grid-template-columns: 1fr;
