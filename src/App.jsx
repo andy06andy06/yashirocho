@@ -4,6 +4,7 @@ import { locales, translatePhoto } from './locales'
 // 🏰 Sub-component representing a single Villa block (slideshow on one side, details on other)
 function VillaShowcaseBlock({ villa, photos, t, openLightbox, isEven, locale }) {
   const [photoIdx, setPhotoIdx] = useState(0)
+  const [isExpanded, setIsExpanded] = useState(false)
 
   const villaPhotos = photos
     .filter(p => p.id !== undefined && villa.photoIds?.includes(p.id))
@@ -26,6 +27,18 @@ function VillaShowcaseBlock({ villa, photos, t, openLightbox, isEven, locale }) 
   const handleDotClick = (idx, e) => {
     e.stopPropagation()
     setPhotoIdx(idx)
+  }
+
+  const getToggleText = () => {
+    if (isExpanded) {
+      if (locale === 'en') return 'Hide Room Amenities'
+      if (locale === 'ja') return 'アメニティ・設備を閉じる'
+      return '收合房型設備'
+    } else {
+      if (locale === 'en') return 'View Room Amenities'
+      if (locale === 'ja') return 'アメニティ・設備を見る'
+      return '查看房型設備'
+    }
   }
 
   const currentPhoto = villaPhotos[photoIdx]
@@ -114,26 +127,30 @@ function VillaShowcaseBlock({ villa, photos, t, openLightbox, isEven, locale }) 
             ))}
           </div>
 
-          <div className="villa-amenities-block">
-            <h4 className="villa-column-title">
-              <i className="fa-solid fa-circle-info"></i>
-              {t('rooms.amenitiesLabel')}
-            </h4>
-            <div className="villa-amenities-grid">
-              {villa.amenities?.map((amenity, idx) => (
-                <div key={idx} className="villa-amenity-item">
-                  <span className="villa-amenity-icon"><i className={amenity.icon}></i></span>
-                  <span className="villa-amenity-text">{amenity.text}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <div className="villa-details-toggle-wrapper">
+            <button 
+              className="btn-villa-toggle"
+              onClick={() => setIsExpanded(!isExpanded)}
+              aria-expanded={isExpanded}
+            >
+              <span>{getToggleText()}</span>
+              <i className={`fa-solid fa-chevron-${isExpanded ? 'up' : 'down'}`}></i>
+            </button>
 
-          <div className="villa-booking-cta">
-            <a href="#booking-system" className="btn btn-primary btn-villa-book">
-              <i className="fa-solid fa-calendar-days"></i>
-              {locale === 'en' ? `Reserve ${villa.name.split(' · ')[0] || villa.name}` : locale === 'ja' ? `${villa.name.split('・')[0] || villa.name} を予約する` : `預約 ${villa.name.split('・')[0] || villa.name}`}
-            </a>
+            <div className={`villa-amenities-block ${isExpanded ? 'expanded' : ''}`}>
+              <h4 className="villa-column-title">
+                <i className="fa-solid fa-circle-info"></i>
+                {t('rooms.amenitiesLabel')}
+              </h4>
+              <div className="villa-amenities-grid">
+                {villa.amenities?.map((amenity, idx) => (
+                  <div key={idx} className="villa-amenity-item">
+                    <span className="villa-amenity-icon"><i className={amenity.icon}></i></span>
+                    <span className="villa-amenity-text">{amenity.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
