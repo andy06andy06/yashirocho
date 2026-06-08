@@ -831,6 +831,11 @@ section {
     background-color: var(--bg-secondary);
 }
 
+.gallery-section .container {
+    max-width: 1160px;
+    padding: 0 40px;
+}
+
 /* --- 🏰 Alternating Villa Blocks List Layout (Chillnn Style) --- */
 .villa-blocks-list {
     display: flex;
@@ -2936,8 +2941,9 @@ button.disabled:hover {
 
 .villa-carousel-image-container {
     position: relative;
-    height: 480px;
     width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
     cursor: pointer;
     overflow: hidden;
 }
@@ -3120,7 +3126,8 @@ button.disabled:hover {
     }
     
     .villa-carousel-image-container {
-        height: 380px;
+        height: auto;
+        aspect-ratio: 1 / 1;
     }
 }
 
@@ -3131,7 +3138,8 @@ button.disabled:hover {
     }
     
     .villa-carousel-image-container {
-        height: 300px;
+        height: auto;
+        aspect-ratio: 1 / 1;
     }
     
     .villa-carousel-caption {

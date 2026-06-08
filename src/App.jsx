@@ -118,14 +118,6 @@ function VillaShowcaseBlock({ villa, photos, t, openLightbox, isEven, locale }) 
             <span className="villa-number">{villa.number}</span>
             <h3 className="villa-title">{villa.name}</h3>
           </div>
-          
-          <p className="villa-concept-text">{villa.concept}</p>
-          
-          <div className="villa-tags-row">
-            {villa.tags?.map((tag, idx) => (
-              <span key={idx} className="villa-tag-pill">{tag}</span>
-            ))}
-          </div>
 
           <div className="villa-details-toggle-wrapper">
             <button 
