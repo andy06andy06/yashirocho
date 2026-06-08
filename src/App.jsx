@@ -544,10 +544,12 @@ export default function App() {
                   onClick={() => {
                     setActiveVilla(villa.id);
                     setCurrentVillaPhotoIdx(0);
-                    // Smoothly scroll to the photos content area
-                    setTimeout(() => {
-                      galleryStartRef.current?.scrollIntoView({ behavior: 'smooth' });
-                    }, 50);
+                    // Smoothly scroll to the photos content area only on mobile/tablet viewports (width <= 1024px)
+                    if (window.innerWidth <= 1024) {
+                      setTimeout(() => {
+                        galleryStartRef.current?.scrollIntoView({ behavior: 'smooth' });
+                      }, 50);
+                    }
                   }}
                 >
                   <span className="villa-num">{villa.number}</span>
