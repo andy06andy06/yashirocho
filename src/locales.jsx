@@ -670,9 +670,9 @@ export const locales = {
       {
         id: 'red',
         number: '01',
-        name: 'Crimson · Joy',
-        concept: 'A warm landscape like the sunset glowing over the fields. Perfect for gatherings, sharing, and laughter, preserving sweet moments with family and friends.',
-        tags: ['Slow Firepit', 'Red Ceramics', 'Warm Tipsiness'],
+        name: '緋紅・楽',
+        concept: '夕暮れの田園を照らす夕日のような温かい光景。家族や友人と集まり、語らい、笑顔あふれる素晴らしいひとときを分かち合う場所。',
+        tags: ['温かな焚き火', '赤い陶芸', '心地よい微醺'],
         photoIds: [1, 2, 3, 4, 5, 6, 7],
         amenities: [
           { icon: 'fa-solid fa-water', text: '専用ミニプール' },
@@ -692,9 +692,9 @@ export const locales = {
       {
         id: 'shadow',
         number: '02',
-        name: 'Shadow · Purity',
-        concept: 'Light and shadow flow slowly through the space. Let your mind settle and return to the most pure and tranquil state.',
-        tags: ['Purity Skylight', 'Flowing Shadow', 'Clear Waterstone'],
+        name: '流影・浄',
+        concept: '空間を緩やかに流れる光と影。心を落ち着かせ、最も純粋で穏やかな状態へと戻る場所。',
+        tags: ['天井水景', '光と影の移ろい', '澄み渡る水石'],
         photoIds: [8, 9, 10, 11, 12, 13, 14],
         amenities: [
           { icon: 'fa-solid fa-water', text: '天井吹き抜けプール' },
@@ -714,9 +714,9 @@ export const locales = {
       {
         id: 'wood',
         number: '03',
-        name: 'Timber · Comfort',
-        concept: 'Warm wood tones, serene nature. Feel the most comfortable and leisurely pace of life amid greenery and gentle breezes.',
-        tags: ['Forest Greens', 'Aromatic Rush', 'Warm Wood'],
+        name: '青木・舒',
+        concept: '木のぬくもりと自然の静けさ。緑と心地よい微風に包まれ、最もリラックスできる生活リズムを感じる場所。',
+        tags: ['森林浴の青木', '香り高いい草', '温もりの木質'],
         photoIds: [15, 16, 17, 18, 19, 20, 21],
         amenities: [
           { icon: 'fa-solid fa-water', text: '緑に囲まれた水遊び場' },
@@ -736,9 +736,9 @@ export const locales = {
       {
         id: 'gold',
         number: '04',
-        name: 'Gold · Essence',
-        concept: 'Low-key and delicate, steady and elegant. Creating a deeper sense of ritual for every moment worth remembering.',
-        tags: ['Exquisite Brass', 'Golden Leaf', 'Pure Metallurgy'],
+        name: '金箔・粋',
+        concept: '控えめでありながら繊細、落ち着きがあり優雅。すべての記念すべきひとときに、より深い儀式感（演出）を添える場所。',
+        tags: ['ゴールドの美学', '極上の金箔', '純粋な金属'],
         photoIds: [22, 23, 24, 25, 26, 27, 28],
         amenities: [
           { icon: 'fa-solid fa-water', text: 'プライベートプール' },

@@ -2,6 +2,14 @@
    🏡 SHAN JING | 山境織光 民宿風格宣傳網站 - 核心設計系統與樣式表
    ========================================================================== */
 
+@font-face {
+    font-family: 'GenRyuMin2TW';
+    src: url('/fonts/GenRyuMin2TW-R.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* 🎨 Design Tokens & CSS Variables */
 :root {
     /* Color Palette */
@@ -21,7 +29,7 @@
     --text-white: #ffffff;
     
     /* Typography */
-    --font-serif: "Cormorant Garamond", "Playfair Display", "Georgia", serif;
+    --font-serif: "Cormorant Garamond", "Playfair Display", "GenRyuMin2TW", "Georgia", serif;
     --font-sans: "Noto Sans TC", "Montserrat", "Inter", sans-serif;
     
     /* Layout & Spacing */
@@ -138,6 +146,8 @@ section {
     color: var(--primary-dark);
     line-height: 1.3;
     margin-bottom: 24px;
+    font-variant-numeric: lining-nums;
+    font-feature-settings: "lnum" 1;
 }
 
 .section-desc {
@@ -222,7 +232,7 @@ section {
     justify-content: space-between;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     .header-container {
         padding: 0 48px;
     }
@@ -283,7 +293,7 @@ section {
 }
 
 /* Menu links */
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     .nav-menu {
         position: absolute;
         left: 50%;
@@ -2182,7 +2192,7 @@ section {
 }
 
 /* 📱 Small Tablet / Mobile Styles */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     /* Navbar Toggle */
     .mobile-menu-toggle { display: flex; }
     
@@ -2219,9 +2229,16 @@ section {
         padding: 10px 0;
     }
     
-    /* Header Action hiding or styling */
+    /* Header Action styling */
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
     .header-actions .btn {
-        display: none; /* Hide primary CTA in nav for space */
+        display: inline-flex;
+        padding: 8px 16px;
+        font-size: 0.82rem;
     }
     .main-header.menu-open .mobile-menu-toggle span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
@@ -2610,9 +2627,9 @@ button.disabled:hover {
 }
 
 /* Adjust header actions on mobile to show switcher without overlap */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .header-actions {
-        gap: 12px;
+        gap: 20px;
     }
     
     .lang-switcher-container {

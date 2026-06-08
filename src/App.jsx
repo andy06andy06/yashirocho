@@ -176,6 +176,17 @@ export default function App() {
     return () => window.removeEventListener('click', handleClickOutside)
   }, [isLangDropdownOpen])
 
+  // 5. Click outside to close mobile hamburger menu drawer
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (isMenuOpen && !e.target.closest('.nav-menu') && !e.target.closest('.mobile-menu-toggle')) {
+        setIsMenuOpen(false)
+      }
+    }
+    window.addEventListener('click', handleClickOutside)
+    return () => window.removeEventListener('click', handleClickOutside)
+  }, [isMenuOpen])
+
   // --- Functions ---
 
   // Get active villa object
