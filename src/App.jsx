@@ -536,7 +536,7 @@ export default function App() {
             </div>
 
             {/* 🏰 Primary Tabs: 4 Villas Selection Card Grid */}
-            <div ref={tabsRef} className="villa-tabs reveal-on-scroll">
+            <div ref={tabsRef} className="villa-tabs">
               {villas.map((villa) => (
                 <div
                   key={villa.id}
@@ -544,9 +544,9 @@ export default function App() {
                   onClick={() => {
                     setActiveVilla(villa.id);
                     setCurrentVillaPhotoIdx(0);
-                    // Smoothly scroll to the tabs area so the entire connection and details are visible
+                    // Smoothly scroll to the photos content area
                     setTimeout(() => {
-                      tabsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      galleryStartRef.current?.scrollIntoView({ behavior: 'smooth' });
                     }, 50);
                   }}
                 >
@@ -557,7 +557,7 @@ export default function App() {
             </div>
 
             {/* 🧭 Visual connection pointer linking active tab to details */}
-            <div className="villa-tab-pointers reveal-on-scroll">
+            <div className="villa-tab-pointers">
               {villas.map((villa) => (
                 <div
                   key={villa.id}
@@ -576,7 +576,7 @@ export default function App() {
             {/* Showcase details area (amenities left, carousel right) */}
             <div 
               ref={galleryStartRef} 
-              className={`villa-details-showcase reveal-on-scroll theme-${activeVilla} ${showcaseHighlight ? 'showcase-highlight' : ''}`}
+              className={`villa-details-showcase theme-${activeVilla} ${showcaseHighlight ? 'showcase-highlight' : ''}`}
             >
               {/* Left Column: Amenities */}
               <div className="villa-amenities-col">
