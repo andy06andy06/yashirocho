@@ -49,12 +49,25 @@ export default function App() {
   // --- States ---
   const [photos, setPhotos] = useState([])
   const [activeVilla, setActiveVilla] = useState('red')
+  const [showcaseHighlight, setShowcaseHighlight] = useState(false)
   const [currentVillaPhotoIdx, setCurrentVillaPhotoIdx] = useState(0)
   const [isNavScrolled, setIsNavScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  // --- Parallax Story Collage Ref & Scroll Event ---
+  // Refs for layout
   const storyContainerRef = useRef(null)
+  const tabsRef = useRef(null)
+  const galleryStartRef = useRef(null)
+
+  // Trigger temporary glow on showcase when active villa changes
+  useEffect(() => {
+    setShowcaseHighlight(true)
+    const timer = setTimeout(() => {
+      setShowcaseHighlight(false)
+    }, 1500)
+    return () => clearTimeout(timer)
+  }, [activeVilla])
+
   useEffect(() => {
     const handleScroll = () => {
       const container = storyContainerRef.current
@@ -69,8 +82,6 @@ export default function App() {
       }
     }
     window.addEventListener('scroll', handleScroll)
-    // Run once on load
-    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -87,9 +98,6 @@ export default function App() {
   const [lightboxActive, setLightboxActive] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
   const [lightboxLoaded, setLightboxLoaded] = useState(false)
-
-  // Ref for scrolling to the villa photos area
-  const galleryStartRef = useRef(null)
 
   // FAQ Active Accordion
   const [activeFaq, setActiveFaq] = useState(null)
@@ -528,7 +536,7 @@ export default function App() {
             </div>
 
             {/* 🏰 Primary Tabs: 4 Villas Selection Card Grid */}
-            <div className="villa-tabs reveal-on-scroll">
+            <div ref={tabsRef} className="villa-tabs reveal-on-scroll">
               {villas.map((villa) => (
                 <div
                   key={villa.id}
@@ -536,25 +544,40 @@ export default function App() {
                   onClick={() => {
                     setActiveVilla(villa.id);
                     setCurrentVillaPhotoIdx(0);
-                    // Smoothly scroll to the photos content area
+                    // Smoothly scroll to the tabs area so the entire connection and details are visible
                     setTimeout(() => {
-                      galleryStartRef.current?.scrollIntoView({ behavior: 'smooth' });
+                      tabsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }, 50);
                   }}
                 >
                   <span className="villa-num">{villa.number}</span>
                   <h3>{villa.name}</h3>
-                  <div className="villa-card-tags">
-                    {villa.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="villa-tag">{tag}</span>
-                    ))}
+                </div>
+              ))}
+            </div>
+
+            {/* 🧭 Visual connection pointer linking active tab to details */}
+            <div className="villa-tab-pointers reveal-on-scroll">
+              {villas.map((villa) => (
+                <div
+                  key={villa.id}
+                  className={`pointer-arrow-col pointer-col-${villa.id} ${activeVilla === villa.id ? 'active' : ''}`}
+                >
+                  <div className="pointer-line"></div>
+                  <div className="pointer-arrow">
+                    <div className="pointer-icon-wrapper">
+                      <i className="fa-solid fa-chevron-down"></i>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Showcase details area (amenities left, carousel right) */}
-            <div ref={galleryStartRef} className="villa-details-showcase reveal-on-scroll">
+            <div 
+              ref={galleryStartRef} 
+              className={`villa-details-showcase reveal-on-scroll theme-${activeVilla} ${showcaseHighlight ? 'showcase-highlight' : ''}`}
+            >
               {/* Left Column: Amenities */}
               <div className="villa-amenities-col">
 

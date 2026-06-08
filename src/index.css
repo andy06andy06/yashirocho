@@ -5,7 +5,23 @@
 @font-face {
     font-family: 'GenRyuMin2TW';
     src: url('/fonts/GenRyuMin2TW-R.otf') format('opentype');
-    font-weight: normal;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GenRyuMin2TW';
+    src: url('/fonts/GenRyuMin2TW-R.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GenRyuMin2TW';
+    src: url('/fonts/GenRyuMin2TW-R.otf') format('opentype');
+    font-weight: 800;
     font-style: normal;
     font-display: swap;
 }
@@ -824,19 +840,20 @@ section {
 }
 
 .villa-tab-card {
-    background-color: var(--bg-primary);
     border-radius: var(--border-radius-md);
-    border: 1px solid rgba(92, 99, 83, 0.15);
-    padding: 30px 24px;
+    padding: 24px 20px;
     cursor: pointer;
     position: relative;
     transition: var(--transition-smooth);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-glass);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 125px;
     overflow: hidden;
     z-index: 1;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
 /* 🌟 Soft, abstract elemental aura glow */
@@ -849,7 +866,7 @@ section {
     height: 160px;
     border-radius: 50%;
     filter: blur(40px);
-    opacity: 0.18;
+    opacity: 0.12;
     z-index: -1;
     transition: var(--transition-smooth);
 }
@@ -857,7 +874,7 @@ section {
 .villa-tab-card:hover::after,
 .villa-tab-card.active::after {
     transform: scale(1.4);
-    opacity: 0.42;
+    opacity: 0.28;
 }
 
 .villa-tab-card::before {
@@ -874,8 +891,8 @@ section {
 
 /* 🟥 1. 火元素 (緋紅 · 樂 - Fire Theme) */
 .villa-tab-card-red {
-    background: linear-gradient(135deg, var(--bg-primary) 0%, #ffe9e2 100%);
-    border-color: rgba(224, 86, 36, 0.2);
+    background-color: rgba(224, 86, 36, 0.04);
+    border: 1px solid rgba(224, 86, 36, 0.15);
 }
 .villa-tab-card-red::after {
     background-color: #e05624;
@@ -883,11 +900,11 @@ section {
 .villa-tab-card-red:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-medium);
-    border-color: rgba(224, 86, 36, 0.5);
-    background: linear-gradient(135deg, #fff7f4 0%, #ffd5c8 100%);
+    border-color: rgba(224, 86, 36, 0.4);
+    background-color: rgba(224, 86, 36, 0.08);
 }
 .villa-tab-card-red.active {
-    background: linear-gradient(135deg, #ffe9e2 0%, #fbcbc0 100%);
+    background-color: rgba(224, 86, 36, 0.14);
     border-color: #e05624;
     box-shadow: var(--shadow-medium);
 }
@@ -897,17 +914,17 @@ section {
 .villa-tab-card-red .villa-num {
     color: #e05624;
 }
-.villa-tab-card-red.active .villa-tag {
-    background-color: rgba(224, 86, 36, 0.1);
-    border-color: rgba(224, 86, 36, 0.25);
-    color: #d03e10;
-    font-weight: 500;
+.villa-tab-card-red h3 {
+    color: rgba(138, 42, 12, 0.7);
+}
+.villa-tab-card-red.active h3 {
+    color: #8a2a0c;
 }
 
 /* 🟦 2. 水元素 (流影 · 淨 - Water Theme) */
 .villa-tab-card-shadow {
-    background: linear-gradient(135deg, var(--bg-primary) 0%, #daf0f6 100%);
-    border-color: rgba(74, 138, 168, 0.2);
+    background-color: rgba(74, 138, 168, 0.04);
+    border: 1px solid rgba(74, 138, 168, 0.15);
 }
 .villa-tab-card-shadow::after {
     background-color: #4a8aa8;
@@ -915,11 +932,11 @@ section {
 .villa-tab-card-shadow:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-medium);
-    border-color: rgba(74, 138, 168, 0.5);
-    background: linear-gradient(135deg, #f0f7f9 0%, #cbeaf3 100%);
+    border-color: rgba(74, 138, 168, 0.4);
+    background-color: rgba(74, 138, 168, 0.08);
 }
 .villa-tab-card-shadow.active {
-    background: linear-gradient(135deg, #daf0f6 0%, #b8e1ee 100%);
+    background-color: rgba(74, 138, 168, 0.14);
     border-color: #4a8aa8;
     box-shadow: var(--shadow-medium);
 }
@@ -929,17 +946,17 @@ section {
 .villa-tab-card-shadow .villa-num {
     color: #4a8aa8;
 }
-.villa-tab-card-shadow.active .villa-tag {
-    background-color: rgba(74, 138, 168, 0.1);
-    border-color: rgba(74, 138, 168, 0.25);
-    color: #2b7396;
-    font-weight: 500;
+.villa-tab-card-shadow h3 {
+    color: rgba(28, 82, 109, 0.7);
+}
+.villa-tab-card-shadow.active h3 {
+    color: #1c526d;
 }
 
 /* 🟩 3. 木元素 (青木 · 舒 - Wood Theme) */
 .villa-tab-card-wood {
-    background: linear-gradient(135deg, var(--bg-primary) 0%, #e3ecd9 100%);
-    border-color: rgba(92, 107, 83, 0.2);
+    background-color: rgba(92, 107, 83, 0.04);
+    border: 1px solid rgba(92, 107, 83, 0.15);
 }
 .villa-tab-card-wood::after {
     background-color: #5c6b53;
@@ -947,11 +964,11 @@ section {
 .villa-tab-card-wood:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-medium);
-    border-color: rgba(92, 107, 83, 0.5);
-    background: linear-gradient(135deg, #f3f7ef 0%, #d5e4c6 100%);
+    border-color: rgba(92, 107, 83, 0.4);
+    background-color: rgba(92, 107, 83, 0.08);
 }
 .villa-tab-card-wood.active {
-    background: linear-gradient(135deg, #e3ecd9 0%, #c8ddb6 100%);
+    background-color: rgba(92, 107, 83, 0.14);
     border-color: #5c6b53;
     box-shadow: var(--shadow-medium);
 }
@@ -961,17 +978,17 @@ section {
 .villa-tab-card-wood .villa-num {
     color: #5c6b53;
 }
-.villa-tab-card-wood.active .villa-tag {
-    background-color: rgba(92, 107, 83, 0.1);
-    border-color: rgba(92, 107, 83, 0.25);
-    color: #4b5c41;
-    font-weight: 500;
+.villa-tab-card-wood h3 {
+    color: rgba(49, 62, 42, 0.7);
+}
+.villa-tab-card-wood.active h3 {
+    color: #313e2a;
 }
 
 /* 🟨 4. 金元素 (金箔 · 粹 - Gold/Metal Theme) */
 .villa-tab-card-gold {
-    background: linear-gradient(135deg, var(--bg-primary) 0%, #f1e7d0 100%);
-    border-color: rgba(186, 149, 106, 0.2);
+    background-color: rgba(186, 149, 106, 0.04);
+    border: 1px solid rgba(186, 149, 106, 0.15);
 }
 .villa-tab-card-gold::after {
     background-color: #ba956a;
@@ -979,11 +996,11 @@ section {
 .villa-tab-card-gold:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-medium);
-    border-color: rgba(186, 149, 106, 0.5);
-    background: linear-gradient(135deg, #f9f5ed 0%, #e9dac4 100%);
+    border-color: rgba(186, 149, 106, 0.4);
+    background-color: rgba(186, 149, 106, 0.08);
 }
 .villa-tab-card-gold.active {
-    background: linear-gradient(135deg, #f1e7d0 0%, #e4d3aa 100%);
+    background-color: rgba(186, 149, 106, 0.14);
     border-color: #ba956a;
     box-shadow: var(--shadow-medium);
 }
@@ -993,11 +1010,11 @@ section {
 .villa-tab-card-gold .villa-num {
     color: #ba956a;
 }
-.villa-tab-card-gold.active .villa-tag {
-    background-color: rgba(186, 149, 106, 0.1);
-    border-color: rgba(186, 149, 106, 0.25);
-    color: #a17f56;
-    font-weight: 500;
+.villa-tab-card-gold h3 {
+    color: rgba(99, 73, 42, 0.7);
+}
+.villa-tab-card-gold.active h3 {
+    color: #63492a;
 }
 
 .villa-num {
@@ -2825,6 +2842,210 @@ button.disabled:hover {
     
     .pet-img-wrapper {
         height: 380px;
+    }
+}
+
+/* 🧭 Villa Tab Pointer (Visual indicator linking active tab to showcase container) */
+.villa-tab-pointers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: -40px; /* Pull it slightly up under the tabs */
+    margin-bottom: -15px; /* Bring the showcase closer */
+    height: 40px;
+    pointer-events: none;
+    position: relative;
+    z-index: 10;
+}
+
+@media (max-width: 1024px) {
+    .villa-tab-pointers {
+        /* Pointers are not needed when tabs wrap to 2 columns on mobile/tablet */
+        display: none;
+    }
+}
+
+.pointer-arrow-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(-12px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pointer-arrow-col.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pointer-line {
+    width: 2px;
+    height: 0;
+    background: transparent;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-bottom: -4px;
+    z-index: 1;
+}
+
+.pointer-arrow-col.active .pointer-line {
+    height: 20px;
+    opacity: 1;
+}
+
+.pointer-arrow {
+    width: 32px;
+    height: 32px;
+    background-color: var(--bg-primary);
+    border: 2px solid rgba(92, 99, 83, 0.12);
+    /* Rotate 45deg to form a diamond */
+    transform: translateY(22px) rotate(45deg);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    z-index: 2;
+}
+
+/* Color-match the pointer border and background to the active theme with enhanced glow */
+.pointer-col-red.active .pointer-arrow {
+    background-color: #e05624;
+    border-color: #e05624;
+    box-shadow: 0 0 20px rgba(224, 86, 36, 0.4);
+}
+.pointer-col-red.active .pointer-line {
+    background: linear-gradient(to bottom, rgba(224, 86, 36, 0.1), #e05624);
+}
+
+.pointer-col-shadow.active .pointer-arrow {
+    background-color: #4a8aa8;
+    border-color: #4a8aa8;
+    box-shadow: 0 0 20px rgba(74, 138, 168, 0.4);
+}
+.pointer-col-shadow.active .pointer-line {
+    background: linear-gradient(to bottom, rgba(74, 138, 168, 0.1), #4a8aa8);
+}
+
+.pointer-col-wood.active .pointer-arrow {
+    background-color: #5c6b53;
+    border-color: #5c6b53;
+    box-shadow: 0 0 20px rgba(92, 107, 83, 0.4);
+}
+.pointer-col-wood.active .pointer-line {
+    background: linear-gradient(to bottom, rgba(92, 107, 83, 0.1), #5c6b53);
+}
+
+.pointer-col-gold.active .pointer-arrow {
+    background-color: #ba956a;
+    border-color: #ba956a;
+    box-shadow: 0 0 20px rgba(186, 149, 106, 0.4);
+}
+.pointer-col-gold.active .pointer-line {
+    background: linear-gradient(to bottom, rgba(186, 149, 106, 0.1), #ba956a);
+}
+
+/* Counter-rotated icon wrapper inside rotated diamond */
+.pointer-icon-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pointer-icon-wrapper i {
+    font-size: 11px;
+    color: #ffffff;
+    animation: pointerChevronPulse 1.6s infinite ease-in-out;
+}
+
+@keyframes pointerChevronPulse {
+    0%, 100% {
+        transform: translateY(-2px);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(3px);
+        opacity: 1;
+    }
+}
+
+/* 🏰 Villa Details Showcase Highlight Pulse Animations */
+.villa-details-showcase.showcase-highlight.theme-red {
+    animation: showcasePulseRed 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.villa-details-showcase.showcase-highlight.theme-shadow {
+    animation: showcasePulseShadow 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.villa-details-showcase.showcase-highlight.theme-wood {
+    animation: showcasePulseWood 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.villa-details-showcase.showcase-highlight.theme-gold {
+    animation: showcasePulseGold 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes showcasePulseRed {
+    0% {
+        border-color: rgba(224, 86, 36, 0.12);
+        box-shadow: var(--shadow-medium);
+    }
+    15% {
+        border-color: rgba(224, 86, 36, 0.8);
+        box-shadow: 0 0 30px rgba(224, 86, 36, 0.35), var(--shadow-medium);
+    }
+    100% {
+        border-color: rgba(92, 99, 83, 0.12);
+        box-shadow: var(--shadow-medium);
+    }
+}
+
+@keyframes showcasePulseShadow {
+    0% {
+        border-color: rgba(74, 138, 168, 0.12);
+        box-shadow: var(--shadow-medium);
+    }
+    15% {
+        border-color: rgba(74, 138, 168, 0.8);
+        box-shadow: 0 0 30px rgba(74, 138, 168, 0.35), var(--shadow-medium);
+    }
+    100% {
+        border-color: rgba(92, 99, 83, 0.12);
+        box-shadow: var(--shadow-medium);
+    }
+}
+
+@keyframes showcasePulseWood {
+    0% {
+        border-color: rgba(92, 107, 83, 0.12);
+        box-shadow: var(--shadow-medium);
+    }
+    15% {
+        border-color: rgba(92, 107, 83, 0.8);
+        box-shadow: 0 0 30px rgba(92, 107, 83, 0.35), var(--shadow-medium);
+    }
+    100% {
+        border-color: rgba(92, 99, 83, 0.12);
+        box-shadow: var(--shadow-medium);
+    }
+}
+
+@keyframes showcasePulseGold {
+    0% {
+        border-color: rgba(186, 149, 106, 0.12);
+        box-shadow: var(--shadow-medium);
+    }
+    15% {
+        border-color: rgba(186, 149, 106, 0.8);
+        box-shadow: 0 0 30px rgba(186, 149, 106, 0.35), var(--shadow-medium);
+    }
+    100% {
+        border-color: rgba(92, 99, 83, 0.12);
+        box-shadow: var(--shadow-medium);
     }
 }
 
