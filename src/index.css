@@ -226,7 +226,16 @@ section {
     width: 100%;
     z-index: 1000;
     padding: 24px 0;
-    transition: var(--transition-smooth);
+    /* Avoid animating position/top coordinates to prevent scroll drift on mobile viewports */
+    transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                -webkit-backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Enable GPU rendering to eliminate position lag on scroll */
+    transform: translate3d(0, 0, 0);
+    will-change: padding, background-color, box-shadow;
 }
 
 .main-header.scrolled {
@@ -236,6 +245,30 @@ section {
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: var(--shadow-glass);
+}
+
+/* Dynamic colors when header is transparent at the top of the page (not scrolled) */
+.main-header:not(.scrolled) .logo-zh {
+    color: #ffffff;
+}
+.main-header:not(.scrolled) .logo-img {
+    filter: brightness(0) invert(1);
+}
+.main-header:not(.scrolled) .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+}
+.main-header:not(.scrolled) .lang-switcher-trigger {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+}
+.main-header:not(.scrolled) .lang-switcher-trigger:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+}
+.main-header:not(.scrolled) .mobile-menu-toggle span {
+    background-color: #ffffff;
 }
 
 .header-container {
@@ -262,8 +295,8 @@ section {
 }
 
 .logo-img-wrapper {
-    width: 76px;
-    height: 76px; /* Increased size to make the logo stand out more */
+    width: 44px;
+    height: 44px;
     overflow: hidden;
     position: relative;
     border-radius: 50%; /* Perfect circle */
@@ -271,12 +304,13 @@ section {
 }
 
 .logo-img {
-    width: 76px;
-    height: 76px;
+    width: 44px;
+    height: 44px;
     object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
+    transition: filter 0.35s ease;
 }
 
 .logo:hover .logo-img-wrapper {
@@ -286,6 +320,10 @@ section {
 .logo-text {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 46px;
+    padding: 1px 0; /* Mathematical centering offset */
+    box-sizing: border-box;
 }
 
 .logo-zh {
@@ -294,7 +332,7 @@ section {
     font-weight: 600;
     letter-spacing: 0.48em; /* Wider spacing to stretch exactly to the English width */
     color: var(--primary-dark);
-    line-height: 1.15;
+    line-height: 1.0; /* Clean standard line-height */
     margin-right: -0.48em; /* Offset trailing spacing for perfect pixel alignment */
 }
 
@@ -302,7 +340,7 @@ section {
     font-size: 0.58rem; /* Enlarged English size to match the Chinese width */
     letter-spacing: 0.56em; /* Expanded spacing to stretch exactly to Chinese width */
     color: var(--accent-color);
-    margin-top: 3px;
+    line-height: 1.0; /* Clean standard line-height */
     font-weight: 500;
     text-transform: uppercase;
     margin-right: -0.56em; /* Offset trailing spacing for perfect pixel alignment */
@@ -525,10 +563,12 @@ section {
 
 .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 6vw, 4.25rem);
+    font-size: clamp(1.8rem, 4.5vw, 3rem);
+    color: rgba(255, 255, 255, 0.7);
     font-weight: 400;
-    line-height: 1.25;
+    line-height: 1.35;
     margin-bottom: 24px;
+    letter-spacing: 0.05em;
     animation: fadeInUp 1.2s var(--transition-smooth) 0.2s both;
 }
 
@@ -867,11 +907,60 @@ section {
         flex-direction: row-reverse;
     }
     .villa-carousel-col {
-        flex: 1;
+        flex: 1.1;
+        min-width: 0;
     }
     .villa-content-col {
-        width: fit-content;
-        flex-shrink: 0;
+        flex: 0.9;
+        min-width: 0;
+        gap: 12px !important;
+    }
+    .btn-villa-toggle {
+        display: none !important;
+    }
+    .villa-block .villa-amenities-block {
+        max-height: none !important;
+        opacity: 1 !important;
+        overflow: visible !important;
+        padding-top: 12px !important;
+        margin-top: 10px !important;
+        border-top: 1px dashed rgba(92, 99, 83, 0.15) !important;
+    }
+    .villa-specs-container {
+        padding: 10px 14px !important;
+        gap: 8px 12px !important;
+        margin-top: -8px !important;
+        margin-bottom: 0 !important;
+    }
+    .villa-spec-item {
+        gap: 8px !important;
+    }
+    .villa-amenity-category-group {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+    .villa-amenity-category-group:first-child {
+        padding-top: 4px !important;
+    }
+    .villa-amenity-category-title {
+        font-size: 0.98rem !important;
+        margin-bottom: 8px !important;
+    }
+    .villa-amenity-category-title::before {
+        height: 14px !important;
+    }
+    .villa-amenity-category-grid {
+        gap: 6px 12px !important;
+    }
+    .villa-block .villa-amenity-item {
+        padding: 2px 0 !important;
+        gap: 8px !important;
+    }
+    .villa-block .villa-amenity-icon {
+        font-size: 1.02rem !important;
+    }
+    .villa-block .villa-amenity-text {
+        font-size: 0.86rem !important;
     }
 }
 
@@ -879,6 +968,71 @@ section {
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+/* 📋 Villa Basic Specifications */
+.villa-specs-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 20px;
+    margin-top: -8px; /* pull closer to header */
+    margin-bottom: 4px;
+    padding: 16px 18px;
+    background-color: rgba(92, 99, 83, 0.04);
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(92, 99, 83, 0.08);
+}
+
+.villa-spec-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1 1 calc(33.333% - 14px);
+    min-width: 130px;
+}
+
+.villa-spec-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    width: auto;
+    height: auto;
+}
+
+.theme-red .villa-spec-icon { color: #e05624; }
+.theme-shadow .villa-spec-icon { color: #4a8aa8; }
+.theme-wood .villa-spec-icon { color: #5c6b53; }
+.theme-gold .villa-spec-icon { color: #ba956a; }
+
+.villa-spec-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.villa-spec-label {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+.villa-spec-value {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+@media (max-width: 576px) {
+    .villa-specs-container {
+        gap: 12px;
+        padding: 12px 14px;
+    }
+    .villa-spec-item {
+        flex: 1 1 100%;
+        min-width: 0;
+    }
 }
 
 .villa-block-header {
@@ -957,83 +1111,135 @@ section {
     margin-top: 8px;
 }
 
-.villa-content-col .villa-amenities-block {
+/* Categorized Amenities block */
+.villa-block .villa-amenities-block {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
     border-top: 1px dashed transparent;
     padding-top: 0;
     margin-top: 0;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 0.4s ease,
-                padding-top 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                margin-top 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.5s ease,
+                padding-top 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                margin-top 0.6s cubic-bezier(0.16, 1, 0.3, 1),
                 border-color 0.4s ease;
 }
 
-.villa-content-col .villa-amenities-block.expanded {
-    max-height: 1000px;
+.villa-block .villa-amenities-block.expanded {
+    max-height: 2000px;
     opacity: 1;
-    padding-top: 24px;
-    margin-top: 20px;
+    padding-top: 32px;
+    margin-top: 40px;
     border-top: 1px dashed rgba(92, 99, 83, 0.15);
 }
 
-.villa-content-col .villa-column-title {
+.villa-block .villa-column-title {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--primary-dark);
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 0;
+    margin-bottom: 8px;
+    border-bottom: 2px solid rgba(92, 99, 83, 0.1);
+    padding-bottom: 8px;
 }
 
-.villa-content-col .villa-column-title i {
-    font-size: 1.1rem;
+.villa-block .villa-column-title i {
+    font-size: 1.15rem;
 }
 .theme-red .villa-column-title i { color: #e05624; }
 .theme-shadow .villa-column-title i { color: #4a8aa8; }
 .theme-wood .villa-column-title i { color: #5c6b53; }
 .theme-gold .villa-column-title i { color: #ba956a; }
 
-.villa-content-col .villa-amenities-grid {
+/* Categorized groupings */
+.villa-amenities-categories {
+    display: flex;
+    flex-direction: column;
+}
+
+.villa-amenity-category-group {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(92, 99, 83, 0.12);
+}
+
+.villa-amenity-category-group:first-child {
+    padding-top: 12px;
+}
+
+.villa-amenity-category-group:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.villa-amenity-category-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-top: 0;
+    margin-bottom: 18px;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.villa-amenity-category-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    background-color: currentColor;
+    border-radius: 2px;
+}
+
+.theme-red .villa-amenity-category-title { color: #e05624; }
+.theme-shadow .villa-amenity-category-title { color: #4a8aa8; }
+.theme-wood .villa-amenity-category-title { color: #5c6b53; }
+.theme-gold .villa-amenity-category-title { color: #ba956a; }
+
+.villa-amenity-category-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px 20px;
 }
 
-.villa-content-col .villa-amenity-item {
+.villa-block .villa-amenity-item {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 8px 12px;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: var(--border-radius-sm);
-    border: 1px solid rgba(92, 99, 83, 0.05);
+    padding: 6px 0;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0;
 }
 
-.villa-content-col .villa-amenity-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
+.villa-block .villa-amenity-icon {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: 1.15rem;
+    width: auto;
+    height: auto;
+    background-color: transparent !important;
+    border-radius: 0;
 }
 
-.theme-red .villa-amenity-icon { background-color: rgba(224, 86, 36, 0.08); color: #e05624; }
-.theme-shadow .villa-amenity-icon { background-color: rgba(74, 138, 168, 0.08); color: #4a8aa8; }
-.theme-wood .villa-amenity-icon { background-color: rgba(92, 107, 83, 0.08); color: #5c6b53; }
-.theme-gold .villa-amenity-icon { background-color: rgba(186, 149, 106, 0.08); color: #ba956a; }
+.theme-red .villa-amenity-icon { color: #e05624; }
+.theme-shadow .villa-amenity-icon { color: #4a8aa8; }
+.theme-wood .villa-amenity-icon { color: #5c6b53; }
+.theme-gold .villa-amenity-icon { color: #ba956a; }
 
-.villa-content-col .villa-amenity-text {
-    font-size: 0.88rem;
+.villa-block .villa-amenity-text {
+    font-size: 0.92rem;
     font-weight: 500;
     color: var(--primary-color);
 }
@@ -1118,13 +1324,20 @@ section {
     .villa-block-header .villa-title {
         font-size: 1.5rem;
     }
-    .villa-content-col .villa-amenities-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+    .villa-amenity-category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px 16px;
     }
     .btn-villa-toggle {
         width: 100%;
         justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .villa-amenity-category-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 }
 
@@ -2243,7 +2456,7 @@ section {
     .nav-link { font-size: 1.15rem; }
     
     .main-header.scrolled {
-        padding: 10px 0;
+        padding: 16px 0;
     }
     
     /* Header Action styling */

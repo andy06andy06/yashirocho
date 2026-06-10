@@ -1,10 +1,160 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { locales, translatePhoto } from './locales'
 
+// --- Categorization helper for villa amenities ---
+function getCategorizedAmenities(amenities, locale) {
+  const categoryHeaders = {
+    zh: {
+      public: '公共區設施與服務',
+      dining: '餐飲設施',
+      safety: '安全設施'
+    },
+    en: {
+      public: 'Public Facilities & Services',
+      dining: 'Dining Facilities',
+      safety: 'Safety Facilities'
+    },
+    ja: {
+      public: '公共区施設とサービス',
+      dining: '飲食施設',
+      safety: '安全施設'
+    }
+  };
+
+  const headers = categoryHeaders[locale] || categoryHeaders['zh'];
+
+  const safetyItems = {
+    zh: [
+      { icon: 'fa-solid fa-kit-medical', text: '醫藥箱' },
+      { icon: 'fa-solid fa-fire-extinguisher', text: '滅火器' },
+      { icon: 'fa-solid fa-wind', text: '煙霧偵測器' },
+      { icon: 'fa-solid fa-video', text: '安全監視器' }
+    ],
+    en: [
+      { icon: 'fa-solid fa-kit-medical', text: 'First Aid Kit' },
+      { icon: 'fa-solid fa-fire-extinguisher', text: 'Fire Extinguisher' },
+      { icon: 'fa-solid fa-wind', text: 'Smoke Detector' },
+      { icon: 'fa-solid fa-video', text: 'Security Cameras' }
+    ],
+    ja: [
+      { icon: 'fa-solid fa-kit-medical', text: '救急箱' },
+      { icon: 'fa-solid fa-fire-extinguisher', text: '消火器' },
+      { icon: 'fa-solid fa-wind', text: '煙感知器' },
+      { icon: 'fa-solid fa-video', text: '防犯カメラ' }
+    ]
+  };
+
+  const currentSafety = safetyItems[locale] || safetyItems['zh'];
+
+  const categorized = {
+    public: [],
+    dining: [],
+    safety: [...currentSafety]
+  };
+
+  const isDining = (text) => {
+    const diningKeywords = [
+      '廚房', '中島', '冰箱', '烤箱', '爐', '爐台', '洗碗機', '微波爐', '咖啡', 'Mini Bar', 'MiniBar', '飲料', '水機', '氣泡水', '飲水', '茶具', '陶器', '杯', '烤肉',
+      'Kitchen', 'Fridge', 'Oven', 'Stove', 'Dishwasher', 'Microwave', 'Coffee', 'Espresso', 'Mini bar', 'Drinks', 'Water', 'Dispenser', 'Teaset', 'Ceramic', 'Cup', 'Maker', 'BBQ',
+      'キッチン', '冷蔵庫', 'オーブン', 'ガスコンロ', 'コーヒー', 'エスプレッソ', 'ミニバー', '炭酸水', 'ウォーターサーバー', '和陶器茶器', 'カップ', 'ドリップ', 'BBQ'
+    ];
+    return diningKeywords.some(kw => text.toLowerCase().includes(kw.toLowerCase()));
+  };
+
+  amenities?.forEach(item => {
+    if (isDining(item.text)) {
+      categorized.dining.push(item);
+    } else {
+      categorized.public.push(item);
+    }
+  });
+
+  return [
+    { key: 'public', title: headers.public, items: categorized.public },
+    { key: 'dining', title: headers.dining, items: categorized.dining },
+    { key: 'safety', title: headers.safety, items: categorized.safety }
+  ];
+}
+
+// --- Helper for villa specs ---
+const getVillaSpecs = (villaId, locale) => {
+  const specsData = {
+    red: {
+      zh: [
+        { icon: 'fa-solid fa-users', label: '適合人數', value: '4 ~ 8 人' },
+        { icon: 'fa-solid fa-stairs', label: '別墅樓層', value: '2 層樓獨棟空間' },
+        { icon: 'fa-solid fa-door-open', label: '房型格局', value: '2 間加大雙人房' }
+      ],
+      en: [
+        { icon: 'fa-solid fa-users', label: 'Capacity', value: '4 ~ 8 Guests' },
+        { icon: 'fa-solid fa-stairs', label: 'Floors', value: '2-Story Villa' },
+        { icon: 'fa-solid fa-door-open', label: 'Layout', value: '2 King Bedrooms' }
+      ],
+      ja: [
+        { icon: 'fa-solid fa-users', label: '定員', value: '4 〜 8 名' },
+        { icon: 'fa-solid fa-stairs', label: '階数', value: '2階建て別荘' },
+        { icon: 'fa-solid fa-door-open', label: '間取り', value: 'ダブルベッドルーム 2室' }
+      ]
+    },
+    shadow: {
+      zh: [
+        { icon: 'fa-solid fa-users', label: '適合人數', value: '4 ~ 6 人' },
+        { icon: 'fa-solid fa-stairs', label: '別墅樓層', value: '2 層樓獨棟空間' },
+        { icon: 'fa-solid fa-door-open', label: '房型格局', value: '2 房 + 榻榻米客室' }
+      ],
+      en: [
+        { icon: 'fa-solid fa-users', label: 'Capacity', value: '4 ~ 6 Guests' },
+        { icon: 'fa-solid fa-stairs', label: 'Floors', value: '2-Story Villa' },
+        { icon: 'fa-solid fa-door-open', label: 'Layout', value: '2 Bedrooms + Tatami' }
+      ],
+      ja: [
+        { icon: 'fa-solid fa-users', label: '定員', value: '4 〜 6 名' },
+        { icon: 'fa-solid fa-stairs', label: '階数', value: '2階建て別荘' },
+        { icon: 'fa-solid fa-door-open', label: '間取り', value: '2室 + 畳客室' }
+      ]
+    },
+    wood: {
+      zh: [
+        { icon: 'fa-solid fa-users', label: '適合人數', value: '4 ~ 8 人' },
+        { icon: 'fa-solid fa-stairs', label: '別墅樓層', value: '2 層樓獨棟空間' },
+        { icon: 'fa-solid fa-door-open', label: '房型格局', value: '2 房 + 榻榻米茶室' }
+      ],
+      en: [
+        { icon: 'fa-solid fa-users', label: 'Capacity', value: '4 ~ 8 Guests' },
+        { icon: 'fa-solid fa-stairs', label: 'Floors', value: '2-Story Villa' },
+        { icon: 'fa-solid fa-door-open', label: 'Layout', value: '2 Bedrooms + Tea Room' }
+      ],
+      ja: [
+        { icon: 'fa-solid fa-users', label: '定員', value: '4 〜 8 名' },
+        { icon: 'fa-solid fa-stairs', label: '階数', value: '2階建て別荘' },
+        { icon: 'fa-solid fa-door-open', label: '間取り', value: '2室 + 畳茶室' }
+      ]
+    },
+    gold: {
+      zh: [
+        { icon: 'fa-solid fa-users', label: '適合人數', value: '2 ~ 6 人' },
+        { icon: 'fa-solid fa-stairs', label: '別墅樓層', value: '3 層樓挑高別墅' },
+        { icon: 'fa-solid fa-door-open', label: '房型格局', value: '雙層挑高閣樓套房' }
+      ],
+      en: [
+        { icon: 'fa-solid fa-users', label: 'Capacity', value: '2 ~ 6 Guests' },
+        { icon: 'fa-solid fa-stairs', label: 'Floors', value: '3-Story Loft Villa' },
+        { icon: 'fa-solid fa-door-open', label: 'Layout', value: 'Double-Height Loft Suite' }
+      ],
+      ja: [
+        { icon: 'fa-solid fa-users', label: '定員', value: '2 〜 6 名' },
+        { icon: 'fa-solid fa-stairs', label: '階数', value: '3階建て吹き抜け' },
+        { icon: 'fa-solid fa-door-open', label: '間取り', value: 'ロフト付きスイート' }
+      ]
+    }
+  };
+  return specsData[villaId]?.[locale] || specsData[villaId]?.['zh'] || [];
+};
+
 // 🏰 Sub-component representing a single Villa block (slideshow on one side, details on other)
 function VillaShowcaseBlock({ villa, photos, t, openLightbox, isEven, locale }) {
   const [photoIdx, setPhotoIdx] = useState(0)
-  const [isExpanded, setIsExpanded] = useState(true)
+  const [isExpanded, setIsExpanded] = useState(false)
 
   const villaPhotos = photos
     .filter(p => p.id !== undefined && villa.photoIds?.includes(p.id))
@@ -42,6 +192,8 @@ function VillaShowcaseBlock({ villa, photos, t, openLightbox, isEven, locale }) 
   }
 
   const currentPhoto = villaPhotos[photoIdx]
+  const categorizedAmenities = getCategorizedAmenities(villa.amenities, locale)
+  const villaSpecs = getVillaSpecs(villa.id, locale)
 
   return (
     <div className={`villa-block theme-${villa.id} reveal-on-scroll`}>
@@ -119,6 +271,19 @@ function VillaShowcaseBlock({ villa, photos, t, openLightbox, isEven, locale }) 
             <h3 className="villa-title">{villa.name}</h3>
           </div>
 
+          {/* 📋 Villa Basic Specifications */}
+          <div className="villa-specs-container">
+            {villaSpecs.map((spec, idx) => (
+              <div key={idx} className="villa-spec-item">
+                <span className="villa-spec-icon"><i className={spec.icon}></i></span>
+                <div className="villa-spec-info">
+                  <span className="villa-spec-label">{spec.label}</span>
+                  <span className="villa-spec-value">{spec.value}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div className="villa-details-toggle-wrapper">
             <button 
               type="button"
@@ -130,18 +295,25 @@ function VillaShowcaseBlock({ villa, photos, t, openLightbox, isEven, locale }) 
               <i className={`fa-solid fa-chevron-${isExpanded ? 'up' : 'down'}`}></i>
             </button>
 
+            {/* Categorized Amenities Block - Positioned inside Content Column */}
             <div className={`villa-amenities-block ${isExpanded ? 'expanded' : ''}`}>
-              <h4 className="villa-column-title">
-                <i className="fa-solid fa-circle-info"></i>
-                {t('rooms.amenitiesLabel')}
-              </h4>
-              <div className="villa-amenities-grid">
-                {villa.amenities?.map((amenity, idx) => (
-                  <div key={idx} className="villa-amenity-item">
-                    <span className="villa-amenity-icon"><i className={amenity.icon}></i></span>
-                    <span className="villa-amenity-text">{amenity.text}</span>
-                  </div>
-                ))}
+              <div className="villa-amenities-categories">
+                {categorizedAmenities.map((category) => {
+                  if (category.items.length === 0) return null;
+                  return (
+                    <div key={category.key} className="villa-amenity-category-group">
+                      <h5 className="villa-amenity-category-title">{category.title}</h5>
+                      <div className="villa-amenity-category-grid">
+                        {category.items.map((item, idx) => (
+                          <div key={idx} className="villa-amenity-item">
+                            <span className="villa-amenity-icon"><i className={item.icon}></i></span>
+                            <span className="villa-amenity-text">{item.text}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -582,7 +754,6 @@ export default function App() {
 
           <div className="hero-content-wrapper">
             <div className="hero-content">
-              <span className="hero-subtitle">{t('hero.subtitle')}</span>
               <h1 className="hero-title">{t('hero.title')}</h1>
             </div>
           </div>
