@@ -880,13 +880,13 @@ section {
 .villa-blocks-list {
     display: flex;
     flex-direction: column;
-    gap: 80px;
-    margin-top: 50px;
+    gap: 40px;
+    margin-top: 30px;
 }
 
 .villa-block {
     position: relative;
-    padding: 60px 0;
+    padding: 30px 0;
     transition: var(--transition-smooth);
 }
 
@@ -901,39 +901,43 @@ section {
     .villa-block-grid {
         flex-direction: row;
         gap: 60px;
-        align-items: start;
+        align-items: center; /* Vertically center details with the image */
     }
     .villa-block-grid.layout-reversed {
         flex-direction: row-reverse;
     }
     .villa-carousel-col {
-        flex: 1.1;
+        flex: 1; /* Keep balanced layout */
         min-width: 0;
     }
     .villa-content-col {
-        flex: 0.9;
+        flex: 1; /* Keep balanced layout */
         min-width: 0;
-        gap: 12px !important;
-    }
-    .btn-villa-toggle {
-        display: none !important;
-    }
-    .villa-block .villa-amenities-block {
-        max-height: none !important;
-        opacity: 1 !important;
-        overflow: visible !important;
-        padding-top: 12px !important;
-        margin-top: 10px !important;
-        border-top: 1px dashed rgba(92, 99, 83, 0.15) !important;
+        gap: 20px !important;
     }
     .villa-specs-container {
-        padding: 10px 14px !important;
-        gap: 8px 12px !important;
-        margin-top: -8px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 24px 28px !important;
+        gap: 18px !important;
+        margin-top: 24px !important;
         margin-bottom: 0 !important;
+        background-color: rgba(92, 99, 83, 0.03);
+        border: 1px solid rgba(92, 99, 83, 0.08);
     }
     .villa-spec-item {
-        gap: 8px !important;
+        flex: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        gap: 6px !important;
+        padding: 0 !important;
+    }
+    .villa-spec-item:not(:first-child) {
+        border-left: none !important;
+        border-top: 1px solid rgba(92, 99, 83, 0.1) !important;
+        padding-top: 18px !important;
     }
     .villa-amenity-category-group {
         padding-top: 10px !important;
@@ -973,11 +977,11 @@ section {
 /* 📋 Villa Basic Specifications */
 .villa-specs-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px 20px;
-    margin-top: -8px; /* pull closer to header */
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
     margin-bottom: 4px;
-    padding: 16px 18px;
+    padding: 24px 28px;
     background-color: rgba(92, 99, 83, 0.04);
     border-radius: var(--border-radius-md);
     border: 1px solid rgba(92, 99, 83, 0.08);
@@ -985,53 +989,46 @@ section {
 
 .villa-spec-item {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    flex: 1 1 calc(33.333% - 14px);
-    min-width: 130px;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 4px;
+    padding: 0;
 }
 
-.villa-spec-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    width: auto;
-    height: auto;
+.villa-spec-item:not(:first-child) {
+    border-top: 1px solid rgba(92, 99, 83, 0.1);
+    padding-top: 16px;
 }
-
-.theme-red .villa-spec-icon { color: #e05624; }
-.theme-shadow .villa-spec-icon { color: #4a8aa8; }
-.theme-wood .villa-spec-icon { color: #5c6b53; }
-.theme-gold .villa-spec-icon { color: #ba956a; }
 
 .villa-spec-info {
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 4px;
+    align-items: flex-start;
 }
 
 .villa-spec-label {
-    font-size: 0.76rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
     font-weight: 500;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.05em;
 }
 
 .villa-spec-value {
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 700;
     color: var(--primary-dark);
+    line-height: 1.4;
 }
 
 @media (max-width: 576px) {
     .villa-specs-container {
         gap: 12px;
-        padding: 12px 14px;
+        padding: 16px 20px;
     }
-    .villa-spec-item {
-        flex: 1 1 100%;
-        min-width: 0;
+    .villa-spec-item:not(:first-child) {
+        padding-top: 12px;
     }
 }
 
@@ -1043,7 +1040,7 @@ section {
 
 .villa-block-header .villa-number {
     font-family: var(--font-serif);
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     font-weight: 700;
     line-height: 1;
 }
@@ -1056,7 +1053,7 @@ section {
 
 .villa-block-header .villa-title {
     font-family: var(--font-serif);
-    font-size: 1.8rem;
+    font-size: 2.3rem;
     font-weight: 700;
     color: var(--primary-dark);
 }
@@ -1306,10 +1303,10 @@ section {
 
 @media (max-width: 991px) {
     .villa-blocks-list {
-        gap: 50px;
+        gap: 30px;
     }
     .villa-block {
-        padding: 40px 0;
+        padding: 20px 0;
     }
     .villa-block-grid {
         flex-direction: column;
@@ -1319,10 +1316,10 @@ section {
         gap: 20px;
     }
     .villa-block-header .villa-number {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
     }
     .villa-block-header .villa-title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
     .villa-amenity-category-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1335,6 +1332,12 @@ section {
 }
 
 @media (max-width: 576px) {
+    .villa-block-header .villa-number {
+        font-size: 1.9rem;
+    }
+    .villa-block-header .villa-title {
+        font-size: 1.5rem;
+    }
     .villa-amenity-category-grid {
         grid-template-columns: 1fr;
         gap: 10px;
@@ -3163,7 +3166,7 @@ button.disabled:hover {
 .villa-carousel-image-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
     height: auto;
     cursor: pointer;
     overflow: hidden;
@@ -3348,7 +3351,7 @@ button.disabled:hover {
     
     .villa-carousel-image-container {
         height: auto;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 4 / 3;
     }
 }
 
@@ -3360,7 +3363,7 @@ button.disabled:hover {
     
     .villa-carousel-image-container {
         height: auto;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 4 / 3;
     }
     
     .villa-carousel-caption {
@@ -3471,6 +3474,169 @@ button.disabled:hover {
     .parallax-card.card-sub-br {
         width: 100px;
         height: 130px;
+    }
+}
+
+/* ==========================================
+   🌟 Shared Amenities Section Styling
+   ========================================== */
+.shared-amenities-block {
+    margin-top: 100px;
+    padding-top: 60px;
+    border-top: 1px dashed rgba(92, 99, 83, 0.2);
+}
+
+.shared-amenities-header {
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shared-amenities-badge {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #5c6b53;
+    background: rgba(92, 99, 83, 0.08);
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+}
+
+.shared-amenities-title {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--primary-dark);
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+}
+
+.shared-amenities-desc {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-light);
+}
+
+.shared-amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.shared-amenity-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s ease;
+}
+
+.shared-amenity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(92, 99, 83, 0.06);
+    border-color: rgba(92, 99, 83, 0.15);
+}
+
+.shared-amenity-card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid rgba(92, 99, 83, 0.08);
+    padding-bottom: 18px;
+}
+
+.shared-category-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(92, 99, 83, 0.08);
+    color: #5c6b53;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.shared-amenity-card:hover .shared-category-icon {
+    background: #5c6b53;
+    color: #ffffff;
+}
+
+.shared-amenity-card-header h4 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin: 0;
+}
+
+.shared-amenity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.shared-amenity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: transform 0.2s ease;
+}
+
+.shared-amenity-item:hover {
+    transform: translateX(3px);
+}
+
+.shared-item-icon {
+    color: #5c6b53;
+    font-size: 0.95rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.shared-item-text {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-dark);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .shared-amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .shared-amenities-block {
+        margin-top: 60px;
+        padding-top: 40px;
+    }
+    .shared-amenities-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .shared-amenity-card {
+        padding: 25px;
+    }
+    .shared-amenities-title {
+        font-size: 1.8rem;
     }
 }
 

@@ -114,6 +114,41 @@ export const locales = {
       legal: '宜蘭縣合法民宿 編號 NO.3028 ｜ 宜蘭縣合法民宿 編號 NO.3033 ｜ 宜蘭縣合法民宿 編號 NO.3034 ｜ 宜蘭縣合法民宿 編號 NO.3039'
     },
     // Villas Data
+    sharedAmenities: {
+      badge: '極致配備',
+      title: '別墅尊榮設施與服務',
+      desc: '八代町為您準備了最頂級的硬體設施與貼心服務，無論是休閒娛樂、精緻餐飲或是安全維護，均為您的完美度假時光保駕護航。',
+      categories: {
+        public: '公共與休閒設施',
+        dining: '精緻餐飲配備',
+        safety: '安全與健康防護'
+      },
+      items: {
+        public: [
+          { icon: 'fa-solid fa-water', text: '戶外專屬戲水池' },
+          { icon: 'fa-solid fa-hot-tub-person', text: '獨立日式冷熱雙池' },
+          { icon: 'fa-solid fa-wind', text: 'Dyson 專業級吹風機' },
+          { icon: 'fa-solid fa-bed', text: '五星級飯店規格加大雙人床 / 親膚有機寢具' },
+          { icon: 'fa-solid fa-wifi', text: '全區免費高速 Wi-Fi 覆蓋' },
+          { icon: 'fa-solid fa-square-parking', text: '別墅專屬免費停車位' },
+          { icon: 'fa-solid fa-tv', text: '藍牙劇院音響與百吋投影設備' }
+        ],
+        dining: [
+          { icon: 'fa-solid fa-kitchen-set', text: '美學中島廚房與全套烹飪設備' },
+          { icon: 'fa-solid fa-coffee', text: '全自動膠囊咖啡機與精選手磨咖啡組' },
+          { icon: 'fa-solid fa-wine-glass', text: '免費迎賓 Mini Bar 飲品' },
+          { icon: 'fa-solid fa-glass-water', text: '專屬冷熱氣泡水與飲水機' },
+          { icon: 'fa-solid fa-fire-burner', text: '戶外專屬防風篝火區' }
+        ],
+        safety: [
+          { icon: 'fa-solid fa-kit-medical', text: '客房備有應急醫藥箱' },
+          { icon: 'fa-solid fa-fire-extinguisher', text: '合格消防滅火設備' },
+          { icon: 'fa-solid fa-wind', text: '全棟多點煙霧偵測器' },
+          { icon: 'fa-solid fa-video', text: '公共區域安全防護監視器' }
+        ]
+      }
+    },
+    // Villas Data
     villas: [
       {
         id: 'red',
@@ -121,21 +156,7 @@ export const locales = {
         name: '緋紅・樂',
         concept: '如晚霞映照田野的暖色光景。適合歡聚、分享與笑聲，收藏與家人朋友相聚的美好時刻。',
         tags: ['溫慢篝火', '火紅陶藝', '熱烈微醺'],
-        photoIds: [1, 2, 3, 4, 5, 6, 7],
-        amenities: [
-          { icon: 'fa-solid fa-water', text: '專屬戲水泳池' },
-          { icon: 'fa-solid fa-hot-tub-person', text: '獨立日式大湯池' },
-          { icon: 'fa-solid fa-fire-burner', text: '戶外篝火烤肉區' },
-          { icon: 'fa-solid fa-kitchen-set', text: '中島廚房設備' },
-          { icon: 'fa-solid fa-volume-high', text: '藍牙劇院音響' },
-          { icon: 'fa-solid fa-coffee', text: '全自動膠囊咖啡' },
-          { icon: 'fa-solid fa-wind', text: 'Dyson 專業吹風機' },
-          { icon: 'fa-solid fa-bed', text: '五星級加大雙人床' },
-          { icon: 'fa-solid fa-wifi', text: '免費高速 Wi-Fi' },
-          { icon: 'fa-solid fa-wine-glass', text: '免費 Mini Bar' },
-          { icon: 'fa-solid fa-glass-water', text: '氣泡水與飲水機' },
-          { icon: 'fa-solid fa-square-parking', text: '專屬免費停車位' }
-        ]
+        photoIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
       },
       {
         id: 'shadow',
@@ -143,21 +164,7 @@ export const locales = {
         name: '流影・淨',
         concept: '光影在空間中緩慢流動。讓心緒沉澱，回到最純粹安定的狀態。',
         tags: ['淨水天井', '潺潺流影', '澄澈水石'],
-        photoIds: [8, 9, 10, 11, 12, 13, 14],
-        amenities: [
-          { icon: 'fa-solid fa-water', text: '天井景觀游泳池' },
-          { icon: 'fa-solid fa-hot-tub-person', text: '奢華大理石湯池' },
-          { icon: 'fa-solid fa-mug-hot', text: '日式禪風榻榻米室' },
-          { icon: 'fa-solid fa-video', text: '頂級百吋投影劇院' },
-          { icon: 'fa-solid fa-kitchen-set', text: '美學中島廚房' },
-          { icon: 'fa-solid fa-soap', text: '獨立奢華設計浴缸' },
-          { icon: 'fa-solid fa-wind', text: 'Dyson 專業吹風機' },
-          { icon: 'fa-solid fa-coffee', text: '精選手磨咖啡組' },
-          { icon: 'fa-solid fa-wifi', text: '免費高速 Wi-Fi' },
-          { icon: 'fa-solid fa-wine-glass', text: '免費 Mini Bar' },
-          { icon: 'fa-solid fa-glass-water', text: '氣泡水與飲水機' },
-          { icon: 'fa-solid fa-square-parking', text: '專屬免費停車位' }
-        ]
+        photoIds: [17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
       },
       {
         id: 'wood',
@@ -165,21 +172,7 @@ export const locales = {
         name: '青木・舒',
         concept: '木質溫潤、自然靜好。在綠意與微風之間，感受最舒服自在的生活節奏。',
         tags: ['芬多翠木', '原生藺木', '溫潤木質'],
-        photoIds: [15, 16, 17, 18, 19, 20, 21],
-        amenities: [
-          { icon: 'fa-solid fa-water', text: '綠意環繞戲水池' },
-          { icon: 'fa-solid fa-hot-tub-person', text: '日式檜木芳香湯池' },
-          { icon: 'fa-solid fa-mug-hot', text: '藺草香榻榻米茶室' },
-          { icon: 'fa-solid fa-kitchen-set', text: '溫潤原木中島廚房' },
-          { icon: 'fa-solid fa-volume-high', text: '藍牙美學音響' },
-          { icon: 'fa-solid fa-leaf', text: '手做陶器茶具組' },
-          { icon: 'fa-solid fa-wind', text: 'Dyson 專業吹風機' },
-          { icon: 'fa-solid fa-bed', text: '親膚有機寢具名床' },
-          { icon: 'fa-solid fa-wifi', text: '免費高速 Wi-Fi' },
-          { icon: 'fa-solid fa-wine-glass', text: '免費 Mini Bar' },
-          { icon: 'fa-solid fa-glass-water', text: '氣泡水與飲水機' },
-          { icon: 'fa-solid fa-square-parking', text: '專屬免費停車位' }
-        ]
+        photoIds: [27, 28, 29, 30, 31]
       },
       {
         id: 'gold',
@@ -187,21 +180,7 @@ export const locales = {
         name: '金箔・粹',
         concept: '低調而細膩，沉穩而優雅。為每一段值得紀念的時光，留下更深刻的儀式感。',
         tags: ['金緻奢華', '極致金箔', '純粹金屬'],
-        photoIds: [22, 23, 24, 25, 26, 27, 28],
-        amenities: [
-          { icon: 'fa-solid fa-water', text: '私人奢華水景泳池' },
-          { icon: 'fa-solid fa-hot-tub-person', text: '雙層挑高閣樓湯池' },
-          { icon: 'fa-solid fa-gem', text: '黃銅美學金屬設計' },
-          { icon: 'fa-solid fa-video', text: '頂級劇院環繞音效' },
-          { icon: 'fa-solid fa-kitchen-set', text: '奢華中島廚房設備' },
-          { icon: 'fa-solid fa-coffee', text: '義大利進口咖啡機' },
-          { icon: 'fa-solid fa-wind', text: 'Dyson 專業吹風機' },
-          { icon: 'fa-solid fa-bed', text: '特選高級席伊麗名床' },
-          { icon: 'fa-solid fa-wifi', text: '免費高速 Wi-Fi' },
-          { icon: 'fa-solid fa-wine-glass', text: '免費 Mini Bar' },
-          { icon: 'fa-solid fa-glass-water', text: '氣泡水與飲水機' },
-          { icon: 'fa-solid fa-square-parking', text: '專屬免費停車位' }
-        ]
+        photoIds: [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
       }
     ],
     // FAQ Data
@@ -390,6 +369,41 @@ export const locales = {
       legal: 'Yilan County Registered Guesthouse Licenses: NO.3028 ｜ NO.3033 ｜ NO.3034 ｜ NO.3039'
     },
     // Villas Data
+    sharedAmenities: {
+      badge: 'PREMIUM AMENITIES',
+      title: 'Villa Shared Amenities & Services',
+      desc: 'Yashirocho provides the finest hardware and thoughtful services. From leisure and dining to safety precautions, we ensure your vacation is seamless and comfortable.',
+      categories: {
+        public: 'Public & Leisure Facilities',
+        dining: 'Fine Dining Amenities',
+        safety: 'Safety & Security'
+      },
+      items: {
+        public: [
+          { icon: 'fa-solid fa-water', text: 'Private Outdoor Splash Pool' },
+          { icon: 'fa-solid fa-hot-tub-person', text: 'Private Japanese Hot & Cold Bath' },
+          { icon: 'fa-solid fa-wind', text: 'Dyson Professional Hairdryers' },
+          { icon: 'fa-solid fa-bed', text: 'Five-Star Premium Beds & Organic Bedding' },
+          { icon: 'fa-solid fa-wifi', text: 'Complimentary High-Speed Wi-Fi' },
+          { icon: 'fa-solid fa-square-parking', text: 'Private Complimentary Parking' },
+          { icon: 'fa-solid fa-tv', text: 'Bluetooth Theater Sound & 100" Projector Screen' }
+        ],
+        dining: [
+          { icon: 'fa-solid fa-kitchen-set', text: 'Aesthetic Island Kitchen & Cooking Utensils' },
+          { icon: 'fa-solid fa-coffee', text: 'Capsule Coffee & Hand-Drip Coffee Station' },
+          { icon: 'fa-solid fa-wine-glass', text: 'Complimentary Welcome Mini Bar' },
+          { icon: 'fa-solid fa-glass-water', text: 'Sparkling & Hot Water Dispenser' },
+          { icon: 'fa-solid fa-fire-burner', text: 'Outdoor Dedicated Firepit & BBQ Area' }
+        ],
+        safety: [
+          { icon: 'fa-solid fa-kit-medical', text: 'Emergency First Aid Kit' },
+          { icon: 'fa-solid fa-fire-extinguisher', text: 'Certified Fire Extinguisher' },
+          { icon: 'fa-solid fa-wind', text: 'Multi-Point Smoke Detectors' },
+          { icon: 'fa-solid fa-video', text: 'Public Area Security Cameras' }
+        ]
+      }
+    },
+    // Villas Data
     villas: [
       {
         id: 'red',
@@ -397,21 +411,7 @@ export const locales = {
         name: 'Crimson · Joy',
         concept: 'A warm landscape like the sunset glowing over the fields. Perfect for gatherings, sharing, and laughter, preserving sweet moments with family and friends.',
         tags: ['Slow Firepit', 'Red Ceramics', 'Warm Tipsiness'],
-        photoIds: [1, 2, 3, 4, 5, 6, 7],
-        amenities: [
-          { icon: 'fa-solid fa-water', text: 'Private Splash Pool' },
-          { icon: 'fa-solid fa-hot-tub-person', text: 'Private Hot Spring Bath' },
-          { icon: 'fa-solid fa-fire-burner', text: 'Outdoor Firepit & BBQ' },
-          { icon: 'fa-solid fa-kitchen-set', text: 'Island Kitchenette' },
-          { icon: 'fa-solid fa-volume-high', text: 'Bluetooth Theater Speaker' },
-          { icon: 'fa-solid fa-coffee', text: 'Capsule Coffee Machine' },
-          { icon: 'fa-solid fa-wind', text: 'Dyson Professional Dryer' },
-          { icon: 'fa-solid fa-bed', text: 'Five-Star King Bedding' },
-          { icon: 'fa-solid fa-wifi', text: 'Free High-Speed Wi-Fi' },
-          { icon: 'fa-solid fa-wine-glass', text: 'Complimentary Mini Bar' },
-          { icon: 'fa-solid fa-glass-water', text: 'Sparkling & Hot Water Dispenser' },
-          { icon: 'fa-solid fa-square-parking', text: 'Complimentary Parking' }
-        ]
+        photoIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
       },
       {
         id: 'shadow',
@@ -419,21 +419,7 @@ export const locales = {
         name: 'Shadow · Purity',
         concept: 'Light and shadow flow slowly through the space. Let your mind settle and return to the most pure and tranquil state.',
         tags: ['Purity Skylight', 'Flowing Shadow', 'Clear Waterstone'],
-        photoIds: [8, 9, 10, 11, 12, 13, 14],
-        amenities: [
-          { icon: 'fa-solid fa-water', text: 'Skylight Scenic Pool' },
-          { icon: 'fa-solid fa-hot-tub-person', text: 'Luxury Marble Bath' },
-          { icon: 'fa-solid fa-mug-hot', text: 'Zen Tatami Tea Room' },
-          { icon: 'fa-solid fa-video', text: '100-inch Projector Theater' },
-          { icon: 'fa-solid fa-kitchen-set', text: 'Aesthetic Island Kitchen' },
-          { icon: 'fa-solid fa-soap', text: 'Freestanding Designer Tub' },
-          { icon: 'fa-solid fa-wind', text: 'Dyson Professional Dryer' },
-          { icon: 'fa-solid fa-coffee', text: 'Bespoke Hand-Drip Coffee' },
-          { icon: 'fa-solid fa-wifi', text: 'Free High-Speed Wi-Fi' },
-          { icon: 'fa-solid fa-wine-glass', text: 'Complimentary Mini Bar' },
-          { icon: 'fa-solid fa-glass-water', text: 'Sparkling & Hot Water Dispenser' },
-          { icon: 'fa-solid fa-square-parking', text: 'Complimentary Parking' }
-        ]
+        photoIds: [17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
       },
       {
         id: 'wood',
@@ -441,21 +427,7 @@ export const locales = {
         name: 'Timber · Comfort',
         concept: 'Warm wood tones, serene nature. Feel the most comfortable and leisurely pace of life amid greenery and gentle breezes.',
         tags: ['Forest Greens', 'Aromatic Rush', 'Warm Wood'],
-        photoIds: [15, 16, 17, 18, 19, 20, 21],
-        amenities: [
-          { icon: 'fa-solid fa-water', text: 'Green-Surrounded Pool' },
-          { icon: 'fa-solid fa-hot-tub-person', text: 'Aromatic Hinoki Wood Bath' },
-          { icon: 'fa-solid fa-mug-hot', text: 'Aromatic Rush Tatami Room' },
-          { icon: 'fa-solid fa-kitchen-set', text: 'Warm Timber Island Kitchen' },
-          { icon: 'fa-solid fa-volume-high', text: 'Aesthetic Bluetooth Speaker' },
-          { icon: 'fa-solid fa-leaf', text: 'Handcrafted Ceramic Teaset' },
-          { icon: 'fa-solid fa-wind', text: 'Dyson Professional Dryer' },
-          { icon: 'fa-solid fa-bed', text: 'Organic Skin-Friendly Beds' },
-          { icon: 'fa-solid fa-wifi', text: 'Free High-Speed Wi-Fi' },
-          { icon: 'fa-solid fa-wine-glass', text: 'Complimentary Mini Bar' },
-          { icon: 'fa-solid fa-glass-water', text: 'Sparkling & Hot Water Dispenser' },
-          { icon: 'fa-solid fa-square-parking', text: 'Complimentary Parking' }
-        ]
+        photoIds: [27, 28, 29, 30, 31]
       },
       {
         id: 'gold',
@@ -463,21 +435,7 @@ export const locales = {
         name: 'Gold · Essence',
         concept: 'Low-key and delicate, steady and elegant. Creating a deeper sense of ritual for every moment worth remembering.',
         tags: ['Exquisite Brass', 'Golden Leaf', 'Pure Metallurgy'],
-        photoIds: [22, 23, 24, 25, 26, 27, 28],
-        amenities: [
-          { icon: 'fa-solid fa-water', text: 'Private Luxury Pool' },
-          { icon: 'fa-solid fa-hot-tub-person', text: 'Double-Height Loft Bath' },
-          { icon: 'fa-solid fa-gem', text: 'Brass Accents Interior' },
-          { icon: 'fa-solid fa-video', text: 'Premium Surround Theater' },
-          { icon: 'fa-solid fa-kitchen-set', text: 'Luxury Island Kitchen' },
-          { icon: 'fa-solid fa-coffee', text: 'Italian Espresso Maker' },
-          { icon: 'fa-solid fa-wind', text: 'Dyson Professional Dryer' },
-          { icon: 'fa-solid fa-bed', text: 'Premium Sealy Mattress' },
-          { icon: 'fa-solid fa-wifi', text: 'Free High-Speed Wi-Fi' },
-          { icon: 'fa-solid fa-wine-glass', text: 'Complimentary Mini Bar' },
-          { icon: 'fa-solid fa-glass-water', text: 'Sparkling & Hot Water Dispenser' },
-          { icon: 'fa-solid fa-square-parking', text: 'Complimentary Parking' }
-        ]
+        photoIds: [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
       }
     ],
     // FAQ Data
@@ -666,50 +624,57 @@ export const locales = {
       legal: '宜蘭県政府公認優良民宿ライセンス：NO.3028 ｜ NO.3033 ｜ NO.3034 ｜ NO.3039'
     },
     // Villas Data
+    sharedAmenities: {
+      badge: 'アメニティ',
+      title: 'ヴィラ共通の設備とサービス',
+      desc: '八代町では、最高の設備と心のこもったサービスでお迎えいたします。レジャーや飲食から安全対策まで、快適なご滞在をお約束します。',
+      categories: {
+        public: '共用・レジャー施設',
+        dining: '飲食関連アメニティ',
+        safety: '安全・防災設備'
+      },
+      items: {
+        public: [
+          { icon: 'fa-solid fa-water', text: '屋外専用ミニプール' },
+          { icon: 'fa-solid fa-hot-tub-person', text: '専用和風温泉露天風呂' },
+          { icon: 'fa-solid fa-wind', text: 'Dysonヘアドライヤー' },
+          { icon: 'fa-solid fa-bed', text: '5つ星キングサイズベッド＆肌に優しいオーガニック寝具' },
+          { icon: 'fa-solid fa-wifi', text: '館内無料高速Wi-Fi' },
+          { icon: 'fa-solid fa-square-parking', text: '専用無料駐車場' },
+          { icon: 'fa-solid fa-tv', text: 'Bluetoothシアター音響＆100インチプロジェクター' }
+        ],
+        dining: [
+          { icon: 'fa-solid fa-kitchen-set', text: 'アイランドキッチン＆調理器具一式' },
+          { icon: 'fa-solid fa-coffee', text: 'カプセルコーヒーメーカー＆手挽きコーヒーセット' },
+          { icon: 'fa-solid fa-wine-glass', text: 'ウェルカムミニバードリンク無料' },
+          { icon: 'fa-solid fa-glass-water', text: '炭酸水＆ウォーターサーバー' },
+          { icon: 'fa-solid fa-fire-burner', text: '屋外専用防風たき火エリア' }
+        ],
+        safety: [
+          { icon: 'fa-solid fa-kit-medical', text: '客室用緊急救急箱' },
+          { icon: 'fa-solid fa-fire-extinguisher', text: '消防規格適合消火器' },
+          { icon: 'fa-solid fa-wind', text: '全館多点式煙感知器' },
+          { icon: 'fa-solid fa-video', text: '共用スペース防犯カメラ監視' }
+        ]
+      }
+    },
+    // Villas Data
     villas: [
       {
         id: 'red',
         number: '01',
-        name: '緋紅・楽',
+        name: '緋紅・樂',
         concept: '夕暮れの田園を照らす夕日のような温かい光景。家族や友人と集まり、語らい、笑顔あふれる素晴らしいひとときを分かち合う場所。',
         tags: ['温かな焚き火', '赤い陶芸', '心地よい微醺'],
-        photoIds: [1, 2, 3, 4, 5, 6, 7],
-        amenities: [
-          { icon: 'fa-solid fa-water', text: '専用ミニプール' },
-          { icon: 'fa-solid fa-hot-tub-person', text: '専用和風温泉露天風呂' },
-          { icon: 'fa-solid fa-fire-burner', text: '屋外焚き火＆BBQエリア' },
-          { icon: 'fa-solid fa-kitchen-set', text: 'アイランドキッチン' },
-          { icon: 'fa-solid fa-volume-high', text: 'Bluetoothシアター音響' },
-          { icon: 'fa-solid fa-coffee', text: '全自動カプセルコーヒー' },
-          { icon: 'fa-solid fa-wind', text: 'Dysonヘアドライヤー' },
-          { icon: 'fa-solid fa-bed', text: '5つ星キングサイズベッド' },
-          { icon: 'fa-solid fa-wifi', text: '無料高速Wi-Fi' },
-          { icon: 'fa-solid fa-wine-glass', text: '無料ミニバードリンク' },
-          { icon: 'fa-solid fa-glass-water', text: '炭酸水＆ウォーターサーバー' },
-          { icon: 'fa-solid fa-square-parking', text: '専用無料駐車場' }
-        ]
+        photoIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
       },
       {
         id: 'shadow',
         number: '02',
-        name: '流影・浄',
+        name: '流影・淨',
         concept: '空間を緩やかに流れる光と影。心を落ち着かせ、最も純粋で穏やかな状態へと戻る場所。',
         tags: ['天井水景', '光と影の移ろい', '澄み渡る水石'],
-        photoIds: [8, 9, 10, 11, 12, 13, 14],
-        amenities: [
-          { icon: 'fa-solid fa-water', text: '天井吹き抜けプール' },
-          { icon: 'fa-solid fa-hot-tub-person', text: '豪華大理石温泉風呂' },
-          { icon: 'fa-solid fa-mug-hot', text: '和風禅室（タタミ仕様）' },
-          { icon: 'fa-solid fa-video', text: '100インチプロジェクター' },
-          { icon: 'fa-solid fa-kitchen-set', text: 'デザインキッチン' },
-          { icon: 'fa-solid fa-soap', text: '独立型バスタブ' },
-          { icon: 'fa-solid fa-wind', text: 'Dysonヘアドライヤー' },
-          { icon: 'fa-solid fa-coffee', text: 'こだわりハンドドリップ' },
-          { icon: 'fa-solid fa-wifi', text: '無料高速Wi-Fi' },
-          { icon: 'fa-solid fa-wine-glass', text: '無料ミニバードリンク' },
-          { icon: 'fa-solid fa-glass-water', text: '炭酸水＆ウォーターサーバー' },
-          { icon: 'fa-solid fa-square-parking', text: '専用無料駐車場' }
-        ]
+        photoIds: [17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
       },
       {
         id: 'wood',
@@ -717,43 +682,15 @@ export const locales = {
         name: '青木・舒',
         concept: '木のぬくもりと自然の静けさ。緑と心地よい微風に包まれ、最もリラックスできる生活リズムを感じる場所。',
         tags: ['森林浴の青木', '香り高いい草', '温もりの木質'],
-        photoIds: [15, 16, 17, 18, 19, 20, 21],
-        amenities: [
-          { icon: 'fa-solid fa-water', text: '緑に囲まれた水遊び場' },
-          { icon: 'fa-solid fa-hot-tub-person', text: '檜造りアロマ温泉風呂' },
-          { icon: 'fa-solid fa-mug-hot', text: '藺草香る畳のお茶室' },
-          { icon: 'fa-solid fa-kitchen-set', text: '温もりある木製キッチン' },
-          { icon: 'fa-solid fa-volume-high', text: '北欧風高音質スピーカー' },
-          { icon: 'fa-solid fa-leaf', text: '手作り和陶器茶器セット' },
-          { icon: 'fa-solid fa-wind', text: 'Dysonヘアドライヤー' },
-          { icon: 'fa-solid fa-bed', text: 'オーガニック快適寝具' },
-          { icon: 'fa-solid fa-wifi', text: '無料高速Wi-Fi' },
-          { icon: 'fa-solid fa-wine-glass', text: '無料ミニバードリンク' },
-          { icon: 'fa-solid fa-glass-water', text: '炭酸水＆ウォーターサーバー' },
-          { icon: 'fa-solid fa-square-parking', text: '専用無料駐車場' }
-        ]
+        photoIds: [27, 28, 29, 30, 31]
       },
       {
         id: 'gold',
         number: '04',
-        name: '金箔・粋',
+        name: '金箔・粹',
         concept: '控えめでありながら繊細、落ち着きがあり優雅。すべての記念すべきひとときに、より深い儀式感（演出）を添える場所。',
         tags: ['ゴールドの美学', '極上の金箔', '純粋な金属'],
-        photoIds: [22, 23, 24, 25, 26, 27, 28],
-        amenities: [
-          { icon: 'fa-solid fa-water', text: 'プライベートプール' },
-          { icon: 'fa-solid fa-hot-tub-person', text: '吹き抜けロフト温泉風呂' },
-          { icon: 'fa-solid fa-gem', text: '真鍮ゴールドインテリア' },
-          { icon: 'fa-solid fa-video', text: 'シアターサラウンド音響' },
-          { icon: 'fa-solid fa-kitchen-set', text: '高級アイランドキッチン' },
-          { icon: 'fa-solid fa-coffee', text: 'イタリア製エスプレッソ' },
-          { icon: 'fa-solid fa-wind', text: 'Dysonヘアドライヤー' },
-          { icon: 'fa-solid fa-bed', text: '特選シーリーブランドベッド' },
-          { icon: 'fa-solid fa-wifi', text: '無料高速Wi-Fi' },
-          { icon: 'fa-solid fa-wine-glass', text: '無料ミニバードリンク' },
-          { icon: 'fa-solid fa-glass-water', text: '炭酸水＆ウォーターサーバー' },
-          { icon: 'fa-solid fa-square-parking', text: '専用無料駐車場' }
-        ]
+        photoIds: [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
       }
     ],
     // FAQ Data
