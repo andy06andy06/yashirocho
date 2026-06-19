@@ -25,25 +25,26 @@ export const locales = {
     about: {
       badge: 'BRAND STORY',
       title: '關於八代町',
-      lead: '八代町誕生於一個簡單的念頭：打造一個讓家人與好友自在相聚，同時保有純粹靜謐與隱私的渡假聚落。',
+      lead: '如果有一個地方，能讓家人放下忙碌、讓朋友自在相聚、讓毛孩奔跑嬉戲，那會是什麼模樣？',
       desc: '我們在宜蘭冬山打造了四座獨立的 Villa 空間，皆配備專屬湯池與泳池。沒有擁擠的干擾，只有隨四季更迭的田野景緻，帶給您值得反覆回憶的溫馨時光。',
       badgeNum: '專屬水景',
       badgeText: '獨立湯池與泳池',
       feat1Title: '獨立專屬空間',
       feat1Desc: '每棟 Villa 擁有不同風格與視野。庭院、光影與戶外景觀皆具特色，每次入住都是全新體驗。',
-      feat2Title: '棟棟皆有湯池與泳池',
-      feat2Desc: '不需與陌生人共享設施，獨享私密湯池與泳池，享受從容自在的休閒度假。',
+      feat2Title: '露天湯泉',
+      feat2Desc: '泡入專屬露天湯泉，眼前是無邊際的宜蘭田野。在熱氣繚繞之間，靜靜感受那份遼闊與自在。',
       feat3Title: '冬山田野風景',
       feat3Desc: '窗外是宜蘭特有的四季景色，春綠、夏風、秋穗、冬霧，每個季節都有不同美好。',
-      feat4Title: '極致侘寂美學',
-      feat4Desc: '融入風、光、木、石等自然元素，以手作器物與自然材質，營造沉靜溫暖的感官體驗。'
+      feat4Title: '千坪草原湖景',
+      feat4Desc: '坐擁千坪開闊草原與湖景，讓身心在自然之中徹底舒展，感受宜蘭田野間最純粹的遼闊與寧靜。',
+      feat5Title: '毛孩共遊',
+      feat5Desc: '旅行不該留下任何家人。指定棟別開放毛孩入住，讓重要的夥伴也能一起創造回憶。'
     },
     // Philosophy
     philosophy: {
       badge: 'BRAND PHILOSOPHY',
-      title: '將生活還給生活',
-      lead: '旅行的意義，不一定是走得更遠。',
-      desc: '有時候，只是找個地方和重要的人好好吃飯、聊天，看著孩子在草地上玩耍。這些平凡珍貴的時刻，才是最值得收藏的風景。'
+      title: '在風景裡留宿',
+      lead: '把忙碌留在城市，把時間留給自己。',
     },
     // Quote
     quote: {
@@ -62,7 +63,7 @@ export const locales = {
     rooms: {
       badge: 'ESTATE SHOWCASE',
       title: '四座 Villa．四種生活風景',
-      desc: '每一棟都有自己的名字與故事，尋找最契合您的那片風景。',
+      desc: '每一次入住，都能遇見不同的八代町。',
       conceptLabel: '空間美學設計',
       amenitiesLabel: '專屬設施設備',
       cardBadgeRoom: '實景空間',
@@ -71,16 +72,15 @@ export const locales = {
     // Booking
     booking: {
       badge: 'ONLINE RESERVATION',
-      title: '在風景裡留宿',
-      desc: '把忙碌留在城市，把時間留給自己。下一段值得期待的冬山假期，就從八代町開始。',
+      title: '下一段值得期待的冬山假期，就從八代町開始。',
       button: '立即前往線上訂房系統',
-      hint: '* 點擊按鈕將開啟新分頁跳轉至安全外部預訂系統。如有整館包棟、特殊餐食或團體諮詢需求，亦可於下方聯絡我們。'
+      hint: '* 點擊按鈕將開啟新分頁跳轉至安全外部預訂系統。如有諮詢需求，亦可於下方聯絡我們。'
     },
     // Rules / FAQ
     rules: {
       badge: 'STAY GUIDELINES',
       title: '入住須知與常見問題',
-      desc: '為了確保您在八代町擁有最完美的包棟體驗，請在入住前撥空閱讀以下須知與公約。'
+      desc: '為了確保您在八代町擁有最完美的包棟體驗，請在入住前撥空閱讀以下須知。'
     },
     // Contact
     contact: {
@@ -115,36 +115,51 @@ export const locales = {
     },
     // Villas Data
     sharedAmenities: {
-      badge: '極致配備',
-      title: '別墅尊榮設施與服務',
-      desc: '八代町為您準備了最頂級的硬體設施與貼心服務，無論是休閒娛樂、精緻餐飲或是安全維護，均為您的完美度假時光保駕護航。',
+      title: '設施與服務',
       categories: {
-        public: '公共與休閒設施',
-        dining: '精緻餐飲配備',
-        safety: '安全與健康防護'
+        public: '公共區設施',
+        dining: '娛樂設施',
+        kitchen: '餐飲設施',
+        others: '其他設施'
       },
       items: {
         public: [
-          { icon: 'fa-solid fa-water', text: '戶外專屬戲水池' },
-          { icon: 'fa-solid fa-hot-tub-person', text: '獨立日式冷熱雙池' },
-          { icon: 'fa-solid fa-wind', text: 'Dyson 專業級吹風機' },
-          { icon: 'fa-solid fa-bed', text: '五星級飯店規格加大雙人床 / 親膚有機寢具' },
-          { icon: 'fa-solid fa-wifi', text: '全區免費高速 Wi-Fi 覆蓋' },
-          { icon: 'fa-solid fa-square-parking', text: '別墅專屬免費停車位' },
-          { icon: 'fa-solid fa-tv', text: '藍牙劇院音響與百吋投影設備' }
+          { icon: 'fa-solid fa-square-parking', text: '專屬免費停車區' },
+          { icon: 'fa-solid fa-tree', text: '千坪大草皮及湖畔' }
         ],
         dining: [
-          { icon: 'fa-solid fa-kitchen-set', text: '美學中島廚房與全套烹飪設備' },
-          { icon: 'fa-solid fa-coffee', text: '全自動膠囊咖啡機與精選手磨咖啡組' },
-          { icon: 'fa-solid fa-wine-glass', text: '免費迎賓 Mini Bar 飲品' },
-          { icon: 'fa-solid fa-glass-water', text: '專屬冷熱氣泡水與飲水機' },
-          { icon: 'fa-solid fa-fire-burner', text: '戶外專屬防風篝火區' }
+          { icon: 'fa-solid fa-microphone-lines', text: '歡唱設備' },
+          { icon: 'fa-solid fa-dice', text: '電動麻將桌' },
+          { icon: 'fa-solid fa-hot-tub-person', text: '專屬露天湯泉' },
+          { icon: 'fa-solid fa-water', text: '專屬戲水池' },
+          { icon: 'fa-solid fa-video', text: '100 吋投影幕' },
+          { icon: 'fa-solid fa-tv', text: '75 吋大電視' },
+          { icon: 'fa-solid fa-puzzle-piece', text: '各式桌遊' },
+          { icon: 'fa-solid fa-gamepad', text: '電玩設備' },
+          { icon: 'fa-solid fa-wifi', text: '高速 Wi-Fi' },
+          { icon: 'fa-solid fa-fire', text: 'BBQ 架（加購）' }
         ],
-        safety: [
-          { icon: 'fa-solid fa-kit-medical', text: '客房備有應急醫藥箱' },
-          { icon: 'fa-solid fa-fire-extinguisher', text: '合格消防滅火設備' },
-          { icon: 'fa-solid fa-wind', text: '全棟多點煙霧偵測器' },
-          { icon: 'fa-solid fa-video', text: '公共區域安全防護監視器' }
+        kitchen: [
+          { icon: 'fa-solid fa-fire-burner', text: 'IH 爐' },
+          { icon: 'fa-solid fa-soap', text: '洗碗機' },
+          { icon: 'fa-solid fa-kitchen-set', text: '烤箱' },
+          { icon: 'fa-solid fa-bolt', text: '微波爐' },
+          { icon: 'fa-solid fa-snowflake', text: '冰箱' },
+          { icon: 'fa-solid fa-coffee', text: '咖啡機' },
+          { icon: 'fa-solid fa-wine-glass', text: '免費 mini bar' },
+          { icon: 'fa-solid fa-glass-water', text: '直飲機' },
+          { icon: 'fa-solid fa-utensils', text: '廚具及碗盤' },
+          { icon: 'fa-solid fa-umbrella-beach', text: '戶外用餐區' }
+        ],
+        others: [
+          { icon: 'fa-solid fa-elevator', text: '專屬電梯' },
+          { icon: 'fa-solid fa-bed', text: '嬰兒床' },
+          { icon: 'fa-solid fa-bath', text: '嬰兒澡盆' },
+          { icon: 'fa-solid fa-baby', text: '奶瓶消毒鍋' },
+          { icon: 'fa-solid fa-pump-soap', text: '沐浴備品' },
+          { icon: 'fa-solid fa-wind', text: '吹風機' },
+          { icon: 'fa-solid fa-kit-medical', text: '醫藥箱' },
+          { icon: 'fa-solid fa-fire-extinguisher', text: '滅火器' }
         ]
       }
     },
@@ -280,18 +295,20 @@ export const locales = {
     about: {
       badge: 'BRAND STORY',
       title: 'About Yashirocho',
-      lead: 'Yashirocho was born from a simple idea: to create a holiday haven where family and friends can gather freely while enjoying exclusive privacy.',
+      lead: 'What if there were a place where family could unwind, friends could gather freely, and furry companions could run and play?',
       desc: 'We created four independent villas in Dongshan, Yilan, each with private springs, swimming pools, and changing seasonal views, bringing you precious memories worth remembering.',
       badgeNum: 'Private Water',
       badgeText: 'Private Springs & Pools',
       feat1Title: 'Private Standalone Space',
       feat1Desc: 'Each villa boasts its own style and vistas. With unique courtyards and landscaping, every stay is a new experience.',
-      feat2Title: 'Private Hot Springs & Pool',
-      feat2Desc: 'No shared facilities. Enjoy private springs and pools for a truly relaxed, carefree vacation.',
+      feat2Title: 'Open-Air Hot Springs',
+      feat2Desc: 'Sink into your private outdoor hot spring and gaze out over the boundless Yilan countryside. Let the warmth and scenery wash every tension away.',
       feat3Title: 'Dongshan Rural Scenery',
       feat3Desc: 'Behold Yilan’s four-season beauty right from your window: spring greens, summer breeze, autumn ears, and winter mist.',
-      feat4Title: 'Wabi-Sabi Aesthetics',
-      feat4Desc: 'Integrating wind, light, wood, and stone with handcrafted objects and natural textures to create a serene and warm sensory experience.'
+      feat4Title: 'Thousand-Ping Grassland & Lake View',
+      feat4Desc: 'Surrounded by a vast open grassland and lakeside scenery spanning over a thousand pings, breathe deep and find true peace in the natural landscape of Yilan.',
+      feat5Title: 'Pets Welcome',
+      feat5Desc: 'Designated pet-friendly villas let your furry companions join the journey. Watch them run free across the open grasslands while you soak in every precious moment together.'
     },
     // Philosophy
     philosophy: {
@@ -327,7 +344,7 @@ export const locales = {
     booking: {
       badge: 'ONLINE RESERVATION',
       title: 'Stay Within the Scenery',
-      desc: 'Leave the busyness in the city, leave time for yourself. Your next eagerly awaited Dongshan holiday begins right here at Yashirocho.',
+      desc: 'Your next eagerly awaited Dongshan holiday begins right here at Yashirocho.',
       button: 'Proceed to Reservation System',
       hint: '* Clicking the button opens a secure external booking engine in a new tab. For exclusive private rentals, custom catering, or corporate inquiries, please reach out to us below.'
     },
@@ -370,36 +387,51 @@ export const locales = {
     },
     // Villas Data
     sharedAmenities: {
-      badge: 'PREMIUM AMENITIES',
-      title: 'Villa Shared Amenities & Services',
-      desc: 'Yashirocho provides the finest hardware and thoughtful services. From leisure and dining to safety precautions, we ensure your vacation is seamless and comfortable.',
+      title: 'Amenities & Services',
       categories: {
-        public: 'Public & Leisure Facilities',
-        dining: 'Fine Dining Amenities',
-        safety: 'Safety & Security'
+        public: 'Public Area Facilities',
+        dining: 'Entertainment Facilities',
+        kitchen: 'Dining Facilities',
+        others: 'Other Facilities'
       },
       items: {
         public: [
-          { icon: 'fa-solid fa-water', text: 'Private Outdoor Splash Pool' },
-          { icon: 'fa-solid fa-hot-tub-person', text: 'Private Japanese Hot & Cold Bath' },
-          { icon: 'fa-solid fa-wind', text: 'Dyson Professional Hairdryers' },
-          { icon: 'fa-solid fa-bed', text: 'Five-Star Premium Beds & Organic Bedding' },
-          { icon: 'fa-solid fa-wifi', text: 'Complimentary High-Speed Wi-Fi' },
-          { icon: 'fa-solid fa-square-parking', text: 'Private Complimentary Parking' },
-          { icon: 'fa-solid fa-tv', text: 'Bluetooth Theater Sound & 100" Projector Screen' }
+          { icon: 'fa-solid fa-square-parking', text: 'Exclusive Free Parking Area' },
+          { icon: 'fa-solid fa-tree', text: 'Vast Lawn & Lakeside' }
         ],
         dining: [
-          { icon: 'fa-solid fa-kitchen-set', text: 'Aesthetic Island Kitchen & Cooking Utensils' },
-          { icon: 'fa-solid fa-coffee', text: 'Capsule Coffee & Hand-Drip Coffee Station' },
-          { icon: 'fa-solid fa-wine-glass', text: 'Complimentary Welcome Mini Bar' },
-          { icon: 'fa-solid fa-glass-water', text: 'Sparkling & Hot Water Dispenser' },
-          { icon: 'fa-solid fa-fire-burner', text: 'Outdoor Dedicated Firepit & BBQ Area' }
+          { icon: 'fa-solid fa-microphone-lines', text: 'Karaoke Equipment' },
+          { icon: 'fa-solid fa-dice', text: 'Automatic Mahjong Table' },
+          { icon: 'fa-solid fa-hot-tub-person', text: 'Exclusive Outdoor Hot Spring' },
+          { icon: 'fa-solid fa-water', text: 'Exclusive Splash Pool' },
+          { icon: 'fa-solid fa-video', text: '100" Projector Screen' },
+          { icon: 'fa-solid fa-tv', text: '75" Large TV' },
+          { icon: 'fa-solid fa-puzzle-piece', text: 'Board Games' },
+          { icon: 'fa-solid fa-gamepad', text: 'Gaming Equipment' },
+          { icon: 'fa-solid fa-wifi', text: 'High-Speed Wi-Fi' },
+          { icon: 'fa-solid fa-fire', text: 'BBQ Grill (Add-on)' }
         ],
-        safety: [
-          { icon: 'fa-solid fa-kit-medical', text: 'Emergency First Aid Kit' },
-          { icon: 'fa-solid fa-fire-extinguisher', text: 'Certified Fire Extinguisher' },
-          { icon: 'fa-solid fa-wind', text: 'Multi-Point Smoke Detectors' },
-          { icon: 'fa-solid fa-video', text: 'Public Area Security Cameras' }
+        kitchen: [
+          { icon: 'fa-solid fa-fire-burner', text: 'IH Cooktop' },
+          { icon: 'fa-solid fa-soap', text: 'Dishwasher' },
+          { icon: 'fa-solid fa-kitchen-set', text: 'Oven' },
+          { icon: 'fa-solid fa-bolt', text: 'Microwave' },
+          { icon: 'fa-solid fa-snowflake', text: 'Refrigerator' },
+          { icon: 'fa-solid fa-coffee', text: 'Coffee Machine' },
+          { icon: 'fa-solid fa-wine-glass', text: 'Complimentary Mini Bar' },
+          { icon: 'fa-solid fa-glass-water', text: 'Water Dispenser' },
+          { icon: 'fa-solid fa-utensils', text: 'Kitchenware & Tableware' },
+          { icon: 'fa-solid fa-umbrella-beach', text: 'Outdoor Dining Area' }
+        ],
+        others: [
+          { icon: 'fa-solid fa-elevator', text: 'Private Elevator' },
+          { icon: 'fa-solid fa-bed', text: 'Baby Cot' },
+          { icon: 'fa-solid fa-bath', text: 'Baby Bathtub' },
+          { icon: 'fa-solid fa-baby', text: 'Baby Bottle Sterilizer' },
+          { icon: 'fa-solid fa-pump-soap', text: 'Toiletries' },
+          { icon: 'fa-solid fa-wind', text: 'Hair Dryer' },
+          { icon: 'fa-solid fa-kit-medical', text: 'First Aid Kit' },
+          { icon: 'fa-solid fa-fire-extinguisher', text: 'Fire Extinguisher' }
         ]
       }
     },
@@ -535,18 +567,20 @@ export const locales = {
     about: {
       badge: 'BRAND STORY',
       title: '八代町について',
-      lead: '八代町は、ご家族やご友人が気兼ねなく集いながら、プライベートな時間を守れる場所を作りたいというシンプルな想いから誕生しました。',
+      lead: 'もし、家族が日常を忘れ、友人が気軽に集い、愛犬が思い切り走り回れる場所があったとしたら——',
       desc: '宜蘭県冬山に佇む、4棟の独立型ヴィラ。全棟に専用温泉とプールを完備し、混雑のない静寂と四季折々の田園風景の中で、心地よい旅の記憶をお届けします。',
       badgeNum: '専用水景',
       badgeText: '専用温泉＆プール',
       feat1Title: '完全プライベート空間',
       feat1Desc: '各ヴィラで異なるデザインと眺望。中庭や景観にもこだわり、訪れるたびに新鮮な感動に出会えます。',
-      feat2Title: '全棟に専用温泉＆プール',
-      feat2Desc: '他のお客様と共有しない、完全プライベートな温泉とプールで気ままな休日を。',
+      feat2Title: '露天温泉',
+      feat2Desc: '専用の露天温泉に浸かりながら、眼前に広がる宜蘭の田園風景を望む。湯気の中で、その開放感と静けさをゆっくりと味わえます。',
       feat3Title: '冬山の田園風景',
       feat3Desc: '窓外に広がる宜蘭の四季折々の表情。春の緑、夏の風、秋の実り、冬の霧を楽しめます。',
-      feat4Title: '侘び寂びの空間美',
-      feat4Desc: '風、光、木、石などの自然素材を取り入れ、手仕事の器や温かみのある質感で、心安らぐ五感体験を演出します。'
+      feat4Title: '千坪の草原と湖景',
+      feat4Desc: '千坪を超える広大な草原と湖の景色に囲まれ、心身をゆっくりと解放。宜蘭の自然の中で、静けさと開放感を思い切り味わえます。',
+      feat5Title: '愛犬と一緒に',
+      feat5Desc: '指定のペット歓迎ヴィラで、大切な愛犬も一緒に滞在できます。千坪の草原を思い切り駆け回る毛並みの姿に、自ずと笑顔がこぼれます。'
     },
     // Philosophy
     philosophy: {
@@ -582,7 +616,7 @@ export const locales = {
     booking: {
       badge: 'ONLINE RESERVATION',
       title: '絶景の中に泊まる',
-      desc: '忙しさは街に置いて、自分のための時間を取り戻す。心待ちにしていた冬山への旅は、八代町から始まります。',
+      desc: '心待ちにしていた冬山への旅は、八代町から始まります。',
       button: '予約システムへ進む',
       hint: '* ボタンをクリックすると、安全な外部予約エンジン（OwlNest）が別タブで開きます。一棟貸切（グループ予約）、特別なお食事手配、団体利用のご相談は、下記のお問い合わせ先よりお気軽にご連絡ください。'
     },
@@ -625,36 +659,51 @@ export const locales = {
     },
     // Villas Data
     sharedAmenities: {
-      badge: 'アメニティ',
-      title: 'ヴィラ共通の設備とサービス',
-      desc: '八代町では、最高の設備と心のこもったサービスでお迎えいたします。レジャーや飲食から安全対策まで、快適なご滞在をお約束します。',
+      title: '設備とサービス',
       categories: {
-        public: '共用・レジャー施設',
-        dining: '飲食関連アメニティ',
-        safety: '安全・防災設備'
+        public: '公共エリア設備',
+        dining: '娯楽設備',
+        kitchen: '飲食設備',
+        others: 'その他設備'
       },
       items: {
         public: [
-          { icon: 'fa-solid fa-water', text: '屋外専用ミニプール' },
-          { icon: 'fa-solid fa-hot-tub-person', text: '専用和風温泉露天風呂' },
-          { icon: 'fa-solid fa-wind', text: 'Dysonヘアドライヤー' },
-          { icon: 'fa-solid fa-bed', text: '5つ星キングサイズベッド＆肌に優しいオーガニック寝具' },
-          { icon: 'fa-solid fa-wifi', text: '館内無料高速Wi-Fi' },
-          { icon: 'fa-solid fa-square-parking', text: '専用無料駐車場' },
-          { icon: 'fa-solid fa-tv', text: 'Bluetoothシアター音響＆100インチプロジェクター' }
+          { icon: 'fa-solid fa-square-parking', text: '専用無料駐車スペース' },
+          { icon: 'fa-solid fa-tree', text: '千坪の芝生広場と湖畔' }
         ],
         dining: [
-          { icon: 'fa-solid fa-kitchen-set', text: 'アイランドキッチン＆調理器具一式' },
-          { icon: 'fa-solid fa-coffee', text: 'カプセルコーヒーメーカー＆手挽きコーヒーセット' },
-          { icon: 'fa-solid fa-wine-glass', text: 'ウェルカムミニバードリンク無料' },
-          { icon: 'fa-solid fa-glass-water', text: '炭酸水＆ウォーターサーバー' },
-          { icon: 'fa-solid fa-fire-burner', text: '屋外専用防風たき火エリア' }
+          { icon: 'fa-solid fa-microphone-lines', text: 'カラオケシステム' },
+          { icon: 'fa-solid fa-dice', text: '全自動麻雀卓' },
+          { icon: 'fa-solid fa-hot-tub-person', text: '専用露天温泉' },
+          { icon: 'fa-solid fa-water', text: '専用ミニプール' },
+          { icon: 'fa-solid fa-video', text: '100インチスクリーン' },
+          { icon: 'fa-solid fa-tv', text: '75インチ大画面テレビ' },
+          { icon: 'fa-solid fa-puzzle-piece', text: 'ボードゲーム各種' },
+          { icon: 'fa-solid fa-gamepad', text: 'ゲーム設備' },
+          { icon: 'fa-solid fa-wifi', text: '高速 Wi-Fi' },
+          { icon: 'fa-solid fa-fire', text: 'バーベキューグリル（オプション）' }
         ],
-        safety: [
-          { icon: 'fa-solid fa-kit-medical', text: '客室用緊急救急箱' },
-          { icon: 'fa-solid fa-fire-extinguisher', text: '消防規格適合消火器' },
-          { icon: 'fa-solid fa-wind', text: '全館多点式煙感知器' },
-          { icon: 'fa-solid fa-video', text: '共用スペース防犯カメラ監視' }
+        kitchen: [
+          { icon: 'fa-solid fa-fire-burner', text: 'IHクッキングヒーター' },
+          { icon: 'fa-solid fa-soap', text: '食器洗い機' },
+          { icon: 'fa-solid fa-kitchen-set', text: 'オーブン' },
+          { icon: 'fa-solid fa-bolt', text: '電子レンジ' },
+          { icon: 'fa-solid fa-snowflake', text: '冷蔵庫' },
+          { icon: 'fa-solid fa-coffee', text: 'コーヒーメーカー' },
+          { icon: 'fa-solid fa-wine-glass', text: '無料ミニバー' },
+          { icon: 'fa-solid fa-glass-water', text: 'ウォーターサーバー' },
+          { icon: 'fa-solid fa-utensils', text: '調理器具・食器類' },
+          { icon: 'fa-solid fa-umbrella-beach', text: '屋外ダイニングエリア' }
+        ],
+        others: [
+          { icon: 'fa-solid fa-elevator', text: '専用エレベーター' },
+          { icon: 'fa-solid fa-bed', text: 'ベビーベッド' },
+          { icon: 'fa-solid fa-bath', text: 'ベビーバス' },
+          { icon: 'fa-solid fa-baby', text: '哺乳瓶消毒器' },
+          { icon: 'fa-solid fa-pump-soap', text: 'バスアメニティ' },
+          { icon: 'fa-solid fa-wind', text: 'ヘアドライヤー' },
+          { icon: 'fa-solid fa-kit-medical', text: '救急箱' },
+          { icon: 'fa-solid fa-fire-extinguisher', text: '消火器' }
         ]
       }
     },

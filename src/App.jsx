@@ -178,8 +178,10 @@ function VillaShowcaseBlock({ villa, photos, t, openLightbox, isEven, locale }) 
         {/* Content Column */}
         <div className="villa-content-col">
           <div className="villa-block-header">
-            <span className="villa-number">{villa.number}</span>
-            <h3 className="villa-title">{villa.name}</h3>
+            <div className="villa-name-row">
+              <span className="villa-number">{villa.number}</span>
+              <h3 className="villa-title">{villa.name}</h3>
+            </div>
           </div>
 
           {/* 📋 Villa Basic Specifications */}
@@ -273,10 +275,10 @@ export default function App() {
   // Hero Slider
   const [currentSlide, setCurrentSlide] = useState(0)
   const heroSlides = [
-    'photos/large/_CCN3531.webp',
-    'photos/large/_CCN3571.webp',
-    'photos/large/_CCN3607.webp',
-    'photos/large/_CCN3683.webp'
+    'photos/封面/_CCN3683.JPG',
+    'photos/封面/_CCN3692.JPG',
+    'photos/封面/dji_fly_20260114_125700_0004_1768396454384_photo.JPG',
+    'photos/封面/dji_fly_20260114_130714_0008_1768395781247_photo.JPG'
   ]
 
   // Lightbox States
@@ -284,6 +286,19 @@ export default function App() {
   const [lightboxIndex, setLightboxIndex] = useState(0)
   const [lightboxLoaded, setLightboxLoaded] = useState(false)
   const [lightboxVillaId, setLightboxVillaId] = useState('red')
+
+  // Slide orientations detection
+  const [slideOrientations, setSlideOrientations] = useState({})
+  useEffect(() => {
+    heroSlides.forEach(url => {
+      const img = new Image()
+      img.onload = () => {
+        const orientation = img.naturalHeight > img.naturalWidth ? 'portrait' : 'landscape'
+        setSlideOrientations(prev => ({ ...prev, [url]: orientation }))
+      }
+      img.src = url
+    })
+  }, [])
 
   // FAQ Active Accordion
   const [activeFaq, setActiveFaq] = useState(null)
@@ -617,13 +632,23 @@ export default function App() {
         {/* 📍 Section 1: Hero Slider (首頁) */}
         <section className="hero-section" id="home">
           <div className="hero-slider">
-            {heroSlides.map((slide, idx) => (
-              <div
-                key={idx}
-                className={`slide ${currentSlide === idx ? 'active' : ''}`}
-                style={{ backgroundImage: `url('${slide}')` }}
-              />
-            ))}
+            {heroSlides.map((slide, idx) => {
+              const isPortrait = slideOrientations[slide] === 'portrait';
+              return (
+                <div
+                  key={idx}
+                  className={`slide ${currentSlide === idx ? 'active' : ''} ${isPortrait ? 'is-portrait' : 'is-landscape'}`}
+                  style={{ backgroundImage: !isPortrait ? `url('${slide}')` : 'none' }}
+                >
+                  {isPortrait && (
+                    <>
+                      <div className="slide-blur-bg" style={{ backgroundImage: `url('${slide}')` }}></div>
+                      <div className="slide-contain-fg" style={{ backgroundImage: `url('${slide}')` }}></div>
+                    </>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           <div className="hero-overlay"></div>
@@ -653,12 +678,12 @@ export default function App() {
                 
                 {/* Card A: Center base */}
                 <div className="parallax-card card-main">
-                  <img src="photos/large/_CCN3744.webp" alt="八代町物業實景 - 主外觀" />
+                  <img src="photos/about/IMG_2339.HEIC" alt="八代町物業實景 - 主外觀" />
                 </div>
                 
                 {/* Card B: Top right overlap */}
                 <div className="parallax-card card-sub-tr">
-                  <img src="photos/large/_CCN3704.webp" alt="八代町物業實景 - 獨立湯池與泳池" />
+                  <img src="photos/large/_CCN3744.webp" alt="八代町物業實景 - 主外觀" />
                 </div>
                 
                 {/* Card C: Bottom left overlap */}
@@ -681,7 +706,7 @@ export default function App() {
                 <span className="section-badge">{t('about.badge')}</span>
                 <h2 className="section-title">{t('about.title')}</h2>
                 <p className="story-lead">{t('about.lead')}</p>
-                <p className="story-desc-text">{t('about.desc')}</p>
+
 
                 <div className="concept-features">
                   <div className="concept-item">
@@ -692,7 +717,7 @@ export default function App() {
                     </div>
                   </div>
                   <div className="concept-item">
-                    <div className="concept-icon"><i className="fa-solid fa-water-ladder"></i></div>
+                    <div className="concept-icon"><i className="fa-solid fa-bath"></i></div>
                     <div className="concept-info">
                       <h3>{t('about.feat2Title')}</h3>
                       <p>{t('about.feat2Desc')}</p>
@@ -703,6 +728,13 @@ export default function App() {
                     <div className="concept-info">
                       <h3>{t('about.feat4Title')}</h3>
                       <p>{t('about.feat4Desc')}</p>
+                    </div>
+                  </div>
+                  <div className="concept-item">
+                    <div className="concept-icon"><i className="fa-solid fa-paw"></i></div>
+                    <div className="concept-info">
+                      <h3>{t('about.feat5Title')}</h3>
+                      <p>{t('about.feat5Desc')}</p>
                     </div>
                   </div>
                 </div>
@@ -737,58 +769,60 @@ export default function App() {
               ))}
             </div>
 
-            {/* 🌟 Shared Amenities Bento Section */}
+            {/* 🌟 Shared Amenities Flat Grid Section (Mimicking screenshot layout) */}
             <div className="shared-amenities-block reveal-on-scroll">
-              <div className="shared-amenities-header text-center">
-                <span className="shared-amenities-badge">{t('sharedAmenities.badge')}</span>
+              <div className="shared-amenities-header">
                 <h3 className="shared-amenities-title">{t('sharedAmenities.title')}</h3>
-                <p className="shared-amenities-desc">{t('sharedAmenities.desc')}</p>
               </div>
 
-              <div className="shared-amenities-grid">
-                {/* 1. Public & Leisure Amenities */}
-                <div className="shared-amenity-card">
-                  <div className="shared-amenity-card-header">
-                    <span className="shared-category-icon"><i className="fa-solid fa-hotel"></i></span>
-                    <h4>{t('sharedAmenities.categories.public')}</h4>
-                  </div>
-                  <div className="shared-amenity-list">
+              <div className="shared-amenities-flat-container">
+                {/* 1. Public Area Facilities & Services */}
+                <div className="shared-amenity-flat-section">
+                  <h4 className="shared-category-flat-title">{t('sharedAmenities.categories.public')}</h4>
+                  <div className="shared-amenity-flat-grid">
                     {t('sharedAmenities.items.public').map((item, idx) => (
-                      <div key={idx} className="shared-amenity-item">
-                        <span className="shared-item-icon"><i className={item.icon}></i></span>
-                        <span className="shared-item-text">{item.text}</span>
+                      <div key={idx} className="shared-amenity-flat-item">
+                        <span className="shared-item-flat-icon"><i className={item.icon}></i></span>
+                        <span className="shared-item-flat-text">{item.text}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* 2. Dining Amenities */}
-                <div className="shared-amenity-card">
-                  <div className="shared-amenity-card-header">
-                    <span className="shared-category-icon"><i className="fa-solid fa-utensils"></i></span>
-                    <h4>{t('sharedAmenities.categories.dining')}</h4>
-                  </div>
-                  <div className="shared-amenity-list">
+                {/* 2. Entertainment Facilities */}
+                <div className="shared-amenity-flat-section">
+                  <h4 className="shared-category-flat-title">{t('sharedAmenities.categories.dining')}</h4>
+                  <div className="shared-amenity-flat-grid">
                     {t('sharedAmenities.items.dining').map((item, idx) => (
-                      <div key={idx} className="shared-amenity-item">
-                        <span className="shared-item-icon"><i className={item.icon}></i></span>
-                        <span className="shared-item-text">{item.text}</span>
+                      <div key={idx} className="shared-amenity-flat-item">
+                        <span className="shared-item-flat-icon"><i className={item.icon}></i></span>
+                        <span className="shared-item-flat-text">{item.text}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* 3. Safety Amenities */}
-                <div className="shared-amenity-card">
-                  <div className="shared-amenity-card-header">
-                    <span className="shared-category-icon"><i className="fa-solid fa-shield-halved"></i></span>
-                    <h4>{t('sharedAmenities.categories.safety')}</h4>
+                {/* 3. Kitchen Facilities */}
+                <div className="shared-amenity-flat-section">
+                  <h4 className="shared-category-flat-title">{t('sharedAmenities.categories.kitchen')}</h4>
+                  <div className="shared-amenity-flat-grid">
+                    {t('sharedAmenities.items.kitchen').map((item, idx) => (
+                      <div key={idx} className="shared-amenity-flat-item">
+                        <span className="shared-item-flat-icon"><i className={item.icon}></i></span>
+                        <span className="shared-item-flat-text">{item.text}</span>
+                      </div>
+                    ))}
                   </div>
-                  <div className="shared-amenity-list">
-                    {t('sharedAmenities.items.safety').map((item, idx) => (
-                      <div key={idx} className="shared-amenity-item">
-                        <span className="shared-item-icon"><i className={item.icon}></i></span>
-                        <span className="shared-item-text">{item.text}</span>
+                </div>
+
+                {/* 4. Other Facilities */}
+                <div className="shared-amenity-flat-section">
+                  <h4 className="shared-category-flat-title">{t('sharedAmenities.categories.others')}</h4>
+                  <div className="shared-amenity-flat-grid">
+                    {t('sharedAmenities.items.others').map((item, idx) => (
+                      <div key={idx} className="shared-amenity-flat-item">
+                        <span className="shared-item-flat-icon"><i className={item.icon}></i></span>
+                        <span className="shared-item-flat-text">{item.text}</span>
                       </div>
                     ))}
                   </div>
