@@ -109,8 +109,8 @@ export const locales = {
     footer: {
       brandName: '八代町 YASHIROCHO VILLA',
       brandTagline: '讓每一次相聚，都成為想再次回來的理由。',
-      copyright: '© 2026 八代町 YASHIROCHO. All Rights Reserved. Designed for premium living experience.',
-      legal: '宜蘭縣合法民宿 編號 NO.3028 ｜ 宜蘭縣合法民宿 編號 NO.3033 ｜ 宜蘭縣合法民宿 編號 NO.3034 ｜ 宜蘭縣合法民宿 編號 NO.3039'
+      copyright: '© 2026 八代町 YASHIROCHO. All Rights Reserved.',
+      legal: '宜蘭縣合法民宿編號：NO.3028 ｜ NO.3033 ｜ NO.3034 ｜ NO.3039'
     },
     // Villas Data
     sharedAmenities: {
@@ -384,7 +384,7 @@ export const locales = {
     footer: {
       brandName: 'YASHIROCHO VILLA',
       brandTagline: 'May every gathering become a reason to return.',
-      copyright: '© 2026 Yashirocho. All Rights Reserved. Designed for premium living experience.',
+      copyright: '© 2026 Yashirocho. All Rights Reserved.',
       legal: 'Yilan County Registered Guesthouse Licenses: NO.3028 ｜ NO.3033 ｜ NO.3034 ｜ NO.3039'
     },
     // Villas Data
@@ -659,7 +659,7 @@ export const locales = {
     footer: {
       brandName: '八代町 YASHIROCHO VILLA',
       brandTagline: 'すべての集まりが、再びここに戻りたくなる理由になりますように。',
-      copyright: '© 2026 八代町 YASHIROCHO. All Rights Reserved. Designed for premium living experience.',
+      copyright: '© 2026 八代町 YASHIROCHO. All Rights Reserved.',
       legal: '宜蘭県政府公認優良民宿ライセンス：NO.3028 ｜ NO.3033 ｜ NO.3034 ｜ NO.3039'
     },
     // Villas Data

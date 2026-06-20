@@ -2355,7 +2355,7 @@ section {
 .main-footer {
     background-color: var(--bg-dark);
     color: rgba(255, 255, 255, 0.6);
-    padding: 60px 0 40px;
+    padding: 35px 0 30px;
 }
 
 .footer-bottom {
