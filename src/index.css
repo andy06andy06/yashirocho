@@ -2944,14 +2944,25 @@ button.disabled:hover {
 .quote-banner-section {
     position: relative;
     padding: 140px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.quote-banner-bg {
+    position: absolute;
+    top: -30%;
+    left: 0;
+    width: 100%;
+    height: 160%;
     background-image: url('photos/large/_CCN3571.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    z-index: 0;
+    will-change: transform;
+    transform: translate3d(0, calc(var(--quote-scroll-offset, 0px) * 0.25), 0);
 }
 
 .quote-banner-section::before {
@@ -3092,7 +3103,6 @@ button.disabled:hover {
     
     .quote-banner-section {
         padding: 100px 0;
-        background-attachment: scroll; /* Fallback for touch devices */
     }
     
     .pet-section {

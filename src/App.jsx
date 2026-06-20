@@ -130,7 +130,7 @@ function VillaShowcaseBlock({ villa, photos, t, openLightbox, isEven, locale }) 
                   <span>{locale === 'en' ? 'Enlarge' : locale === 'ja' ? '拡大する' : '放大實景'}</span>
                 </div>
                 <img 
-                  src={currentPhoto?.large} 
+                  src={currentPhoto?.large ? encodeURI(currentPhoto.large) : ''} 
                   alt={currentPhoto?.title} 
                   className="villa-carousel-img"
                   loading="lazy"
@@ -254,21 +254,36 @@ export default function App() {
 
   // Refs for layout
   const storyContainerRef = useRef(null)
+  const quoteContainerRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
       const container = storyContainerRef.current
-      if (!container) return
-      const rect = container.getBoundingClientRect()
-      const viewportHeight = window.innerHeight
-      if (rect.top < viewportHeight && rect.bottom > 0) {
-        const containerCenter = rect.top + rect.height / 2
-        const viewportCenter = viewportHeight / 2
-        const offset = containerCenter - viewportCenter
-        container.style.setProperty('--scroll-offset', `${offset}px`)
+      if (container) {
+        const rect = container.getBoundingClientRect()
+        const viewportHeight = window.innerHeight
+        if (rect.top < viewportHeight && rect.bottom > 0) {
+          const containerCenter = rect.top + rect.height / 2
+          const viewportCenter = viewportHeight / 2
+          const offset = containerCenter - viewportCenter
+          container.style.setProperty('--scroll-offset', `${offset}px`)
+        }
+      }
+
+      const quoteContainer = quoteContainerRef.current
+      if (quoteContainer) {
+        const rect = quoteContainer.getBoundingClientRect()
+        const viewportHeight = window.innerHeight
+        if (rect.top < viewportHeight && rect.bottom > 0) {
+          const containerCenter = rect.top + rect.height / 2
+          const viewportCenter = viewportHeight / 2
+          const offset = containerCenter - viewportCenter
+          quoteContainer.style.setProperty('--quote-scroll-offset', `${offset}px`)
+        }
       }
     }
     window.addEventListener('scroll', handleScroll)
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -312,9 +327,9 @@ export default function App() {
 
   // --- Effects ---
 
-  // 1. Fetch Photo Manifest on mount
+  // 1. Fetch Photo Manifest on mount with cache buster
   useEffect(() => {
-    fetch('/photos_manifest.json')
+    fetch(`/photos_manifest.json?t=${new Date().getTime()}`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to load photos')
         return res.json()
@@ -439,7 +454,7 @@ export default function App() {
   useEffect(() => {
     if (lightboxActive && lightboxPhotos[lightboxIndex]) {
       const img = new Image()
-      img.src = lightboxPhotos[lightboxIndex].large
+      img.src = encodeURI(lightboxPhotos[lightboxIndex].large)
       img.onload = () => setLightboxLoaded(true)
     }
   }, [lightboxIndex, lightboxActive, lightboxPhotos])
@@ -832,8 +847,9 @@ export default function App() {
         </section>
 
         {/* 📍 Section: 品牌理念 (Philosophy Banner - Parallax) */}
-        <section className="quote-banner-section">
-          <div className="container">
+        <section className="quote-banner-section" ref={quoteContainerRef}>
+          <div className="quote-banner-bg"></div>
+          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
             <div className="philosophy-banner-content text-center reveal-on-scroll">
               <span className="philosophy-banner-badge">{t('philosophy.badge')}</span>
               <h2 className="philosophy-banner-title">{t('philosophy.title')}</h2>
@@ -943,7 +959,7 @@ export default function App() {
                 <i className="fa-brands fa-line"></i>
                 <div>
                   <h4>{t('contact.lineLabel')}</h4>
-                  <p><a href="https://lin.ee/uxHS4Qg" target="_blank" rel="noopener noreferrer" className="contact-link">{t('contact.lineVal')}</a></p>
+                  <p><a href="https://line.me/R/ti/p/@434bmbqm" target="_blank" rel="noopener noreferrer" className="contact-link">{t('contact.lineVal')}</a></p>
                 </div>
               </div>
               <div className="summary-block">
@@ -1001,7 +1017,7 @@ export default function App() {
           <div className="lightbox-content-container">
             <div className="lightbox-image-wrapper">
               <img
-                src={lightboxPhotos[lightboxIndex].large}
+                src={encodeURI(lightboxPhotos[lightboxIndex].large)}
                 className={lightboxLoaded ? 'loaded' : ''}
                 alt={lightboxPhotos[lightboxIndex].title}
               />
