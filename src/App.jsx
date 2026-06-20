@@ -751,7 +751,6 @@ export default function App() {
             <div className="section-header text-center reveal-on-scroll">
               <span className="section-badge">{t('rooms.badge')}</span>
               <h2 className="section-title">{t('rooms.title')}</h2>
-              <p className="section-desc">{t('rooms.desc')}</p>
             </div>
 
             {/* 🏰 Villa Blocks Alternating List */}
@@ -839,7 +838,6 @@ export default function App() {
               <span className="philosophy-banner-badge">{t('philosophy.badge')}</span>
               <h2 className="philosophy-banner-title">{t('philosophy.title')}</h2>
               <p className="philosophy-banner-lead">{t('philosophy.lead')}</p>
-              <p className="philosophy-banner-desc">{t('philosophy.desc')}</p>
             </div>
           </div>
         </section>
@@ -850,9 +848,6 @@ export default function App() {
             <div className="booking-system-card reveal-on-scroll">
               <span className="section-badge">{t('booking.badge')}</span>
               <h2 className="section-title">{t('booking.title')}</h2>
-              <p className="section-desc" style={{ maxWidth: '600px', margin: '0 auto 15px', color: 'var(--text-muted)' }}>
-                {t('booking.desc')}
-              </p>
 
               <div className="booking-btn-wrapper">
                 <a
@@ -880,10 +875,9 @@ export default function App() {
         <section className="rules-section" id="rules">
           <div className="container">
             <div className="section-header text-center reveal-on-scroll">
-              <span className="section-badge">{t('rules.badge')}</span>
-              <h2 className="section-title">{t('rules.title')}</h2>
-              <p className="section-desc">{t('rules.desc')}</p>
-            </div>
+                <span className="section-badge">{t('rules.badge')}</span>
+                <h2 className="section-title">{t('rules.title')}</h2>
+              </div>
 
             {/* FAQ foldouts */}
             <div className="faq-container reveal-on-scroll" style={{ marginBottom: '20px' }}>
@@ -920,7 +914,6 @@ export default function App() {
             <div className="section-header text-center reveal-on-scroll">
               <span className="section-badge">{t('contact.badge')}</span>
               <h2 className="section-title">{t('contact.title')}</h2>
-              <p className="section-desc">{t('contact.desc')}</p>
             </div>
 
             {/* Contact Info summary card */}
@@ -936,14 +929,14 @@ export default function App() {
                 <i className="fa-solid fa-phone"></i>
                 <div>
                   <h4>{t('contact.phoneLabel')}</h4>
-                  <p>0912-345-678</p>
+                  <p>0902101161</p>
                 </div>
               </div>
               <div className="summary-block">
                 <i className="fa-solid fa-envelope"></i>
                 <div>
                   <h4>{t('contact.emailLabel')}</h4>
-                  <p>service@yashirocho-guesthouse.com</p>
+                  <p>selectstaycation@gmail.com</p>
                 </div>
               </div>
               <div className="summary-block">
@@ -964,7 +957,7 @@ export default function App() {
                 <i className="fa-brands fa-instagram"></i>
                 <div>
                   <h4>{t('contact.igLabel')}</h4>
-                  <p><a href="https://www.instagram.com/8machi368/" target="_blank" rel="noopener noreferrer" className="contact-link">{t('contact.igVal')}</a></p>
+                  <p><a href="https://www.instagram.com/8machi_villa?igsh=ZXVzbjA1aW04N292" target="_blank" rel="noopener noreferrer" className="contact-link">{t('contact.igVal')}</a></p>
                 </div>
               </div>
             </div>

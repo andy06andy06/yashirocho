@@ -96,7 +96,7 @@ export const locales = {
       fbLabel: 'Facebook 臉書粉專',
       fbVal: '八代町（點擊前往）',
       igLabel: 'Instagram 品牌主頁',
-      igVal: '@8machi368（點擊追蹤）'
+      igVal: '@8machi_villa（點擊追蹤）'
     },
     // Lightbox & Footer
     lightbox: {
@@ -204,9 +204,13 @@ export const locales = {
         question: "Q1：請問入住與退房時間是幾點？可以延遲退房嗎？",
         answer: (
           <>
-            <p style={{ marginBottom: '8px' }}><strong>標準時間：</strong>入住時間為 15:00 - 20:00；退房時間為隔日 11:00 前。</p>
-            <p style={{ marginBottom: '8px' }}><strong>迎賓茶點：</strong>若您預計於 15:00 - 18:00 抵達，我們準備了專屬迎賓茶點，請提早與管家預約抵達時間。</p>
-            <p style={{ marginBottom: '0' }}><strong>延遲退房：</strong>若需延退，請務必於「前一晚 21:00 前」與管家確認房況（若當日有新住客則無法提供延退）。費用為 $1,000/小時，超過 4 小時將以一日房費計算。</p>
+            <p style={{ marginBottom: '8px' }}><strong>標準時間：</strong>入住時間為 15:00 - 18:00；退房時間為隔日 11:00 前。</p>
+            <p style={{ marginBottom: '4px' }}><strong>延遲退房：</strong>為維護住宿品質及房屋整理時間，退房時間為上午 11 點前：</p>
+            <ul style={{ paddingLeft: '20px', listStyleType: 'none', margin: '0 0 8px 0', color: 'var(--text-light)' }}>
+              <li style={{ marginBottom: '4px' }}>(a) 每延長一個小時，酌收新臺幣 1,000 元</li>
+              <li style={{ marginBottom: '0' }}>(b) 最晚延至下午 1 點</li>
+            </ul>
+            <p style={{ marginBottom: '0' }}><strong>彈性調整：</strong>為了讓房務夥伴有充足時間整理環境，若需提早入住或延後退房，請提前與我們聯繫，我們將依當日房況協助安排。若預計晚上 9 點後抵達，也請提前告知，我們會為您安排入住事宜。</p>
           </>
         )
       },
@@ -368,7 +372,7 @@ export const locales = {
       fbLabel: 'Facebook Fanpage',
       fbVal: 'Yashirocho (Tap to Visit)',
       igLabel: 'Instagram',
-      igVal: '@8machi368 (Tap to Follow)'
+      igVal: '@8machi_villa (Tap to Follow)'
     },
     // Lightbox & Footer
     lightbox: {
@@ -476,9 +480,13 @@ export const locales = {
         question: "Q1: What are the standard check-in and check-out times? Is late check-out available?",
         answer: (
           <>
-            <p style={{ marginBottom: '8px' }}><strong>Standard Hours:</strong> Check-in is between 15:00 - 20:00; check-out is before 11:00 the following morning.</p>
-            <p style={{ marginBottom: '8px' }}><strong>Welcome Tea:</strong> If you plan to arrive between 15:00 - 18:00, we serve a bespoke welcome refreshment set. Please coordinate your arrival time with the butler in advance.</p>
-            <p style={{ marginBottom: '0' }}><strong>Late Check-out:</strong> Requests must be made with the butler before 21:00 the night prior. This is strictly subject to same-day room availability. The rate is $1,000 TWD per hour; check-out delayed over 4 hours will be billed as a full additional night.</p>
+            <p style={{ marginBottom: '8px' }}><strong>Standard Hours:</strong> Check-in is between 15:00 - 18:00; check-out is before 11:00 the following morning.</p>
+            <p style={{ marginBottom: '4px' }}><strong>Late Check-out:</strong> To maintain stay quality and allow sufficient cleaning time, check-out time is before 11:00 AM:</p>
+            <ul style={{ paddingLeft: '20px', listStyleType: 'none', margin: '0 0 8px 0', color: 'var(--text-light)' }}>
+              <li style={{ marginBottom: '4px' }}>(a) $1,000 TWD per hour</li>
+              <li style={{ marginBottom: '0' }}>(b) Up to 13:00 at most</li>
+            </ul>
+            <p style={{ marginBottom: '0' }}><strong>Flexible Adjustments:</strong> To ensure our housekeeping team has sufficient time to prepare the environment, please contact us in advance if you require early check-in or late check-out. We will do our best to accommodate based on availability. If you plan to arrive after 21:00, please also inform us in advance so we can arrange check-in for you.</p>
           </>
         )
       },
@@ -640,7 +648,7 @@ export const locales = {
       fbLabel: 'Facebookページ',
       fbVal: '八代町 (タップして開く)',
       igLabel: 'Instagram',
-      igVal: '@8machi368 (タップしてフォロー)'
+      igVal: '@8machi_villa (タップしてフォロー)'
     },
     // Lightbox & Footer
     lightbox: {
@@ -748,9 +756,13 @@ export const locales = {
         question: "Q1：チェックイン、チェックアウトの時間は何時ですか？レイトチェックアウトは可能ですか？",
         answer: (
           <>
-            <p style={{ marginBottom: '8px' }}><strong>標準時間：</strong>チェックインは 15:00 - 20:00、チェックアウトは 翌日 11:00 までとなっております。</p>
-            <p style={{ marginBottom: '8px' }}><strong>ウェルカムサービス：</strong>15:00 - 18:00 の間にご到着予定の場合、特製のウェルカムティーセットをご用意いたします。事前におおよそのご到着時間をお知らせください。</p>
-            <p style={{ marginBottom: '0' }}><strong>レイトチェックアウト：</strong>ご希望の場合は、必ず「前日21:00まで」にバトラーにご確認ください（当日の空室状況によりご希望に添えない場合がございます）。料金は1時間あたり$1,000、4時間を超える場合は1日分の宿泊料となります。</p>
+            <p style={{ marginBottom: '8px' }}><strong>標準時間：</strong>チェックインは 15:00 - 18:00、チェックアウトは 翌日 11:00 までとなっております。</p>
+            <p style={{ marginBottom: '4px' }}><strong>レイトチェックアウト：</strong>ご滞在古クオリティの維持とお部屋の清掃時間を確保するため、チェックアウト時間は午前11:00までとなります：</p>
+            <ul style={{ paddingLeft: '20px', listStyleType: 'none', margin: '0 0 8px 0', color: 'var(--text-light)' }}>
+              <li style={{ marginBottom: '4px' }}>(a) 1時間の延長につき、新台湾ドル1,000元を申し受けます</li>
+              <li style={{ marginBottom: '0' }}>(b) 最長で午後1:00まで</li>
+            </ul>
+            <p style={{ marginBottom: '0' }}><strong>柔軟な調整：</strong>清掃スタッフが環境を整えるのに十分な時間を確保するため、アーリーチェックインまたはレイトチェックアウトをご希望の場合は、事前にお問い合わせください。当日の状況に応じて調整いたします。また、ご到着が21:00以降になる場合は、チェックインの対応をさせていただきますので事前にご連絡ください。</p>
           </>
         )
       },
