@@ -1045,9 +1045,6 @@ export default function App() {
       <footer className="main-footer">
         <div className="container">
           <div className="footer-brand-info text-center reveal-on-scroll" style={{ marginBottom: '40px' }}>
-            <p className="footer-brand-features" style={{ fontSize: '0.95rem', color: 'var(--text-light)', letterSpacing: '0.15em', marginBottom: '8px' }}>
-              {t('footer.brandFeatures')}
-            </p>
             <p className="footer-brand-tagline" style={{ fontSize: '1.05rem', fontStyle: 'italic', color: 'var(--primary-color)' }}>
               {t('footer.brandTagline')}
             </p>

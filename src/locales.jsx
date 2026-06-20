@@ -108,7 +108,6 @@ export const locales = {
     },
     footer: {
       brandName: '八代町 YASHIROCHO VILLA',
-      brandFeatures: '獨立 Villa ｜ 專屬湯池 ｜ 侘寂美學 ｜ 宜蘭冬山',
       brandTagline: '讓每一次相聚，都成為想再次回來的理由。',
       copyright: '© 2026 八代町 YASHIROCHO. All Rights Reserved. Designed for premium living experience.',
       legal: '宜蘭縣合法民宿 編號 NO.3028 ｜ 宜蘭縣合法民宿 編號 NO.3033 ｜ 宜蘭縣合法民宿 編號 NO.3034 ｜ 宜蘭縣合法民宿 編號 NO.3039'
@@ -384,7 +383,6 @@ export const locales = {
     },
     footer: {
       brandName: 'YASHIROCHO VILLA',
-      brandFeatures: 'Private Villa ｜ Hot Springs & Pool ｜ Wabi-Sabi Aesthetics ｜ Dongshan, Yilan',
       brandTagline: 'May every gathering become a reason to return.',
       copyright: '© 2026 Yashirocho. All Rights Reserved. Designed for premium living experience.',
       legal: 'Yilan County Registered Guesthouse Licenses: NO.3028 ｜ NO.3033 ｜ NO.3034 ｜ NO.3039'
@@ -660,7 +658,6 @@ export const locales = {
     },
     footer: {
       brandName: '八代町 YASHIROCHO VILLA',
-      brandFeatures: 'プライベートヴィラ ｜ 専用温泉＆プール ｜ 侘び寂び美学 ｜ 宜蘭冬山',
       brandTagline: 'すべての集まりが、再びここに戻りたくなる理由になりますように。',
       copyright: '© 2026 八代町 YASHIROCHO. All Rights Reserved. Designed for premium living experience.',
       legal: '宜蘭県政府公認優良民宿ライセンス：NO.3028 ｜ NO.3033 ｜ NO.3034 ｜ NO.3039'
