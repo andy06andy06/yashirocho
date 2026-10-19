@@ -1,0 +1,99 @@
+# 流影・淨
+# 改完存檔、push 之後網站就會更新。照片路徑相對於 content/photos/。
+
+id: shadow          # 網址會是 /villa/shadow，請不要改
+order: 2           # 在網站上的排列順序
+
+name:
+  zh: 流影・淨
+  en: Shadow · Stillness
+  ja: 流影・淨
+
+# 這一棟的主題色：main 用在標題、按鈕；tint 是淺色底
+color:
+  main: "#56636B"
+  tint: "#E5E9EA"
+
+# 是否開放毛孩入住（true / false）
+pets: false
+
+concept:
+  zh: |
+    光影在空間中緩慢流動。
+    讓心緒沉澱，
+    回到最純粹安定的狀態。
+  en: |
+    Light and shadow drift slowly through the rooms.
+    Let your thoughts settle
+    and return to a calm, clear state.
+  ja: |
+    光と影が、空間をゆっくりと流れていく。
+    心を静めて、
+    いちばん素直で穏やかな自分に戻る場所。
+
+# 規格可以自由增減，每一項都是「標籤 + 內容」
+specs:
+  - label:
+      zh: 適合人數
+      en: Guests
+      ja: 定員
+    value:
+      zh: 12 ~ 15 人
+      en: 12 – 15 guests
+      ja: 12〜15名
+  - label:
+      zh: 樓層
+      en: Floors
+      ja: 階数
+    value:
+      zh: 5 層樓獨棟
+      en: 5-storey detached villa
+      ja: 5階建ての一棟貸し
+  - label:
+      zh: 房型格局
+      en: Bedrooms
+      ja: 間取り
+    value:
+      zh: 1 間四人房 + 4 間雙人房
+      en: 1 quad room + 4 double rooms
+      ja: 4人部屋1室 + ダブルルーム4室
+
+tags:
+  zh:
+      - 淨水天井
+      - 潺潺流影
+      - 澄澈水石
+  en:
+      - Courtyard light
+      - Moving shadows
+      - Clear water and stone
+  ja:
+      - 光の吹き抜け
+      - 移ろう影
+      - 澄んだ水と石
+
+# 封面照（總覽卡片與這一棟頁面最上方）
+cover: shadow/_CCN3772.jpg
+
+# 相簿：照順序顯示。可以只寫路徑，也可以加上說明文字：
+#   - file: shadow/example.jpg
+#     caption:
+#       zh: 二樓臥室
+photos:
+  - shadow/493A65E5-DED1-4273-BE32-731FE2432E44.jpg
+  - shadow/IMG_2436.jpg
+  - shadow/IMG_2438.jpg
+  - shadow/IMG_2439.jpg
+  - shadow/IMG_2440.jpg
+  - shadow/IMG_2442.jpg
+  - shadow/IMG_2443.jpg
+  - shadow/IMG_2444.jpg
+  - shadow/IMG_2447.jpg
+  - shadow/_CCN3772.jpg
+
+# 在首頁空拍圖上的位置（百分比）：x、y 是左上角，w、h 是寬高
+map_area:
+  x: 74
+  y: 47.5
+  w: 16
+  h: 11

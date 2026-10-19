@@ -1,0 +1,104 @@
+# 金箔・粹
+# 改完存檔、push 之後網站就會更新。照片路徑相對於 content/photos/。
+
+id: gold          # 網址會是 /villa/gold，請不要改
+order: 4           # 在網站上的排列順序
+
+name:
+  zh: 金箔・粹
+  en: Gold Leaf · Grace
+  ja: 金箔・粹
+
+# 這一棟的主題色：main 用在標題、按鈕；tint 是淺色底
+color:
+  main: "#86683A"
+  tint: "#F0E8DA"
+
+# 是否開放毛孩入住（true / false）
+pets: false
+
+concept:
+  zh: |
+    低調而細膩，
+    沉穩而優雅。
+    為每一段值得紀念的時光，
+    留下更深刻的儀式感。
+  en: |
+    Understated and refined,
+    calm and elegant.
+    For every moment worth remembering,
+    a deeper sense of occasion.
+  ja: |
+    控えめで繊細、
+    落ち着きがあって優雅。
+    記念すべきひとときに、
+    より深い特別感を添えて。
+
+# 規格可以自由增減，每一項都是「標籤 + 內容」
+specs:
+  - label:
+      zh: 適合人數
+      en: Guests
+      ja: 定員
+    value:
+      zh: 14 ~ 18 人
+      en: 14 – 18 guests
+      ja: 14〜18名
+  - label:
+      zh: 樓層
+      en: Floors
+      ja: 階数
+    value:
+      zh: 5 層樓獨棟
+      en: 5-storey detached villa
+      ja: 5階建ての一棟貸し
+  - label:
+      zh: 房型格局
+      en: Bedrooms
+      ja: 間取り
+    value:
+      zh: 1 間四人房 + 5 間雙人房
+      en: 1 quad room + 5 double rooms
+      ja: 4人部屋1室 + ダブルルーム5室
+
+tags:
+  zh:
+      - 金緻奢華
+      - 極致金箔
+      - 純粹金屬
+  en:
+      - Brass details
+      - Gold leaf
+      - Pure metal
+  ja:
+      - 真鍮の美しさ
+      - 金箔
+      - 純粋な金属
+
+# 封面照（總覽卡片與這一棟頁面最上方）
+cover: gold/20260524-民宿1297.jpg
+
+# 相簿：照順序顯示。可以只寫路徑，也可以加上說明文字：
+#   - file: gold/example.jpg
+#     caption:
+#       zh: 二樓臥室
+photos:
+  - gold/20260524-民宿1297.jpg
+  - gold/20260524-民宿2057.jpg
+  - gold/20260524-民宿5400.jpg
+  - gold/20260524-民宿6161.jpg
+  - gold/20260524-民宿6167.jpg
+  - gold/20260524-民宿8474.jpg
+  - gold/IMG_2389.jpg
+  - gold/IMG_2828.jpg
+  - gold/IMG_2829.jpg
+  - gold/IMG_2830.jpg
+  - gold/IMG_2831.jpg
+  - gold/IMG_4576.jpg
+
+# 在首頁空拍圖上的位置（百分比）：x、y 是左上角，w、h 是寬高
+map_area:
+  x: 73
+  y: 74.5
+  w: 16
+  h: 11
