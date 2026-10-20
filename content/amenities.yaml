@@ -1,0 +1,179 @@
+# 設施與服務（顯示在每一棟的頁面）
+# icon 是 Font Awesome 圖示名稱，可在 https://fontawesome.com/search?ic=free 查詢
+
+heading:
+  zh: 設施與服務
+  en: Facilities and services
+  ja: 設備とサービス
+
+groups:
+  - name:
+      zh: 公共區設施
+      en: Shared grounds
+      ja: 共用エリア
+    items:
+      - icon: square-parking
+        text:
+          zh: 專屬免費停車區
+          en: Free private parking
+          ja: 専用無料駐車場
+      - icon: tree
+        text:
+          zh: 千坪大草皮及湖畔
+          en: Large lawn and lakeside
+          ja: 千坪の芝生と湖畔
+  - name:
+      zh: 娛樂設施
+      en: Entertainment
+      ja: エンターテインメント
+    items:
+      - icon: microphone-lines
+        text:
+          zh: 歡唱設備
+          en: Karaoke
+          ja: カラオケ
+      - icon: dice
+        text:
+          zh: 電動麻將桌
+          en: Automatic mahjong table
+          ja: 全自動麻雀卓
+      - icon: hot-tub-person
+        text:
+          zh: 專屬露天湯泉
+          en: Private outdoor hot tub
+          ja: 専用露天湯船
+      - icon: water
+        text:
+          zh: 專屬戲水池
+          en: Private splash pool
+          ja: 専用プール
+      - icon: video
+        text:
+          zh: 100 吋投影幕
+          en: '100" projector screen'
+          ja: 100インチスクリーン
+      - icon: tv
+        text:
+          zh: 75 吋大電視
+          en: '75" TV'
+          ja: 75インチテレビ
+      - icon: puzzle-piece
+        text:
+          zh: 各式桌遊
+          en: Board games
+          ja: ボードゲーム
+      - icon: gamepad
+        text:
+          zh: 電玩設備
+          en: Video games
+          ja: ゲーム機
+      - icon: wifi
+        text:
+          zh: 高速 Wi-Fi
+          en: Fast Wi-Fi
+          ja: 高速 Wi-Fi
+      - icon: fire
+        text:
+          zh: BBQ 架（加購）
+          en: BBQ grill (extra)
+          ja: BBQグリル（有料）
+  - name:
+      zh: 餐飲設施
+      en: Kitchen & dining
+      ja: キッチン・ダイニング
+    items:
+      - icon: fire-burner
+        text:
+          zh: IH 爐
+          en: Induction hob
+          ja: IHコンロ
+      - icon: soap
+        text:
+          zh: 洗碗機
+          en: Dishwasher
+          ja: 食器洗い機
+      - icon: kitchen-set
+        text:
+          zh: 烤箱
+          en: Oven
+          ja: オーブン
+      - icon: bolt
+        text:
+          zh: 微波爐
+          en: Microwave
+          ja: 電子レンジ
+      - icon: snowflake
+        text:
+          zh: 冰箱
+          en: Fridge
+          ja: 冷蔵庫
+      - icon: mug-hot
+        text:
+          zh: 咖啡機
+          en: Coffee machine
+          ja: コーヒーマシン
+      - icon: wine-glass
+        text:
+          zh: 免費 mini bar
+          en: Free mini bar
+          ja: 無料ミニバー
+      - icon: glass-water
+        text:
+          zh: 直飲機
+          en: Drinking water dispenser
+          ja: ウォーターサーバー
+      - icon: utensils
+        text:
+          zh: 廚具及碗盤
+          en: Cookware and tableware
+          ja: 調理器具・食器
+      - icon: umbrella-beach
+        text:
+          zh: 戶外用餐區
+          en: Outdoor dining area
+          ja: 屋外ダイニング
+  - name:
+      zh: 其他設施
+      en: Other
+      ja: その他
+    items:
+      - icon: elevator
+        text:
+          zh: 專屬電梯
+          en: Private lift
+          ja: 専用エレベーター
+      - icon: bed
+        text:
+          zh: 嬰兒床
+          en: Baby cot
+          ja: ベビーベッド
+      - icon: bath
+        text:
+          zh: 嬰兒澡盆
+          en: Baby bath
+          ja: ベビーバス
+      - icon: baby
+        text:
+          zh: 奶瓶消毒鍋
+          en: Bottle steriliser
+          ja: 哺乳瓶消毒器
+      - icon: pump-soap
+        text:
+          zh: 沐浴備品
+          en: Shower toiletries
+          ja: バスアメニティ
+      - icon: wind
+        text:
+          zh: 吹風機
+          en: Hair dryer
+          ja: ヘアドライヤー
+      - icon: kit-medical
+        text:
+          zh: 醫藥箱
+          en: First-aid kit
+          ja: 救急箱
+      - icon: fire-extinguisher
+        text:
+          zh: 滅火器
+          en: Fire extinguisher
+          ja: 消火器

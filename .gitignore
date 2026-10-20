@@ -31,3 +31,13 @@ Thumbs.db
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Build output (Vercel builds from source)
+dist/
+
+# Generated from content/ by scripts/build-assets.mjs
+public/media/
+src/generated/
+
+# Dependencies (installed by npm / Vercel)
+node_modules/

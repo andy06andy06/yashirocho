@@ -1,0 +1,105 @@
+# 緋紅・樂
+# 改完存檔、push 之後網站就會更新。照片路徑相對於 content/photos/。
+
+id: red          # 網址會是 /villa/red，請不要改
+order: 1           # 在網站上的排列順序
+
+name:
+  zh: 緋紅・樂
+  en: Crimson · Joy
+  ja: 緋紅・樂
+
+# 這一棟的主題色：main 用在標題、按鈕；tint 是淺色底
+color:
+  main: "#A8402B"
+  tint: "#F3E4DD"
+
+# 是否開放毛孩入住（true / false）
+pets: false
+
+concept:
+  zh: |
+    如晚霞映照田野的暖色光景。
+    適合歡聚、分享與笑聲，
+    收藏與家人朋友相聚的美好時刻。
+  en: |
+    Warm colour, like sunset light across the fields.
+    Made for gatherings, sharing and laughter,
+    and for the moments you spend with family and friends.
+  ja: |
+    夕焼けが田園を照らすような、あたたかな色の景色。
+    集い、分かち合い、笑い合うために。
+    家族や友人と過ごす大切なひとときを残す場所。
+
+# 規格可以自由增減，每一項都是「標籤 + 內容」
+specs:
+  - label:
+      zh: 適合人數
+      en: Guests
+      ja: 定員
+    value:
+      zh: 12 ~ 15 人
+      en: 12 – 15 guests
+      ja: 12〜15名
+  - label:
+      zh: 樓層
+      en: Floors
+      ja: 階数
+    value:
+      zh: 5 層樓獨棟
+      en: 5-storey detached villa
+      ja: 5階建ての一棟貸し
+  - label:
+      zh: 房型格局
+      en: Bedrooms
+      ja: 間取り
+    value:
+      zh: 1 間四人房 + 4 間雙人房
+      en: 1 quad room + 4 double rooms
+      ja: 4人部屋1室 + ダブルルーム4室
+
+tags:
+  zh:
+      - 溫慢篝火
+      - 火紅陶藝
+      - 熱烈微醺
+  en:
+      - Slow firelight
+      - Red ceramics
+      - A warm glow
+  ja:
+      - 温かな焚き火
+      - 赤い陶芸
+      - ほろ酔いの夜
+
+# 封面照（總覽卡片與這一棟頁面最上方）
+cover: red/_CCN3692.jpg
+
+# 相簿：照順序顯示。可以只寫路徑，也可以加上說明文字：
+#   - file: red/example.jpg
+#     caption:
+#       zh: 二樓臥室
+photos:
+  - red/IMG_2336.jpg
+  - red/IMG_2340.jpg
+  - red/IMG_4072.jpg
+  - red/IMG_4074.jpg
+  - red/IMG_8687.jpg
+  - red/IMG_8688.jpg
+  - red/IMG_8689.jpg
+  - red/IMG_8691.jpg
+  - red/IMG_8692.jpg
+  - red/IMG_8693.jpg
+  - red/IMG_8694.jpg
+  - red/IMG_8695.jpg
+  - red/IMG_8696.jpg
+  - red/IMG_8697.jpg
+  - red/_CCN3644.jpg
+  - red/_CCN3692.jpg
+
+# 在首頁空拍圖上的位置（百分比）：x、y 是左上角，w、h 是寬高
+map_area:
+  x: 74
+  y: 34
+  w: 16
+  h: 11

@@ -1,0 +1,175 @@
+# 網站介面上的固定文字：選單、按鈕、標籤
+
+nav:
+  about:
+    zh: "關於八代町"
+    en: "About"
+    ja: "八代町について"
+  villas:
+    zh: "四座 Villa"
+    en: "The villas"
+    ja: "ヴィラ"
+  rules:
+    zh: "入住須知"
+    en: "Guidelines"
+    ja: "ご宿泊案内"
+  contact:
+    zh: "聯絡我們"
+    en: "Contact"
+    ja: "お問い合わせ"
+  book:
+    zh: "立即訂房"
+    en: "Book a stay"
+    ja: "予約する"
+  menu:
+    zh: "選單"
+    en: "Menu"
+    ja: "メニュー"
+  close_menu:
+    zh: "關閉選單"
+    en: "Close menu"
+    ja: "メニューを閉じる"
+  home:
+    zh: "回首頁"
+    en: "Home"
+    ja: "ホーム"
+
+hero:
+  slide:
+    zh: "第 {n} 張"
+    en: "Photo {n}"
+    ja: "{n}枚目"
+
+villas:
+  view:
+    zh: "看這一棟"
+    en: "View this villa"
+    ja: "この棟を見る"
+  map_hint:
+    zh: "點選空拍圖上的建築，或從下方清單進入各棟。"
+    en: "Tap a building on the aerial photo, or choose from the list."
+    ja: "空撮写真の建物、またはリストから各棟をご覧ください。"
+  pets_label:
+    zh: "毛孩"
+    en: "Pets"
+    ja: "ペット"
+  pets_yes:
+    zh: "可攜帶毛孩"
+    en: "Pets welcome"
+    ja: "ペット可"
+  pets_no:
+    zh: "不開放毛孩"
+    en: "No pets"
+    ja: "ペット不可"
+  gallery:
+    zh: "空間照片"
+    en: "Photos"
+    ja: "写真"
+  specs:
+    zh: "基本資訊"
+    en: "At a glance"
+    ja: "基本情報"
+  others:
+    zh: "其他三棟"
+    en: "The other villas"
+    ja: "ほかの棟"
+  book_this:
+    zh: "預訂這一棟"
+    en: "Book this villa"
+    ja: "この棟を予約"
+  back:
+    zh: "回到四座 Villa 總覽"
+    en: "Back to all villas"
+    ja: "ヴィラ一覧へ戻る"
+
+booking:
+  button:
+    zh: "前往線上訂房"
+    en: "Go to online booking"
+    ja: "オンライン予約へ"
+  hint:
+    zh: "訂房系統會在新分頁開啟。包棟、外燴或其他需求，歡迎直接與我們聯絡。"
+    en: "The booking system opens in a new tab. For special requests or catering, please contact us directly."
+    ja: "予約システムは新しいタブで開きます。貸切やケータリングなどのご相談は、直接お問い合わせください。"
+
+rules:
+  heading:
+    zh: "入住須知"
+    en: "Before you stay"
+    ja: "ご宿泊の前に"
+
+contact:
+  heading:
+    zh: "與八代町聯絡"
+    en: "Get in touch"
+    ja: "お問い合わせ"
+  address:
+    zh: "地址"
+    en: "Address"
+    ja: "住所"
+  phone:
+    zh: "電話"
+    en: "Phone"
+    ja: "電話"
+  email:
+    zh: "信箱"
+    en: "Email"
+    ja: "メール"
+  line:
+    zh: "LINE"
+    en: "LINE"
+    ja: "LINE"
+  facebook:
+    zh: "Facebook"
+    en: "Facebook"
+    ja: "Facebook"
+  instagram:
+    zh: "Instagram"
+    en: "Instagram"
+    ja: "Instagram"
+  map_title:
+    zh: "八代町地圖"
+    en: "Map to Yashirocho"
+    ja: "八代町の地図"
+  directions:
+    zh: "在 Google 地圖開啟"
+    en: "Open in Google Maps"
+    ja: "Google マップで開く"
+
+lightbox:
+  close:
+    zh: "關閉"
+    en: "Close"
+    ja: "閉じる"
+  prev:
+    zh: "上一張"
+    en: "Previous photo"
+    ja: "前の写真"
+  next:
+    zh: "下一張"
+    en: "Next photo"
+    ja: "次の写真"
+  open:
+    zh: "放大檢視"
+    en: "View larger"
+    ja: "拡大して見る"
+
+footer:
+  licenses:
+    zh: "宜蘭縣合法民宿"
+    en: "Yilan County licensed guesthouse"
+    ja: "宜蘭県登録民宿"
+  rights:
+    zh: "版權所有"
+    en: "All rights reserved."
+    ja: "All rights reserved."
+
+not_found:
+  heading:
+    zh: "找不到這個頁面"
+    en: "Page not found"
+    ja: "ページが見つかりません"
+  body:
+    zh: "網址可能有誤，或這個頁面已經移除。"
+    en: "The address may be wrong, or the page has moved."
+    ja: "アドレスが間違っているか、ページが移動した可能性があります。"

@@ -1,0 +1,94 @@
+# 青木・舒
+# 改完存檔、push 之後網站就會更新。照片路徑相對於 content/photos/。
+
+id: wood          # 網址會是 /villa/wood，請不要改
+order: 3           # 在網站上的排列順序
+
+name:
+  zh: 青木・舒
+  en: Timber · Ease
+  ja: 青木・舒
+
+# 這一棟的主題色：main 用在標題、按鈕；tint 是淺色底
+color:
+  main: "#5A6A4A"
+  tint: "#E6EADE"
+
+# 是否開放毛孩入住（true / false）
+pets: false
+
+concept:
+  zh: |
+    木質溫潤、自然靜好。
+    在綠意與微風之間，
+    感受最舒服自在的生活節奏。
+  en: |
+    Warm timber and the quiet of nature.
+    Between greenery and a soft breeze,
+    find the easiest, most comfortable pace of life.
+  ja: |
+    木のぬくもりと、自然の静けさ。
+    緑とそよ風のあいだで、
+    いちばん心地よい暮らしのリズムを感じて。
+
+# 規格可以自由增減，每一項都是「標籤 + 內容」
+specs:
+  - label:
+      zh: 適合人數
+      en: Guests
+      ja: 定員
+    value:
+      zh: 12 ~ 15 人
+      en: 12 – 15 guests
+      ja: 12〜15名
+  - label:
+      zh: 樓層
+      en: Floors
+      ja: 階数
+    value:
+      zh: 5 層樓獨棟
+      en: 5-storey detached villa
+      ja: 5階建ての一棟貸し
+  - label:
+      zh: 房型格局
+      en: Bedrooms
+      ja: 間取り
+    value:
+      zh: 1 間四人房 + 4 間雙人房
+      en: 1 quad room + 4 double rooms
+      ja: 4人部屋1室 + ダブルルーム4室
+
+tags:
+  zh:
+      - 芬多翠木
+      - 原生藺木
+      - 溫潤木質
+  en:
+      - Green timber
+      - Natural rush
+      - Warm wood
+  ja:
+      - 緑の木々
+      - い草の香り
+      - 温もりの木
+
+# 封面照（總覽卡片與這一棟頁面最上方）
+cover: wood/_CCN3744.jpg
+
+# 相簿：照順序顯示。可以只寫路徑，也可以加上說明文字：
+#   - file: wood/example.jpg
+#     caption:
+#       zh: 二樓臥室
+photos:
+  - wood/IMG_0878.jpg
+  - wood/IMG_2224.jpg
+  - wood/IMG_2375.jpg
+  - wood/IMG_2683.jpg
+  - wood/_CCN3744.jpg
+
+# 在首頁空拍圖上的位置（百分比）：x、y 是左上角，w、h 是寬高
+map_area:
+  x: 74
+  y: 61
+  w: 16
+  h: 11

@@ -1,0 +1,49 @@
+# 全站共用設定：品牌、訂房連結、聯絡資訊、首頁輪播照片
+# 文字欄位若有 zh / en / ja 三語，英日文留空時會自動顯示中文。
+
+brand:
+  name: 八代町
+  latin: YASHIROCHO VILLA
+
+# 所有「立即訂房」按鈕連到這裡
+booking_url: https://www.booking-owlnest.com/bfc5e404-4e82-4ecc-8d9d-0869bd730a7b?lang=zh_TW&adult=1&child=0&infant=0
+
+# 首頁最上方的輪播照片（路徑相對於 content/photos/）
+# 只留一張就會變成靜態主視覺；調整順序就是調整播放順序。
+hero:
+  interval_seconds: 6
+  photos:
+    - cover/_CCN3683.jpg
+    - cover/_CCN3692.jpg
+    - cover/aerial-1.jpg
+    - cover/lakeside.jpg
+
+# 四座 Villa 總覽的空拍圖。每棟在圖上的位置寫在各棟檔案的 map_area。
+map_photo: cover/aerial-1.jpg
+
+contact:
+  address:
+    zh: 台灣宜蘭縣冬山鄉永鎮路 122 號
+    en: No. 122, Yongzhen Road, Dongshan Township, Yilan County, Taiwan
+    ja: 台湾宜蘭県冬山郷永鎮路122号
+  map_query: 台灣宜蘭縣冬山鄉永鎮路122號
+  phone: "0902101161"
+  email: selectstaycation@gmail.com
+  line:
+    label: "@machi8"
+    url: https://line.me/R/ti/p/@434bmbqm
+  facebook:
+    label:
+      zh: 八代町
+      en: Yashirocho
+      ja: 八代町
+    url: https://www.facebook.com/8machi
+  instagram:
+    label: "@8machi_villa"
+    url: https://www.instagram.com/8machi_villa?igsh=ZXVzbjA1aW04N292
+
+licenses:
+  - NO.3028
+  - NO.3033
+  - NO.3034
+  - NO.3039

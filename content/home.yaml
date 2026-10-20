@@ -1,0 +1,296 @@
+# 首頁各段落的文字與照片。
+# 多行文字用「|」開頭：每一行就是網頁上的一行，空一行代表分段。
+
+hero:
+  title:
+    zh: 一棟一景，收藏屬於你的冬山時光
+    en: One villa, one view — keep a little of Dongshan for yourself
+    ja: 一棟に、ひとつの景色。冬山の時間をあなたのものに
+
+prelude:
+  body:
+    zh: |
+      在稻浪與湖景之間，
+      我們以四座獨立 Villa，
+      構築一處能與家人、好友及毛孩共享的度假聚落。
+
+      晨起看見田野晨霧，
+      午後浸泡暖湯，
+      夜裡伴著星光與微風入眠。
+
+      旅程不必匆忙，
+      讓時間在這裡慢慢流動。
+    en: |
+      Between rippling rice fields and a quiet lake,
+      four private villas make up a small retreat
+      for family, friends and the pets who travel with you.
+
+      Wake to mist over the fields,
+      soak in warm water through the afternoon,
+      and fall asleep to starlight and a light breeze.
+
+      There is no need to hurry.
+      Let time move slowly here.
+    ja: |
+      稲穂の波と湖のあいだに、
+      四棟の独立したヴィラで、
+      家族や友人、ペットと過ごすための小さな集落をつくりました。
+
+      朝は田んぼにかかる霧を眺め、
+      午後は温かな湯に浸かり、
+      夜は星とそよ風に包まれて眠る。
+
+      急ぐ旅でなくていい。
+      ここでは、時間がゆっくり流れます。
+
+story:
+  heading:
+    zh: 關於八代町
+    en: About Yashirocho
+    ja: 八代町について
+  photos:
+    - about/_CCN3744.jpg
+    - about/IMG_2339.jpg
+    - about/_CCN3752.jpg
+  body:
+    zh: |
+      八代町誕生於一個簡單的念頭。
+
+      如果有一個地方，
+      能讓家人放下忙碌、
+      讓朋友自在相聚、
+      讓毛孩奔跑嬉戲，
+      同時保有專屬的寧靜與隱私，
+      那會是什麼模樣？
+
+      於是，
+      我們在宜蘭冬山打造了一座 Villa 聚落。
+      沒有擁擠的公共空間，
+      沒有被打擾的住宿體驗。
+      有的是一棟一景的獨立空間、
+      專屬湯池與泳池，
+      以及窗外隨四季更迭的田野風景。
+
+      我們希望每位來到八代町的人，
+      帶走的不只是照片，
+      而是一段值得反覆想起的回憶。
+    en: |
+      Yashirocho began with a simple question.
+
+      What would a place look like
+      where family could set the busy days aside,
+      friends could gather at ease,
+      and pets could run free —
+      while everyone kept their own quiet and privacy?
+
+      So we built a small village of villas
+      in Dongshan, Yilan.
+      No crowded shared spaces,
+      no interruptions.
+      Instead, each villa has its own view,
+      its own hot tub and pool,
+      and fields outside the window that change with the seasons.
+
+      We hope everyone who stays at Yashirocho
+      leaves with more than photos:
+      a memory worth coming back to.
+    ja: |
+      八代町は、ひとつの素朴な思いから生まれました。
+
+      家族が忙しさを置いて、
+      友人と気兼ねなく集い、
+      ペットが思いきり走り回れる。
+      それでいて、自分たちだけの静けさを保てる場所があったら、
+      どんな姿をしているだろう。
+
+      そうして、
+      宜蘭・冬山にヴィラの集落をつくりました。
+      混み合う共用スペースも、
+      誰かに邪魔される滞在もありません。
+      あるのは一棟ごとに異なる景色、
+      専用の湯船とプール、
+      そして四季とともに移ろう窓の外の田園です。
+
+      八代町を訪れた方が持ち帰るのは、
+      写真だけではなく、
+      何度も思い出したくなる記憶であってほしいと願っています。
+
+philosophy:
+  heading:
+    zh: 將生活還給生活
+    en: Give life back to living
+    ja: 暮らしを、暮らしのままに
+  photo: about/_CCN3772.jpg
+  body:
+    zh: |
+      旅行的意義，
+      不一定是走得更遠。
+
+      有時候，
+      只是找一個地方，
+      和重要的人好好吃頓飯、
+      聊一整晚的天、
+      看著孩子玩水、
+      陪毛孩在草地奔跑。
+
+      那些平凡卻珍貴的時刻，
+      往往才是最值得收藏的風景。
+    en: |
+      Travel doesn't always mean
+      going further.
+
+      Sometimes it is simply finding a place
+      to share a good meal with the people who matter,
+      talk late into the night,
+      watch the kids splash in the water,
+      and chase your pet across the lawn.
+
+      Those ordinary, precious moments
+      are often the view most worth keeping.
+    ja: |
+      旅の意味は、
+      遠くへ行くことだけではありません。
+
+      ときには、
+      大切な人とゆっくり食事をして、
+      夜通し語り合い、
+      水遊びする子どもを見守り、
+      芝生を駆けるペットに付き合う。
+      そんな場所を見つけることだけで十分です。
+
+      ありふれていて、かけがえのない時間こそ、
+      いちばん残しておきたい景色なのだと思います。
+
+features:
+  heading:
+    zh: 四種風景，一種嚮往
+    en: Four kinds of view, one kind of longing
+    ja: 四つの景色、ひとつの憧れ
+  items:
+    - title:
+        zh: 一棟一景
+        en: One villa, one view
+        ja: 一棟一景
+      body:
+        zh: 每棟 Villa 擁有不同風格與視野。從庭院、光影到戶外景觀，每一次入住，都能遇見不同的八代町。
+        en: Every villa has its own style and outlook. From the garden to the light and the landscape outside, each stay shows you a different side of Yashirocho.
+        ja: 各ヴィラはそれぞれ異なる趣と眺めを持っています。庭、光と影、外の景色まで、泊まるたびに違う八代町に出会えます。
+    - title:
+        zh: 棟棟皆有湯池與泳池
+        en: A hot tub and pool in every villa
+        ja: 全棟に湯船とプール
+      body:
+        zh: 不需要與陌生人共享設施，專屬於自己的水景空間，讓度假回歸自在與從容。
+        en: No sharing with strangers. Your own water to enjoy makes the holiday unhurried and easy again.
+        ja: 見知らぬ人と設備を分け合う必要はありません。自分たちだけの水辺が、休日をのびやかで穏やかなものにしてくれます。
+    - title:
+        zh: 冬山田野風景
+        en: The fields of Dongshan
+        ja: 冬山の田園風景
+      body:
+        zh: 窗外是宜蘭特有的四季景色。春綠、夏風、秋穗、冬霧，每個季節都有不同的美好等待被發現。
+        en: Outside the window are Yilan's four seasons — green spring, breezy summer, golden autumn ears, winter mist. Each one has something new to find.
+        ja: 窓の外には宜蘭ならではの四季。春の緑、夏の風、秋の稲穂、冬の霧。季節ごとに違う美しさが待っています。
+    - title:
+        zh: 毛孩友善旅宿
+        en: Pets welcome
+        ja: ペットと泊まれる宿
+      body:
+        zh: 旅行不該留下任何家人。指定棟別開放毛孩入住，讓重要的夥伴也能一起創造回憶。
+        en: No one in the family should be left behind. Selected villas welcome pets, so your companion can share the memories too.
+        ja: 旅に家族を置いていく必要はありません。指定の棟ではペットとご宿泊いただけ、大切な相棒とも思い出をつくれます。
+
+villas:
+  heading:
+    zh: 四座 Villa．四種生活風景
+    en: Four villas, four ways to stay
+    ja: 四つのヴィラ、四つの暮らしの景色
+  body:
+    zh: |
+      每一棟都有自己的名字與故事，
+      等待旅人找到最契合自己的那片風景。
+    en: |
+      Each villa has its own name and story,
+      waiting for you to find the view that suits you best.
+    ja: |
+      一棟ごとに名前と物語があり、
+      あなたにいちばん合う景色が見つかるのを待っています。
+
+quote:
+  lines:
+    zh: |
+      旅行最珍貴的
+      從來不是去了多少地方
+      而是和誰一起度過這段時光
+    en: |
+      The most precious part of a journey
+      was never how many places you went,
+      but who you spent the time with.
+    ja: |
+      旅でいちばん大切なのは、
+      どれだけの場所を訪れたかではなく、
+      誰とその時間を過ごしたか。
+
+pet:
+  heading:
+    zh: 把毛孩一起帶上旅程
+    en: Bring your pet along
+    ja: ペットも一緒に旅へ
+  photo: cover/lakeside.jpg
+  body:
+    zh: |
+      對許多人而言，
+      毛孩從來不只是寵物。
+      而是一起生活的家人。
+
+      八代町提供指定毛孩友善棟別，
+      讓旅行中的快樂與陪伴，
+      不必留下任何遺憾。
+    en: |
+      For many of us,
+      a pet was never just a pet.
+      They are family we live with every day.
+
+      Yashirocho offers selected pet-friendly villas,
+      so the joy and company of a trip
+      can be shared without anyone missing out.
+    ja: |
+      多くの人にとって、
+      ペットはただのペットではありません。
+      ともに暮らす家族です。
+
+      八代町ではペットと泊まれる棟をご用意しています。
+      旅の楽しさとぬくもりを、
+      心残りなく分かち合えるように。
+
+booking:
+  heading:
+    zh: 在風景裡留宿
+    en: Stay inside the view
+    ja: 景色の中に泊まる
+  body:
+    zh: |
+      把忙碌留在城市，
+      把時間留給自己。
+      下一段值得期待的冬山假期，
+      就從八代町開始。
+    en: |
+      Leave the busy days in the city
+      and keep the time for yourself.
+      Your next Dongshan holiday
+      starts at Yashirocho.
+    ja: |
+      忙しさは街に置いて、
+      時間は自分のために。
+      次の冬山での休日は、
+      八代町から始まります。
+
+footer:
+  tagline:
+    zh: 讓每一次相聚，都成為想再次回來的理由。
+    en: May every gathering become a reason to come back.
+    ja: すべての集まりが、また帰ってきたくなる理由になりますように。
+  keywords:
+    zh: 一棟一景｜湯池泳池｜毛孩友善｜宜蘭冬山
+    en: One villa, one view ｜ Private hot tub & pool ｜ Pet-friendly ｜ Dongshan, Yilan
+    ja: 一棟一景｜専用湯船とプール｜ペット可｜宜蘭・冬山
